@@ -1,38 +1,43 @@
-// /** @type {import('tailwindcss').Config} */
-// module.exports = {
-//   darkMode: "class",
-//   content: ["./**/*.{html,js,vue}"],
-//   theme: {
-//     extend: {
-//       fontFamily: {
-//         body: ['"Nunito Sans"', "sans-serif"],
-//         heading: ['"Playfair Display"', "serif"],
-//         accent: ['"Dancing Script"', "serif"],
-//       },
-//       colors: {
-//         heading: "#2B2D42",
-//         primary: "#A47D5D",
-//         accent: "#EDE5DE",
-//         secondary: "#8B8E67",
-//       },
-//     },
-//   },
-//   plugins: [],
-// };
-
 tailwind.config = {
   theme: {
     extend: {
       fontFamily: {
-        body: ['"Nunito Sans"', "sans-serif"], // Main body font
-        heading: ['"Playfair Display"', "serif"], // Secondary header font
+        body: ['"Nunito Sans"', "sans-serif"],
+        heading: ['"Playfair Display"', "serif"],
         accent: ['"Dancing Script"', "serif"],
       },
       colors: {
-        heading: "#2B2D42",
-        primary: "#A47D5D", // Primary brown color
-        accent: "#EDE5DE", // accent brown color
-        secondary: "#8B8E67", // Secondary green color
+        // Typography
+        heading: "#2F5B3C", // deep forest green for H1/H2 (screenshot heading)
+        body: "#2E2A27", // near-black/espresso for body text
+
+        // Brand / UI
+        primary: {
+          DEFAULT: "#A45D3D", // clay / primary button fill (left chip & “Primary button”)
+          foreground: "#FFFFFF",
+        },
+        secondary: {
+          DEFAULT: "#334F31", // dark evergreen / secondary button fill
+          foreground: "#FFFFFF",
+          soft: "#5E7F63", // softer sage (second green chip)
+        },
+        accent: {
+          DEFAULT: "#DB7A3C", // warm rust/orange (third chip)
+          clay: "#B46B4A", // outline/border tone from screenshot button
+        },
+
+        // Neutrals from the tile
+        cream: "#F3E9DA", // light cream (fifth chip)
+        paper: "#F1F2EE", // page background tint
+        ink: "#2B221D", // espresso (sixth chip)
+
+        // Keep your old keys for backward-compat
+        // (map them to closest matches so nothing breaks)
+        // You can remove these once you migrate classes.
+        oldHeading: "#2B2D42",
+        oldPrimary: "#A47D5D",
+        oldAccent: "#EDE5DE",
+        oldSecondary: "#8B8E67",
       },
     },
   },

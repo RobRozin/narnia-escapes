@@ -24,40 +24,95 @@
   >
     <!-- Navbar -->
     <header
-      :class="{'bg-white shadow': isScrolled || isMobileMenuOpen, 'bg-transparent': !isScrolled && !isMobileMenuOpen}"
+      :class="{
+        'backdrop-blur-md bg-white/70 text-ink shadow-sm': isScrolled || isMobileMenuOpen,
+        'bg-transparent text-white': !isScrolled && !isMobileMenuOpen
+      }"
       class="fixed inset-x-0 top-0 z-50 transition-colors duration-300 ease-in-out"
     >
       <nav
         class="mx-auto max-w-7xl flex items-center justify-between px-4 sm:px-6 lg:px-8 py-4"
       >
-        <!-- Logo left -->
-        <a href="#home" class="flex items-center gap-2 text-white">
-          <span class="inline-grid h-10 w-10 place-items-center">
-            <image src="./images/logo.png" alt="Narnia Escapes logo" />
-          </span>
-          <span class="font-semibold tracking-tight">Narnia Escapes</span>
+        <!-- Logo -->
+        <a href="#home" class="flex items-center gap-2">
+          <img src="./images/logo.png" alt="Narnia Escapes logo" class="w-10" />
+          <span class="font-heading font-semibold tracking-tight"
+            >Narnia Escapes</span
+          >
         </a>
 
-        <!-- Links right -->
+        <!-- Desktop links -->
         <div class="hidden md:flex items-center gap-6 text-sm font-medium">
-          <a href="#home" class="text-white hover:text-[#A45D3D]">Home</a>
-          <a href="#retreats" class="text-white hover:text-[#A45D3D]"
-            >Retreats</a
-          >
-          <a href="#sauna" class="text-white hover:text-[#A45D3D]">Sauna</a>
-          <a href="#events" class="text-white hover:text-[#A45D3D]">Events</a>
-          <a href="#sound" class="text-white hover:text-[#A45D3D]"
-            >Sound Healing</a
-          >
-          <a href="#about" class="text-white hover:text-[#A45D3D]">About</a>
+          <a href="#home" class="hover:text-primary">Home</a>
+          <a href="#retreats" class="hover:text-primary">Retreats</a>
+          <a href="#sauna" class="hover:text-primary">Sauna</a>
+          <a href="#events" class="hover:text-primary">Events</a>
+          <a href="#sound" class="hover:text-primary">Sound Healing</a>
+          <a href="#about" class="hover:text-primary">About</a>
           <a
             href="#contact"
-            class="ml-2 inline-flex items-center rounded-lg bg-[#A45D3D] px-4 py-2 text-white shadow hover:opacity-90"
+            class="ml-2 inline-flex items-center rounded-lg bg-primary px-4 py-2 text-white shadow hover:opacity-90"
           >
             Book Your Escape
           </a>
         </div>
+
+        <!-- Mobile menu button -->
+        <button
+          class="md:hidden inline-flex items-center justify-center p-2 rounded-md focus:outline-none"
+          @click="isMobileMenuOpen = !isMobileMenuOpen"
+        >
+          <svg
+            v-if="!isMobileMenuOpen"
+            class="h-6 w-6"
+            stroke="currentColor"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+          <svg
+            v-else
+            class="h-6 w-6"
+            stroke="currentColor"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
       </nav>
+
+      <!-- Mobile menu -->
+      <div
+        v-if="isMobileMenuOpen"
+        class="md:hidden bg-white/90 backdrop-blur-md border-t border-neutral-200"
+      >
+        <div class="px-4 pt-4 pb-6 space-y-3 text-ink font-medium">
+          <a href="#home" class="block hover:text-primary">Home</a>
+          <a href="#retreats" class="block hover:text-primary">Retreats</a>
+          <a href="#sauna" class="block hover:text-primary">Sauna</a>
+          <a href="#events" class="block hover:text-primary">Events</a>
+          <a href="#sound" class="block hover:text-primary">Sound Healing</a>
+          <a href="#about" class="block hover:text-primary">About</a>
+          <a
+            href="#contact"
+            class="block rounded-lg bg-primary px-4 py-2 text-center text-white shadow hover:opacity-90"
+          >
+            Book Your Escape
+          </a>
+        </div>
+      </div>
     </header>
 
     <!-- Hero -->
@@ -82,7 +137,7 @@
         class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 flex flex-col items-center"
       >
         <h1
-          class="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight text-white"
+          class="text-4xl sm:text-5xl md:text-6xl font-heading font-semibold tracking-tight text-white"
         >
           Revitalize Your Body,<br />Mind, and Spirit
         </h1>
@@ -93,7 +148,7 @@
         <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
           <a
             href="#contact"
-            class="inline-flex rounded-xl bg-[#A45D3D] px-6 py-3 font-medium text-white shadow hover:opacity-95"
+            class="inline-flex rounded-xl bg-primary px-6 py-3 font-medium text-white shadow hover:opacity-95"
           >
             Book Your Escape
           </a>
@@ -103,6 +158,23 @@
           >
             Explore Retreats
           </a>
+        </div>
+      </div>
+      <!-- Scroll cue -->
+      <div
+        class="pointer-events-none absolute bottom-6 left-1/2 -translate-x-1/2"
+      >
+        <div class="flex flex-col items-center text-white/80">
+          <span class="text-xs">Scroll</span>
+          <svg viewBox="0 0 24 24" class="mt-1 h-6 w-6 animate-bounce">
+            <path
+              d="M6 9l6 6 6-6"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              fill="none"
+            />
+          </svg>
         </div>
       </div>
     </section>
