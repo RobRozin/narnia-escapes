@@ -4,32 +4,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Narnia Escapes</title>
-
+    <!-- AOS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <!--  Petite Vue -->
+    <script type="text/javascript" src="./js/petite-vue.iife.js" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="./js/tailwind-config.js"></script>
   </head>
-  <body class="bg-white text-neutral-900">
+  <body
+    id="app"
+    class="bg-white text-neutral-900"
+    v-cloak
+    v-scope
+    @vue:mounted="init"
+  >
     <!-- Navbar -->
-    <header class="fixed inset-x-0 top-0 z-50 bg-transparent">
+    <header
+      :class="{'bg-white shadow': isScrolled || isMobileMenuOpen, 'bg-transparent': !isScrolled && !isMobileMenuOpen}"
+      class="fixed inset-x-0 top-0 z-50 transition-colors duration-300 ease-in-out"
+    >
       <nav
         class="mx-auto max-w-7xl flex items-center justify-between px-4 sm:px-6 lg:px-8 py-4"
       >
         <!-- Logo left -->
         <a href="#home" class="flex items-center gap-2 text-white">
-          <span
-            class="inline-grid h-10 w-10 place-items-center rounded-full bg-white/20 ring-1 ring-white/30"
-          >
-            <svg
-              viewBox="0 0 64 64"
-              aria-hidden="true"
-              class="h-5 w-5 stroke-[#A45D3D] fill-none"
-            >
-              <path
-                d="M32 8C20 20 16 28 16 36c0 8.837 7.163 16 16 16s16-7.163 16-16c0-8-4-16-16-28Z"
-                stroke-width="3"
-                stroke-linecap="round"
-              />
-            </svg>
+          <span class="inline-grid h-10 w-10 place-items-center">
+            <image src="./images/logo.png" alt="" />
           </span>
           <span class="font-semibold tracking-tight">Narnia Escapes</span>
         </a>
@@ -397,5 +401,7 @@
         </div>
       </div>
     </footer>
+
+    <script src="./js/app.js" defer></script>
   </body>
 </html>
