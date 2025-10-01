@@ -2,9 +2,9 @@ tailwind.config = {
   theme: {
     extend: {
       fontFamily: {
-        body: ['"Nunito Sans"', "sans-serif"],
-        heading: ['"Playfair Display"', "serif"],
-        accent: ['"Dancing Script"', "serif"],
+        body: ['"Inter"', "sans-serif"],
+        heading: ['"Cormorant Garamond"', "serif"],
+        accent: ['"Vollkorn SC"', "serif"],
       },
       colors: {
         // Typography
@@ -30,14 +30,6 @@ tailwind.config = {
         cream: "#F3E9DA", // light cream (fifth chip)
         paper: "#F1F2EE", // page background tint
         ink: "#2B221D", // espresso (sixth chip)
-
-        // Keep your old keys for backward-compat
-        // (map them to closest matches so nothing breaks)
-        // You can remove these once you migrate classes.
-        oldHeading: "#2B2D42",
-        oldPrimary: "#A47D5D",
-        oldAccent: "#EDE5DE",
-        oldSecondary: "#8B8E67",
       },
     },
   },

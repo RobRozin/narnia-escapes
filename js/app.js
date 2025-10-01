@@ -235,7 +235,7 @@ const app = {
   },
 
   checkScroll() {
-    this.isScrolled = window.scrollY > 50;
+    this.isScrolled = window.scrollY > 80;
   },
 
   // Hero Image Animation Logic
