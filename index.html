@@ -20,7 +20,8 @@
   </head>
   <body
     id="app"
-    class="bg-white text-neutral-900"
+    class="bg-paper text-body font-body overscroll-y-none"
+    :class="{'overflow-hidden touch-none': isMobileMenuOpen}"
     v-cloak
     v-scope
     @vue:mounted="init"
@@ -28,18 +29,18 @@
     <!-- Navbar -->
     <header
       :class="{
-        'backdrop-blur-md bg-white/70 text-ink shadow-sm': isScrolled || isMobileMenuOpen,
-        'bg-transparent text-white': !isScrolled && !isMobileMenuOpen
-      }"
-      class="fixed inset-x-0 top-0 z-50 transition-colors duration-300 ease-in-out"
+      'backdrop-blur-md bg-white/70 text-ink shadow-sm': isScrolled || isMobileMenuOpen,
+      'bg-transparent text-white': !isScrolled && !isMobileMenuOpen
+    }"
+      class="fixed inset-x-0 top-0 z-50 transition-colors duration-300 pt-[env(safe-area-inset-top)]"
     >
       <nav
         class="mx-auto max-w-7xl flex items-center justify-between px-4 sm:px-6 lg:px-8 py-4"
       >
         <!-- Logo -->
         <a href="#home" class="flex items-center gap-2">
-          <img src="./images/logo.png" alt="Narnia Escapes logo" class="w-10" />
-          <span class="font-heading font-semibold tracking-tight"
+          <img src="./images/logo.png" alt="Narnia Escapes logo" class="w-12" />
+          <span class="font-heading text-xl font-semibold tracking-tight"
             >Narnia Escapes</span
           >
         </a>
@@ -96,25 +97,58 @@
         </button>
       </nav>
 
-      <!-- Mobile menu -->
+      <!-- Mobile Nav -->
       <div
         v-if="isMobileMenuOpen"
-        class="md:hidden bg-white/90 backdrop-blur-md border-t border-neutral-200"
+        class="md:hidden absolute inset-x-0 top-full bg-cream border-t border-accent-clay/20 shadow-lg z-40"
       >
-        <div class="px-4 pt-4 pb-6 space-y-3 text-ink font-medium">
-          <a href="#home" class="block hover:text-primary">Home</a>
-          <a href="#retreats" class="block hover:text-primary">Retreats</a>
-          <a href="#sauna" class="block hover:text-primary">Sauna</a>
-          <a href="#events" class="block hover:text-primary">Events</a>
-          <a href="#sound" class="block hover:text-primary">Sound Healing</a>
-          <a href="#about" class="block hover:text-primary">About</a>
+        <nav class="px-5 py-4 space-y-4">
+          <a
+            href="#home"
+            @click="isMobileMenuOpen=false"
+            class="block text-lg font-medium text-ink hover:text-primary"
+            >Home</a
+          >
+          <a
+            href="#retreats"
+            @click="isMobileMenuOpen=false"
+            class="block text-lg font-medium text-ink hover:text-primary"
+            >Retreats</a
+          >
+          <a
+            href="#sauna"
+            @click="isMobileMenuOpen=false"
+            class="block text-lg font-medium text-ink hover:text-primary"
+            >Sauna</a
+          >
+          <a
+            href="#events"
+            @click="isMobileMenuOpen=false"
+            class="block text-lg font-medium text-ink hover:text-primary"
+            >Events</a
+          >
+          <a
+            href="#sound"
+            @click="isMobileMenuOpen=false"
+            class="block text-lg font-medium text-ink hover:text-primary"
+            >Sound Healing</a
+          >
+          <a
+            href="#about"
+            @click="isMobileMenuOpen=false"
+            class="block text-lg font-medium text-ink hover:text-primary"
+            >About</a
+          >
+
+          <!-- CTA -->
           <a
             href="#contact"
-            class="block rounded-lg bg-primary px-4 py-2 text-center text-white shadow hover:opacity-90"
+            @click="isMobileMenuOpen=false"
+            class="block w-full rounded-xl bg-primary text-white text-center font-semibold py-3 shadow hover:opacity-95"
           >
             Book Your Escape
           </a>
-        </div>
+        </nav>
       </div>
     </header>
 
@@ -144,9 +178,11 @@
         >
           Revitalize Your Body,<br />Mind, and Spirit
         </h1>
-        <p class="mt-5 max-w-2xl text-lg text-white/85">
-          Escape to the woods for deep rest, guided sauna rituals, and cozy
-          gatherings.
+        <p
+          class="mt-5 mb-6 sm:mb-8 max-w-xl text-base sm:text-lg leading-relaxed text-white/85 mx-auto"
+        >
+          Step into 40 acres of serene forests, healing sauna rituals, and
+          guided practices designed to reconnect you with nature and yourself.
         </p>
         <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
           <a
@@ -165,7 +201,7 @@
       </div>
       <!-- Scroll cue -->
       <div
-        class="pointer-events-none absolute bottom-6 left-1/2 -translate-x-1/2"
+        class="pointer-events-none absolute bottom-[calc(1.5rem+env(safe-area-inset-bottom))] left-1/2 -translate-x-1/2"
       >
         <div class="flex flex-col items-center text-white/80">
           <span class="text-xs">Scroll</span>
