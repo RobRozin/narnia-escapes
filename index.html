@@ -235,34 +235,73 @@
     </section>
 
     <!-- Quick Highlights -->
-    <section class="py-16 bg-white">
-      <div class="mx-auto max-w-6xl px-6 grid gap-8 md:grid-cols-3 text-center">
-        <div class="space-y-2">
-          <div
-            class="mx-auto h-12 w-12 rounded-full ring-1 ring-neutral-200 grid place-items-center"
+    <section id="highlights" class="py-20 bg-white">
+      <div class="mx-auto max-w-6xl px-6">
+        <h2 class="text-3xl font-bold tracking-tight">What We Offer</h2>
+        <p class="mt-3 text-neutral-700">
+          Calm experiences designed to restore body, mind, and spirit.
+        </p>
+
+        <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <!-- Card -->
+          <article
+            class="rounded-2xl ring-1 ring-neutral-200 bg-neutral-50 p-6 hover:shadow-sm transition"
           >
-            🌿
-          </div>
-          <h3 class="text-xl font-semibold text-[#A45D3D]">Retreats</h3>
-          <p class="text-neutral-600">Guided sessions, meals, lodging for 8.</p>
-        </div>
-        <div class="space-y-2">
-          <div
-            class="mx-auto h-12 w-12 rounded-full ring-1 ring-neutral-200 grid place-items-center"
+            <div class="flex items-center gap-3">
+              <img src="/icons/retreat.svg" alt="" class="h-6 w-6" />
+              <h3 class="text-lg font-semibold">Guided Retreats</h3>
+            </div>
+            <p class="mt-3 text-sm leading-6 text-neutral-700">
+              Small, intentional gatherings focused on grounding, movement, and
+              nature. Curated by our team with simple meals and quiet spaces.
+            </p>
+            <a
+              href="/retreats"
+              class="mt-4 inline-flex text-[#A45D3D] font-medium hover:underline"
+            >
+              Explore retreats →
+            </a>
+          </article>
+
+          <article
+            class="rounded-2xl ring-1 ring-neutral-200 bg-neutral-50 p-6 hover:shadow-sm transition"
           >
-            🔥
-          </div>
-          <h3 class="text-xl font-semibold text-[#A45D3D]">Sauna</h3>
-          <p class="text-neutral-600">Pond-side sauna & cold plunge rituals.</p>
-        </div>
-        <div class="space-y-2">
-          <div
-            class="mx-auto h-12 w-12 rounded-full ring-1 ring-neutral-200 grid place-items-center"
+            <div class="flex items-center gap-3">
+              <img src="/icons/sauna.svg" alt="" class="h-6 w-6" />
+              <h3 class="text-lg font-semibold">Pond-Side Sauna</h3>
+            </div>
+            <p class="mt-3 text-sm leading-6 text-neutral-700">
+              A slow, restorative heat ritual by the water. Aromatherapy, tea,
+              and mineral water included—add breathwork or a cooling plunge in
+              summer.
+            </p>
+            <a
+              href="/sauna"
+              class="mt-4 inline-flex text-[#A45D3D] font-medium hover:underline"
+            >
+              Learn more →
+            </a>
+          </article>
+
+          <article
+            class="rounded-2xl ring-1 ring-neutral-200 bg-neutral-50 p-6 hover:shadow-sm transition"
           >
-            ✨
-          </div>
-          <h3 class="text-xl font-semibold text-[#A45D3D]">Events</h3>
-          <p class="text-neutral-600">Host workshops & intimate gatherings.</p>
+            <div class="flex items-center gap-3">
+              <img src="/icons/event.svg" alt="" class="h-6 w-6" />
+              <h3 class="text-lg font-semibold">Private Events</h3>
+            </div>
+            <p class="mt-3 text-sm leading-6 text-neutral-700">
+              Host an intimate celebration or team reset in the woods—custom
+              session flow, optional sound healing, and cozy outdoor seating by
+              the fire.
+            </p>
+            <a
+              href="/events"
+              class="mt-4 inline-flex text-[#A45D3D] font-medium hover:underline"
+            >
+              Plan an event →
+            </a>
+          </article>
         </div>
       </div>
     </section>
@@ -270,48 +309,115 @@
     <!-- Retreats -->
     <section id="retreats" class="py-20 bg-neutral-50">
       <div class="mx-auto max-w-6xl px-6">
-        <div class="grid gap-10 lg:grid-cols-2 items-center">
+        <div class="grid gap-10 lg:grid-cols-2 items-start">
           <!-- Image -->
-          <div
-            class="aspect-[4/3] md:aspect-[3/4] w-full overflow-hidden rounded-2xl"
-          >
-            <img
-              src="./images/retreats-hero.jpeg"
-              alt="Lakeside sauna experience"
-              class="h-full w-full object-cover"
-            />
+          <div class="order-1">
+            <div
+              class="aspect-[4/3] md:aspect-[3/4] w-full overflow-hidden rounded-3xl"
+            >
+              <img
+                src="./images/retreats-hero.jpeg"
+                alt="Guided nature retreat by the lake"
+                class="h-full w-full object-cover"
+                loading="lazy"
+                sizes="(min-width:1024px) 50vw, 100vw"
+              />
+            </div>
           </div>
 
           <!-- Copy -->
-          <div>
-            <h2 class="text-3xl font-bold">Immersive Retreats</h2>
+          <div class="order-2">
+            <h2 class="text-3xl font-bold tracking-tight">Guided Retreats</h2>
             <p class="mt-3 text-neutral-700">
               Nature immersion with guided breath, sound, sauna, and nourishing
               meals. Capacity up to 8 people.
             </p>
 
-            <div class="mt-6 grid grid-cols-2 gap-4 text-sm">
-              <ul class="space-y-2 text-neutral-700">
-                <li>• Guided sessions & meditations</li>
-                <li>• Daily sauna & cold plunge</li>
-                <li>• Homemade Eastern European meals</li>
-                <li>• Herbal immune drinks</li>
-              </ul>
-              <ul class="space-y-2 text-neutral-700">
-                <li>• 8 single beds (loft)</li>
-                <li>• 3 full bathrooms</li>
-                <li>• Full kitchen • WiFi</li>
-                <li>• Wood stove heating</li>
-              </ul>
+            <div class="mt-6 grid sm:grid-cols-2 gap-5">
+              <!-- Overview / What's Included -->
+              <article
+                class="rounded-2xl bg-white/80 backdrop-blur ring-1 ring-neutral-200 p-6"
+              >
+                <h3 class="text-lg font-semibold">Standard Guided Retreat</h3>
+                <p class="mt-1 text-sm text-neutral-600">
+                  Curated small-group experience focused on restoration and
+                  presence.
+                </p>
+
+                <div class="mt-4 border-t border-neutral-200/70 pt-4">
+                  <div class="text-sm font-medium text-neutral-900">
+                    Includes
+                  </div>
+                  <ul class="mt-2 space-y-1.5 text-sm text-neutral-700">
+                    <li class="flex items-start gap-2">
+                      <span
+                        class="mt-[6px] h-1.5 w-1.5 rounded-full bg-neutral-400"
+                      ></span>
+                      Guided sessions & meditations
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <span
+                        class="mt-[6px] h-1.5 w-1.5 rounded-full bg-neutral-400"
+                      ></span>
+                      Daily sauna & seasonal cold plunge
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <span
+                        class="mt-[6px] h-1.5 w-1.5 rounded-full bg-neutral-400"
+                      ></span>
+                      Homemade Eastern European meals
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <span
+                        class="mt-[6px] h-1.5 w-1.5 rounded-full bg-neutral-400"
+                      ></span>
+                      Herbal immune drinks
+                    </li>
+                  </ul>
+                </div>
+              </article>
+
+              <!-- Facilities -->
+              <article
+                class="rounded-2xl bg-white/80 backdrop-blur ring-1 ring-neutral-200 p-6"
+              >
+                <h3 class="text-lg font-semibold">Lodging & Facilities</h3>
+                <p class="mt-1 text-sm text-neutral-600">
+                  Comfortable shared spaces designed for quiet and connection.
+                </p>
+                <ul class="mt-3 divide-y divide-neutral-200 text-sm">
+                  <li class="py-2">8 single beds (loft)</li>
+                  <li class="py-2">3 full bathrooms</li>
+                  <li class="py-2">Full kitchen • WiFi</li>
+                  <li class="py-2">Wood stove heating</li>
+                </ul>
+              </article>
             </div>
 
-            <div class="mt-6">
+            <!-- CTAs -->
+            <div class="mt-6 flex flex-col sm:flex-row gap-4">
+              <a
+                href="#contact"
+                class="inline-flex items-center justify-center rounded-xl bg-[#A45D3D] px-5 py-3 text-white font-medium shadow-sm hover:opacity-95 active:opacity-90"
+              >
+                Inquire About Dates
+              </a>
+              <a
+                href="/retreats"
+                class="inline-flex items-center justify-center rounded-xl border border-[#A45D3D]/80 px-5 py-3 text-[#A45D3D] font-medium hover:bg-[#A45D3D]/10"
+              >
+                More Info
+              </a>
+            </div>
+
+            <!-- Tertiary link -->
+            <div class="mt-4">
               <a
                 href="#sample-flow"
-                class="inline-flex items-center gap-2 text-[#A45D3D] font-medium"
+                class="inline-flex items-center gap-2 text-[#A45D3D] font-medium hover:underline"
               >
                 View Sample Daily Flow
-                <svg class="h-4 w-4" viewBox="0 0 24 24">
+                <svg class="h-4 w-4" viewBox="0 0 24 24" aria-hidden="true">
                   <path
                     d="M9 5l7 7-7 7"
                     stroke="currentColor"
@@ -331,8 +437,21 @@
       <div
         class="mx-auto max-w-6xl px-6 grid gap-12 lg:grid-cols-2 items-start"
       >
+        <!-- Image -->
+        <div class="order-1 lg:order-2">
+          <div
+            class="aspect-[4/3] md:aspect-[3/4] w-full overflow-hidden rounded-3xl"
+          >
+            <img
+              src="./images/sauna-hero.jpeg"
+              alt="Lakeside sauna experience"
+              class="h-full w-full object-cover"
+            />
+          </div>
+        </div>
+
         <!-- Copy -->
-        <div>
+        <div class="order-2 lg:order-1">
           <h2 class="text-3xl font-bold tracking-tight">Pond-Side Sauna</h2>
           <p class="mt-3 text-neutral-700">
             Traditional heat and lake air in a calm, grounding ritual.
@@ -442,19 +561,6 @@
             >
               More Info
             </a>
-          </div>
-        </div>
-
-        <!-- Image -->
-        <div class="relative">
-          <div
-            class="aspect-[4/3] md:aspect-[3/4] w-full overflow-hidden rounded-3xl"
-          >
-            <img
-              src="./images/sauna-hero.jpeg"
-              alt="Lakeside sauna experience"
-              class="h-full w-full object-cover"
-            />
           </div>
         </div>
       </div>
