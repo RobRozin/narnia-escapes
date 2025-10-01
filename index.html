@@ -154,8 +154,9 @@
     <!-- Hero -->
     <section
       id="home"
-      class="relative flex min-h-[100dvh] items-center justify-center text-center overflow-hidden"
+      class="relative flex min-h-[100svh] md:min-h-[100dvh] items-center justify-center text-center overflow-hidden"
     >
+      <!-- Background -->
       <div
         aria-hidden
         class="absolute inset-0 -z-10 bg-cover bg-center"
@@ -169,38 +170,43 @@
             url('./images/hero-01.png');
         "
       ></div>
-      <div
-        class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 flex flex-col items-center"
-      >
+
+      <!-- Content -->
+      <div class="mx-auto max-w-4xl px-6 sm:px-8 lg:px-10">
         <h1
-          class="text-4xl sm:text-5xl md:text-6xl font-heading font-semibold tracking-tight text-white"
+          class="font-heading text-white text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight"
         >
           Revitalize Your Body,<br />Mind, and Spirit
         </h1>
-        <p
-          class="mt-5 mb-6 sm:mb-8 max-w-xl text-base sm:text-lg leading-relaxed text-white/85 mx-auto"
-        >
+
+        <!-- tighter, padded body copy -->
+        <p class="mt-5 text-white/90 text-base sm:text-lg leading-relaxed px-1">
           Step into 40 acres of serene forests, healing sauna rituals, and
           guided practices designed to reconnect you with nature and yourself.
         </p>
-        <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+
+        <!-- CTAs: stacked on mobile, side-by-side from sm+ -->
+        <div
+          class="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3"
+        >
           <a
             href="#contact"
-            class="inline-flex rounded-xl bg-primary px-6 py-3 font-medium text-white shadow hover:opacity-95"
+            class="inline-flex justify-center rounded-xl bg-primary px-6 py-3 font-medium text-white shadow hover:opacity-95"
           >
             Book Your Escape
           </a>
           <a
             href="#retreats"
-            class="inline-flex rounded-xl border border-white/40 bg-white/10 px-6 py-3 font-medium text-white backdrop-blur hover:bg-white/20"
+            class="inline-flex justify-center rounded-xl border border-white/40 bg-white/10 px-6 py-3 font-medium text-white backdrop-blur hover:bg-white/20"
           >
             Explore Retreats
           </a>
         </div>
       </div>
-      <!-- Scroll cue -->
+
+      <!-- Scroll cue lifted above home indicator -->
       <div
-        class="pointer-events-none absolute bottom-[calc(1.5rem+env(safe-area-inset-bottom))] left-1/2 -translate-x-1/2"
+        class="pointer-events-none absolute bottom-[calc(1.25rem+env(safe-area-inset-bottom))] left-1/2 -translate-x-1/2"
       >
         <div class="flex flex-col items-center text-white/80">
           <span class="text-xs">Scroll</span>
