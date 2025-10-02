@@ -1,0 +1,69 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  />
+  <title>Waiver - Narnia Escapes</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Vollkorn+SC:wght@400;600;700;900&display=swap"
+    rel="stylesheet"
+  />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../js/tailwind-config.js"></script>
+</head>
+
+<section id="waiver" class="py-20 bg-neutral-50">
+  <div class="mx-auto max-w-4xl px-6">
+    <h2 class="text-3xl font-heading text-center mb-8">Waiver Form</h2>
+    <p class="text-lg text-gray-700 text-center mb-12">
+      Please read the waiver carefully and complete the form below.
+    </p>
+    <div class="rounded-xl shadow-lg overflow-hidden">
+      <iframe
+        id="waiverForm"
+        src="https://docs.google.com/forms/d/e/1FAIpQLSdYsuxDFr9b_6ofOGS8DWttZq84m_6zCsWB5jgdAZODhRxuDw/viewform?embedded=true"
+        class="w-full"
+        style="border: 0"
+        frameborder="0"
+        scrolling="no"
+        >Loading…</iframe
+      >
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    const el = document.getElementById("waiverForm");
+
+    function pickHeight() {
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+
+      // base on common breakpoints + a vh multiplier for very small screens
+      if (vw < 380) return Math.max(500, Math.floor(vh * 4.2));
+      if (vw < 640) return Math.max(4000, Math.floor(vh * 3.4));
+      if (vw < 1024) return 3300;
+      if (vw < 1280) return 2400;
+      return 2700; // wide desktop
+    }
+
+    function setH() {
+      el.style.height = pickHeight() + "px";
+    }
+
+    setH();
+    let t;
+    window.addEventListener("resize", () => {
+      clearTimeout(t);
+      t = setTimeout(setH, 120);
+    });
+  })();
+</script>
