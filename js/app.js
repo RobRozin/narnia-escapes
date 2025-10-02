@@ -12,7 +12,7 @@ async function loadPartial(elId, url) {
 }
 
 const app = {
-  pages: ["home", "services", "about"],
+  pages: ["home", "retreats", "sauna", "events", "sounds healing"],
   activePage: "home",
   activeFAQ: null,
   isMobileMenuOpen: false,

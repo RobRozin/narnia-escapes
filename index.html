@@ -59,7 +59,6 @@
           <a href="#retreats" class="hover:text-primary">Retreats</a>
           <a href="#sauna" class="hover:text-primary">Sauna</a>
           <a href="#events" class="hover:text-primary">Events</a>
-          <a href="#sound" class="hover:text-primary">Sound Healing</a>
           <a href="#about" class="hover:text-primary">About</a>
           <a
             href="#contact"
@@ -160,6 +159,20 @@
       </div>
     </header>
 
+    <main id="content">
+      <!-- HOME -->
+      <div id="site-home"></div>
+
+      <!-- RETREATS -->
+      <div id="site-retreats"></div>
+
+      <!-- SAUNA -->
+      <div id="site-sauna"></div>
+
+      <!-- EVENT HOSTING -->
+      <div id="site-events"></div>
+    </main>
+
     <!-- Hero -->
     <section
       id="home"
@@ -176,7 +189,7 @@
               rgba(0, 0, 0, 0.25) 35%,
               rgba(0, 0, 0, 0.55)
             ),
-            url('./images/hero-01.png');
+            url('./images/hero-fall.png');
         "
       ></div>
 
@@ -306,115 +319,82 @@
       </div>
     </section>
 
-    <!-- Retreats -->
-    <section id="retreats" class="py-20 bg-neutral-50">
-      <div class="mx-auto max-w-6xl px-6">
-        <div class="grid gap-10 lg:grid-cols-2 items-start">
-          <!-- Image -->
-          <div class="order-1">
-            <div
-              class="aspect-[4/3] md:aspect-[3/4] w-full overflow-hidden rounded-3xl"
+    <!-- Retreats (Full-Width Banner) -->
+    <section id="retreats" class="relative isolate">
+      <!-- Full-bleed image -->
+      <div class="absolute inset-0">
+        <img
+          src="./images/retreats-hero.jpeg"
+          alt="Guided nature retreat by the lake"
+          class="h-full w-full object-cover"
+          loading="lazy"
+          sizes="100vw"
+        />
+        <!-- Legibility gradient -->
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/25 to-transparent"
+        ></div>
+      </div>
+
+      <!-- Content -->
+      <div class="relative mx-auto max-w-7xl px-6 py-24 lg:py-32">
+        <!-- Heading & intro -->
+        <div class="max-w-2xl">
+          <h2 class="text-4xl lg:text-5xl font-bold tracking-tight text-white">
+            Guided Retreats
+          </h2>
+          <p class="mt-4 text-lg text-white/90 leading-relaxed">
+            Transformative 3–4 day immersions combining breathwork,
+            <span class="font-medium">sound healing</span>, sauna rituals,
+            nourishing meals, and nature connection.
+            <span class="font-medium">Capacity: up to 8 guests.</span>
+          </p>
+        </div>
+
+        <!-- Cards: Experience / Lodging / Meals -->
+        <div class="mt-10 lg:mt-12 grid gap-6 lg:gap-7 lg:grid-cols-3">
+          <!-- Experience (spans 2 cols on lg for more breathing room) -->
+          <article
+            class="lg:col-span-2 rounded-3xl bg-white/85 backdrop-blur-md ring-1 ring-white/50 shadow-xl p-6 sm:p-8"
+          >
+            <h3 class="text-xl font-semibold text-neutral-900">
+              Retreat Experience
+            </h3>
+            <ul
+              class="mt-4 grid sm:grid-cols-2 gap-x-6 gap-y-3 text-sm text-neutral-800"
             >
-              <img
-                src="./images/retreats-hero.jpeg"
-                alt="Guided nature retreat by the lake"
-                class="h-full w-full object-cover"
-                loading="lazy"
-                sizes="(min-width:1024px) 50vw, 100vw"
-              />
-            </div>
-          </div>
+              <li class="flex gap-2">
+                <span class="mt-2 h-1.5 w-1.5 rounded-full bg-[#A45D3D]"></span>
+                Wim Hof Method: breath, cold exposure, mindfulness
+              </li>
+              <li class="flex gap-2">
+                <span class="mt-2 h-1.5 w-1.5 rounded-full bg-[#A45D3D]"></span>
+                Daily sauna ritual with pond-side cold plunge
+              </li>
+              <li class="flex gap-2">
+                <span class="mt-2 h-1.5 w-1.5 rounded-full bg-[#A45D3D]"></span>
+                Guided sound healing &amp; vibration therapy
+              </li>
+              <li class="flex gap-2">
+                <span class="mt-2 h-1.5 w-1.5 rounded-full bg-[#A45D3D]"></span>
+                Qi Gong, hikes, stretching &amp; interoceptive practices
+              </li>
+              <li class="flex gap-2">
+                <span class="mt-2 h-1.5 w-1.5 rounded-full bg-[#A45D3D]"></span>
+                Community connection &amp; evening wind-down rituals
+              </li>
+              <li class="flex gap-2">
+                <span class="mt-2 h-1.5 w-1.5 rounded-full bg-[#A45D3D]"></span>
+                Select dates: guest instructors (ecstatic dance, yoga, Thai
+                massage)
+              </li>
+            </ul>
 
-          <!-- Copy -->
-          <div class="order-2">
-            <h2 class="text-3xl font-bold tracking-tight">Guided Retreats</h2>
-            <p class="mt-3 text-neutral-700">
-              Nature immersion with guided breath, sound, sauna, and nourishing
-              meals. Capacity up to 8 people.
-            </p>
-
-            <div class="mt-6 grid sm:grid-cols-2 gap-5">
-              <!-- Overview / What's Included -->
-              <article
-                class="rounded-2xl bg-white/80 backdrop-blur ring-1 ring-neutral-200 p-6"
-              >
-                <h3 class="text-lg font-semibold">Standard Guided Retreat</h3>
-                <p class="mt-1 text-sm text-neutral-600">
-                  Curated small-group experience focused on restoration and
-                  presence.
-                </p>
-
-                <div class="mt-4 border-t border-neutral-200/70 pt-4">
-                  <div class="text-sm font-medium text-neutral-900">
-                    Includes
-                  </div>
-                  <ul class="mt-2 space-y-1.5 text-sm text-neutral-700">
-                    <li class="flex items-start gap-2">
-                      <span
-                        class="mt-[6px] h-1.5 w-1.5 rounded-full bg-neutral-400"
-                      ></span>
-                      Guided sessions & meditations
-                    </li>
-                    <li class="flex items-start gap-2">
-                      <span
-                        class="mt-[6px] h-1.5 w-1.5 rounded-full bg-neutral-400"
-                      ></span>
-                      Daily sauna & seasonal cold plunge
-                    </li>
-                    <li class="flex items-start gap-2">
-                      <span
-                        class="mt-[6px] h-1.5 w-1.5 rounded-full bg-neutral-400"
-                      ></span>
-                      Homemade Eastern European meals
-                    </li>
-                    <li class="flex items-start gap-2">
-                      <span
-                        class="mt-[6px] h-1.5 w-1.5 rounded-full bg-neutral-400"
-                      ></span>
-                      Herbal immune drinks
-                    </li>
-                  </ul>
-                </div>
-              </article>
-
-              <!-- Facilities -->
-              <article
-                class="rounded-2xl bg-white/80 backdrop-blur ring-1 ring-neutral-200 p-6"
-              >
-                <h3 class="text-lg font-semibold">Lodging & Facilities</h3>
-                <p class="mt-1 text-sm text-neutral-600">
-                  Comfortable shared spaces designed for quiet and connection.
-                </p>
-                <ul class="mt-3 divide-y divide-neutral-200 text-sm">
-                  <li class="py-2">8 single beds (loft)</li>
-                  <li class="py-2">3 full bathrooms</li>
-                  <li class="py-2">Full kitchen • WiFi</li>
-                  <li class="py-2">Wood stove heating</li>
-                </ul>
-              </article>
-            </div>
-
-            <!-- CTAs -->
-            <div class="mt-6 flex flex-col sm:flex-row gap-4">
-              <a
-                href="#contact"
-                class="inline-flex items-center justify-center rounded-xl bg-[#A45D3D] px-5 py-3 text-white font-medium shadow-sm hover:opacity-95 active:opacity-90"
-              >
-                Inquire About Dates
-              </a>
-              <a
-                href="/retreats"
-                class="inline-flex items-center justify-center rounded-xl border border-[#A45D3D]/80 px-5 py-3 text-[#A45D3D] font-medium hover:bg-[#A45D3D]/10"
-              >
-                More Info
-              </a>
-            </div>
-
-            <!-- Tertiary link -->
-            <div class="mt-4">
+            <!-- Links under Experience -->
+            <div class="mt-5 flex flex-wrap gap-4 text-sm font-medium">
               <a
                 href="#sample-flow"
-                class="inline-flex items-center gap-2 text-[#A45D3D] font-medium hover:underline"
+                class="inline-flex items-center gap-2 text-[#A45D3D] hover:underline"
               >
                 View Sample Daily Flow
                 <svg class="h-4 w-4" viewBox="0 0 24 24" aria-hidden="true">
@@ -425,6 +405,78 @@
                     fill="none"
                   />
                 </svg>
+              </a>
+              <a
+                href="#about"
+                class="inline-flex items-center gap-2 text-[#A45D3D] hover:underline"
+              >
+                Meet Your Hosts
+                <svg class="h-4 w-4" viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M9 5l7 7-7 7"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    fill="none"
+                  />
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Lodging -->
+          <article
+            class="rounded-3xl bg-white/85 backdrop-blur-md ring-1 ring-white/50 shadow-xl p-6 sm:p-8"
+          >
+            <h3 class="text-xl font-semibold text-neutral-900">Lodging</h3>
+            <p class="mt-1 text-sm text-neutral-600">
+              Rustic cabin designed for comfort and connection.
+            </p>
+            <ul class="mt-4 divide-y divide-neutral-200/70 text-sm">
+              <li class="py-2">Shared loft with 8 single beds</li>
+              <li class="py-2">3 full bathrooms with showers</li>
+              <li class="py-2">Full kitchen &amp; dining area • Wi-Fi</li>
+              <li class="py-2">Wood stove heating</li>
+            </ul>
+          </article>
+
+          <!-- Meals (full width under on large screens) -->
+          <article
+            class="lg:col-span-3 rounded-3xl bg-white/85 backdrop-blur-md ring-1 ring-white/50 shadow-xl p-6 sm:p-8"
+          >
+            <h3 class="text-xl font-semibold text-neutral-900">Meals</h3>
+            <p class="mt-1 text-sm text-neutral-600">
+              Wholesome, homemade Eastern European food prepared fresh daily.
+            </p>
+            <ul
+              class="mt-4 grid sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-2 text-sm text-neutral-800"
+            >
+              <li>Breakfast, lunch, dinner + snacks</li>
+              <li>Grain/avocado bowls • Hearty soups</li>
+              <li>Pilaf (lamb/beef/chicken)</li>
+              <li>Vegetable stew • “Secret” fish dish</li>
+              <li>Some meals cooked over fire in a kazan</li>
+              <li>Vegetarian available on request</li>
+            </ul>
+          </article>
+        </div>
+
+        <!-- Pricing + CTA (clean banner, not a card) -->
+        <div class="mt-10 lg:mt-12">
+          <div
+            class="rounded-2xl bg-white/80 backdrop-blur-md ring-1 ring-white/50 shadow-lg px-5 py-4 sm:px-6 sm:py-5 lg:px-8 lg:py-6"
+          >
+            <div
+              class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"
+            >
+              <p class="text-base sm:text-lg text-neutral-900">
+                <span class="font-semibold">Typical Retreat Investment:</span>
+                $600–$800 (varies by season &amp; length)
+              </p>
+              <a
+                href="#contact"
+                class="inline-flex items-center justify-center rounded-xl bg-[#A45D3D] px-6 py-3 text-white font-medium shadow hover:opacity-95 active:opacity-90"
+              >
+                Inquire About Dates
               </a>
             </div>
           </div>
@@ -603,119 +655,252 @@
       </div>
     </section>
 
-    <!-- Sound Healing -->
-    <section id="sound" class="py-20 bg-white">
-      <div class="mx-auto max-w-6xl px-6 text-center">
-        <h2 class="text-3xl font-bold">Immersive Sound Journeys</h2>
-        <p class="mt-3 text-neutral-700 max-w-2xl mx-auto">
-          Over 42 instruments — bowls, gongs, hand pans, didgeridoo, and more —
-          blended into gentle group immersions.
-        </p>
-
-        <!-- Simple 4-up gallery -->
-        <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <div class="aspect-square rounded-xl bg-neutral-200"></div>
-          <div class="aspect-square rounded-xl bg-neutral-200"></div>
-          <div class="aspect-square rounded-xl bg-neutral-200"></div>
-          <div class="aspect-square rounded-xl bg-neutral-200"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- About -->
-    <section id="about" class="py-20 bg-neutral-100">
+    <!-- Meet Your Hosts -->
+    <section id="about" class="py-24 bg-neutral-100">
       <div class="mx-auto max-w-6xl px-6">
+        <!-- Heading -->
         <div class="text-center max-w-3xl mx-auto">
-          <h2 class="text-3xl font-bold">Our Story</h2>
-          <p class="mt-3 text-neutral-700">
-            40 acres of woods, pond, sauna, stream, fire pit, and hiking hills —
-            built with care and in support of local community businesses.
+          <h2 class="text-4xl font-bold tracking-tight text-neutral-900">
+            Meet Your Hosts
+          </h2>
+          <p class="mt-4 text-lg text-neutral-700 leading-relaxed">
+            Together, Alex and Stan create a space of transformation — weaving
+            breath, sauna, sound, and food into a communal retreat experience
+            rooted in nature and tradition.
           </p>
         </div>
 
-        <!-- Hosts -->
-        <div class="mt-10 grid gap-6 sm:grid-cols-2">
-          <div class="rounded-2xl bg-white p-6 border border-neutral-200">
-            <div
-              class="aspect-[3/2] w-full rounded-xl bg-neutral-200 mb-4"
-            ></div>
-            <h3 class="text-xl font-semibold">Stan (Stas)</h3>
-            <p class="mt-1 text-sm text-neutral-600">
-              Sound healer, sauna practitioner, hapé & medicine ceremonies,
-              musician, chef.
-            </p>
+        <!-- Hosts Grid -->
+        <div class="mt-14 grid gap-8 sm:grid-cols-2">
+          <!-- Stan -->
+          <div class="relative rounded-3xl overflow-hidden shadow-lg">
+            <div class="aspect-[3/4] w-full">
+              <img
+                src="./images/host-stan.png"
+                alt="Stan — sauna master and sound healer"
+                class="h-full w-full object-cover object-top"
+              />
+              <!-- Gradient overlay -->
+              <div
+                class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/70 via-black/30 to-transparent"
+              ></div>
+              <!-- Text overlay -->
+              <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                <h3 class="text-2xl font-semibold">Stan</h3>
+                <p class="mt-2 text-sm leading-relaxed text-white/90">
+                  Sauna practitioner and sound healer who brings traditional
+                  Eastern European sauna rituals, vibration therapy, and hapé
+                  &amp; medicine ceremonies to the retreat. As a chef, he
+                  prepares nourishing homemade meals, and as a musician, he
+                  leads drum circles that bring people together in rhythm.
+                </p>
+              </div>
+            </div>
           </div>
-          <div class="rounded-2xl bg-white p-6 border border-neutral-200">
-            <div
-              class="aspect-[3/2] w-full rounded-xl bg-neutral-200 mb-4"
-            ></div>
-            <h3 class="text-xl font-semibold">Alex</h3>
-            <p class="mt-1 text-sm text-neutral-600">
-              Certified Wim Hof instructor, guided meditation, groundskeeper
-              “witch doctor”.
-            </p>
+
+          <!-- Alex -->
+          <div class="relative rounded-3xl overflow-hidden shadow-lg">
+            <div class="aspect-[3/4] w-full">
+              <img
+                src="./images/host-alex.png"
+                alt="Alex — certified Wim Hof instructor"
+                class="h-full w-full object-cover object-top"
+              />
+              <!-- Gradient overlay -->
+              <div
+                class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/70 via-black/30 to-transparent"
+              ></div>
+              <!-- Text overlay -->
+              <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                <h3 class="text-2xl font-semibold">Alex</h3>
+                <p class="mt-2 text-sm leading-relaxed text-white/90">
+                  Certified Wim Hof Method instructor guiding breathwork, cold
+                  exposure, and meditation. Known by many as a “witch doctor”
+                  for his grounding energy and care, Alex helps participants
+                  build resilience, clarity, and deep presence while tending to
+                  the retreat grounds and leading practices.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
-
-        <!-- Optional Video -->
-        <div
-          class="mt-8 rounded-2xl overflow-hidden aspect-video bg-neutral-200"
-        ></div>
       </div>
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="py-20 bg-white">
-      <div class="mx-auto max-w-4xl px-6 text-center">
-        <h2 class="text-3xl font-bold">Get in Touch</h2>
-        <p class="mt-3 text-neutral-700">
-          Questions or ready to book? Send a note — we’ll reply quickly.
-        </p>
-
-        <form class="mt-8 grid gap-4 text-left">
-          <div class="grid sm:grid-cols-2 gap-4">
-            <input
-              type="text"
-              placeholder="Your Name"
-              class="w-full rounded-lg border border-neutral-300 p-3"
-            />
-            <input
-              type="email"
-              placeholder="Your Email"
-              class="w-full rounded-lg border border-neutral-300 p-3"
-            />
-          </div>
-          <textarea
-            rows="4"
-            placeholder="Your Message"
-            class="w-full rounded-lg border border-neutral-300 p-3"
-          ></textarea>
-          <button
-            type="submit"
-            class="justify-self-start rounded-lg bg-[#A45D3D] px-6 py-3 text-white font-medium hover:opacity-90"
-          >
-            Send Message
-          </button>
-        </form>
-
-        <div class="mt-8 flex items-center justify-center gap-6 text-sm">
-          <a href="#" class="text-[#A45D3D] hover:underline">Instagram</a>
-          <a href="#" class="text-[#A45D3D] hover:underline"
-            >Facebook Messenger</a
-          >
-          <a href="#" class="text-[#A45D3D] hover:underline">Telegram</a>
-          <a
-            href="mailto:hello@narniaescapes.com"
-            class="text-[#A45D3D] hover:underline"
-            >Email</a
-          >
+    <section id="contact" class="py-24 bg-neutral-50">
+      <div class="mx-auto max-w-5xl px-6">
+        <div class="text-center max-w-2xl mx-auto">
+          <h2 class="text-4xl font-bold tracking-tight text-neutral-900">
+            Get in Touch
+          </h2>
+          <p class="mt-4 text-lg text-neutral-700 leading-relaxed">
+            Our preferred channel is
+            <span class="font-medium text-[#A45D3D]">Instagram</span>, but you
+            can also reach us on Messenger, Telegram, or Email.
+          </p>
         </div>
 
-        <!-- Optional Map -->
-        <div
-          class="mt-10 aspect-[16/9] w-full rounded-2xl bg-neutral-100 border border-neutral-200"
-        ></div>
+        <!-- Contact Methods -->
+        <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4 text-center">
+          <!-- Instagram (preferred) -->
+          <a
+            href="https://instagram.com/yourhandle"
+            target="_blank"
+            rel="noopener"
+            class="group rounded-2xl bg-white shadow ring-1 ring-neutral-200 p-6 hover:shadow-md transition"
+          >
+            <svg
+              class="mx-auto h-8 w-8 text-[#A45D3D] group-hover:scale-110 transition"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 4a5 5 0 100 10 5 5 0 000-10zm5-.8a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4z"
+              />
+            </svg>
+            <h3 class="mt-3 font-semibold text-neutral-900">Instagram</h3>
+            <p class="mt-1 text-sm text-neutral-600">Preferred</p>
+          </a>
+
+          <!-- Messenger -->
+          <a
+            href="https://m.me/yourhandle"
+            target="_blank"
+            rel="noopener"
+            class="group rounded-2xl bg-white shadow ring-1 ring-neutral-200 p-6 hover:shadow-md transition"
+          >
+            <svg
+              class="mx-auto h-8 w-8 text-[#A45D3D] group-hover:scale-110 transition"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 2C6.5 2 2 6 2 11.5c0 2.9 1.4 5.5 3.7 7.2V22l3.3-1.8c.9.2 1.8.3 2.8.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm.1 13.7l-2.9-3.1-5.1 3.1 5.6-6.1 2.9 3.1 5.1-3.1-5.6 6.1z"
+              />
+            </svg>
+            <h3 class="mt-3 font-semibold text-neutral-900">Messenger</h3>
+            <p class="mt-1 text-sm text-neutral-600">Facebook</p>
+          </a>
+
+          <!-- Telegram -->
+          <a
+            href="https://t.me/yourhandle"
+            target="_blank"
+            rel="noopener"
+            class="group rounded-2xl bg-white shadow ring-1 ring-neutral-200 p-6 hover:shadow-md transition"
+          >
+            <svg
+              class="mx-auto h-8 w-8 text-[#A45D3D] group-hover:scale-110 transition"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M21.5 3.3l-19 7.3c-1.3.5-1.3 1.3-.2 1.6l4.9 1.5 11.5-7.7c.6-.4 1.2-.2.7.3l-9.3 8.8-.3 4c.5 0 .7-.2 1-.5l2.4-2.3 5 3.6c.9.5 1.6.2 1.8-.8l3.3-15.3c.3-1.5-.6-2.1-1.8-1.5z"
+              />
+            </svg>
+            <h3 class="mt-3 font-semibold text-neutral-900">Telegram</h3>
+            <p class="mt-1 text-sm text-neutral-600">Private messages</p>
+          </a>
+
+          <!-- Email -->
+          <a
+            href="mailto:hello@narniaescapes.com"
+            class="group rounded-2xl bg-white shadow ring-1 ring-neutral-200 p-6 hover:shadow-md transition"
+          >
+            <svg
+              class="mx-auto h-8 w-8 text-[#A45D3D] group-hover:scale-110 transition"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M2 6a2 2 0 012-2h16a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6zm2 0l8 5 8-5H4zm0 2.2v9.8h16V8.2l-8 5-8-5z"
+              />
+            </svg>
+            <h3 class="mt-3 font-semibold text-neutral-900">Email</h3>
+            <p class="mt-1 text-sm text-neutral-600">hello@narniaescapes.com</p>
+          </a>
+        </div>
+
+        <!-- Map (link tile by default; auto-embeds if coords provided) -->
+        <div class="mt-14">
+          <h3 class="text-xl font-semibold text-neutral-900 text-center">
+            Find Us
+          </h3>
+
+          <!-- Wrap holds optional coordinates; fill these to switch to embedded map -->
+          <div
+            id="mapWrap"
+            data-lat="41.234567"
+            data-lng="-74.123456"
+            class="relative mt-4 aspect-[16/9] w-full rounded-2xl overflow-hidden shadow ring-1 ring-neutral-200"
+          >
+            <!-- Open-in-Maps tile (always correct) -->
+            <a
+              id="mapLink"
+              href="https://maps.app.goo.gl/ErMqpm4ywgvJ5teu6?g_st=atm"
+              target="_blank"
+              rel="noopener"
+              class="absolute inset-0 grid place-items-center bg-[url('./images/map-placeholder.jpg')] bg-cover bg-center"
+            >
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"
+              ></div>
+              <span
+                class="relative inline-flex items-center gap-2 rounded-xl bg-white/90 px-4 py-2 text-sm font-medium text-neutral-900 ring-1 ring-white/70 backdrop-blur"
+              >
+                Open in Google Maps
+                <svg
+                  class="h-4 w-4 text-[#A45D3D]"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M12 4l1.41 1.41L8.83 10H20v2H8.83l4.58 4.59L12 18l-8-8 8-8z"
+                  />
+                </svg>
+              </span>
+            </a>
+
+            <!-- Embedded map (hidden until we have coordinates) -->
+            <iframe
+              id="mapFrame"
+              class="hidden h-full w-full"
+              style="border: 0"
+              loading="lazy"
+              allowfullscreen
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+
+          <p class="mt-2 text-center text-sm text-neutral-600">
+            Prefer a full-screen view?
+            <a
+              href="https://maps.app.goo.gl/ErMqpm4ywgvJ5teu6?g_st=atm"
+              target="_blank"
+              rel="noopener"
+              class="text-[#A45D3D] hover:underline"
+            >
+              Open in Google Maps
+            </a>
+          </p>
+        </div>
       </div>
+
+      <!-- Tiny helper: if you add coords above, we embed the exact spot -->
+      <script>
+        (function () {
+          const wrap = document.getElementById("mapWrap");
+          const lat = wrap?.dataset.lat;
+          const lng = wrap?.dataset.lng;
+          if (lat && lng) {
+            const frame = document.getElementById("mapFrame");
+            frame.src = `https://www.google.com/maps?q=loc:${lat},${lng}&z=14&output=embed`;
+            frame.classList.remove("hidden");
+            document.getElementById("mapLink").classList.add("hidden");
+          }
+        })();
+      </script>
     </section>
 
     <!-- Footer -->
