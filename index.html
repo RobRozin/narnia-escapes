@@ -37,32 +37,76 @@
     <!-- Navbar -->
     <header
       :class="{
-      'backdrop-blur-md bg-white/70 text-ink shadow-sm': isScrolled || isMobileMenuOpen,
-      'bg-transparent text-white': !isScrolled && !isMobileMenuOpen
-    }"
+    'backdrop-blur-md bg-white/70 text-ink shadow-sm': isScrolled || isMobileMenuOpen,
+    'bg-transparent text-white': !isScrolled && !isMobileMenuOpen
+  }"
       class="fixed inset-x-0 top-0 z-50 transition-colors duration-300 pt-[env(safe-area-inset-top)]"
     >
       <nav
-        class="mx-auto max-w-7xl flex items-center justify-between px-4 sm:px-6 lg:px-8 py-4"
+        class="mx-auto max-w-7xl flex items-center justify-between px-4 sm:px-6 lg:px-8 transition-all duration-300 ease-out"
+        :class="[isScrolled ? 'py-2' : 'py-4']"
       >
         <!-- Logo -->
-        <a href="#home" class="flex items-center gap-2">
-          <img src="./images/logo.png" alt="Narnia Escapes logo" class="w-16" />
-          <span class="font-accent text-3xl tracking-tight"
-            >Narnia Escapes</span
+        <a
+          href="#home"
+          class="flex items-center gap-2 transition-all duration-300 ease-out"
+          :class="[isScrolled ? 'scale-[0.96]' : 'scale-100']"
+        >
+          <img
+            src="./images/logo.png"
+            alt="Narnia Escapes logo"
+            class="transition-all duration-300 ease-out"
+            :class="[isScrolled ? 'w-12' : 'w-16']"
+          />
+          <span
+            class="font-accent tracking-tight transition-all duration-300 ease-out"
+            :class="[isScrolled ? 'text-2xl' : 'text-3xl']"
           >
+            Narnia Escapes
+          </span>
         </a>
 
         <!-- Desktop links -->
-        <div class="hidden md:flex items-center gap-6 text-sm font-medium">
-          <a href="#home" class="hover:text-primary">Home</a>
-          <a href="#retreats" class="hover:text-primary">Retreats</a>
-          <a href="#sauna" class="hover:text-primary">Sauna</a>
-          <a href="#events" class="hover:text-primary">Events</a>
-          <a href="#about" class="hover:text-primary">About</a>
+        <div
+          class="hidden md:flex items-center transition-all duration-300 ease-out"
+          :class="[isScrolled ? 'gap-5' : 'gap-6']"
+        >
+          <a
+            href="#home"
+            class="hover:text-primary transition-colors"
+            :class="[isScrolled ? 'text-xs font-medium' : 'text-sm font-medium']"
+            >Home</a
+          >
+          <a
+            href="#retreats"
+            class="hover:text-primary transition-colors"
+            :class="[isScrolled ? 'text-xs font-medium' : 'text-sm font-medium']"
+            >Retreats</a
+          >
+          <a
+            href="#sauna"
+            class="hover:text-primary transition-colors"
+            :class="[isScrolled ? 'text-xs font-medium' : 'text-sm font-medium']"
+            >Sauna</a
+          >
+          <a
+            href="#events"
+            class="hover:text-primary transition-colors"
+            :class="[isScrolled ? 'text-xs font-medium' : 'text-sm font-medium']"
+            >Events</a
+          >
+          <a
+            href="#about"
+            class="hover:text-primary transition-colors"
+            :class="[isScrolled ? 'text-xs font-medium' : 'text-sm font-medium']"
+            >About</a
+          >
+
+          <!-- CTA -->
           <a
             href="#contact"
-            class="ml-2 inline-flex items-center rounded-lg bg-primary px-4 py-2 text-white shadow hover:opacity-90"
+            class="ml-2 inline-flex items-center rounded-full bg-primary text-white shadow hover:opacity-90 transition-all duration-300 ease-out"
+            :class="[isScrolled ? 'px-3 py-1.5 text-xs' : 'px-4 py-2 text-sm']"
           >
             Book Your Escape
           </a>
@@ -70,8 +114,9 @@
 
         <!-- Mobile menu button -->
         <button
-          class="md:hidden inline-flex items-center justify-center p-2 rounded-md focus:outline-none"
+          class="md:hidden inline-flex items-center justify-center p-2 rounded-md focus:outline-none transition-colors"
           @click="isMobileMenuOpen = !isMobileMenuOpen"
+          aria-label="Toggle menu"
         >
           <svg
             v-if="!isMobileMenuOpen"
@@ -135,12 +180,6 @@
             >Events</a
           >
           <a
-            href="#sound"
-            @click="isMobileMenuOpen=false"
-            class="block text-lg font-medium text-ink hover:text-primary"
-            >Sound Healing</a
-          >
-          <a
             href="#about"
             @click="isMobileMenuOpen=false"
             class="block text-lg font-medium text-ink hover:text-primary"
@@ -151,7 +190,7 @@
           <a
             href="#contact"
             @click="isMobileMenuOpen=false"
-            class="block w-full rounded-xl bg-primary text-white text-center font-semibold py-3 shadow hover:opacity-95"
+            class="block w-full rounded-full bg-primary text-white text-center font-semibold py-3 shadow hover:opacity-95"
           >
             Book Your Escape
           </a>
@@ -215,13 +254,13 @@
         >
           <a
             href="#contact"
-            class="inline-flex justify-center rounded-xl bg-primary px-6 py-3 font-medium text-white shadow hover:opacity-95"
+            class="inline-flex justify-center rounded-full bg-primary px-6 py-3 font-medium text-white shadow hover:opacity-95"
           >
             Book Your Escape
           </a>
           <a
             href="#retreats"
-            class="inline-flex justify-center rounded-xl border border-white/40 bg-white/10 px-6 py-3 font-medium text-white backdrop-blur hover:bg-white/20"
+            class="inline-flex justify-center rounded-full border border-white/40 bg-white/10 px-6 py-3 font-medium text-white backdrop-blur hover:bg-white/20"
           >
             Explore Retreats
           </a>
@@ -248,238 +287,279 @@
     </section>
 
     <!-- Quick Highlights -->
-    <section id="highlights" class="py-20 bg-white">
+    <section id="highlights" class="py-24 bg-white">
       <div class="mx-auto max-w-6xl px-6">
-        <h2 class="text-3xl font-bold tracking-tight">What We Offer</h2>
-        <p class="mt-3 text-neutral-700">
-          Calm experiences designed to restore body, mind, and spirit.
-        </p>
-
-        <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <!-- Card -->
-          <article
-            class="rounded-2xl ring-1 ring-neutral-200 bg-neutral-50 p-6 hover:shadow-sm transition"
+        <!-- Title + Body (centered, header font) -->
+        <header class="text-center">
+          <h2
+            class="text-4xl font-heading font-bold tracking-tight text-neutral-900 uppercase"
           >
-            <div class="flex items-center gap-3">
-              <img src="/icons/retreat.svg" alt="" class="h-6 w-6" />
-              <h3 class="text-lg font-semibold">Guided Retreats</h3>
-            </div>
-            <p class="mt-3 text-sm leading-6 text-neutral-700">
-              Small, intentional gatherings focused on grounding, movement, and
-              nature. Curated by our team with simple meals and quiet spaces.
-            </p>
-            <a
-              href="/retreats"
-              class="mt-4 inline-flex text-[#A45D3D] font-medium hover:underline"
-            >
-              Explore retreats →
-            </a>
-          </article>
+            Ways To Experience Narnia
+          </h2>
+        </header>
 
-          <article
-            class="rounded-2xl ring-1 ring-neutral-200 bg-neutral-50 p-6 hover:shadow-sm transition"
+        <!-- Image Cards -->
+        <div
+          class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4"
+        >
+          <!-- Guided Retreats -->
+          <a
+            href="#retreats"
+            class="group relative block aspect-[3/4] rounded-3xl overflow-hidden ring-1 ring-neutral-200 hover:ring-neutral-300 shadow transition-all"
           >
-            <div class="flex items-center gap-3">
-              <img src="/icons/sauna.svg" alt="" class="h-6 w-6" />
-              <h3 class="text-lg font-semibold">Pond-Side Sauna</h3>
+            <img
+              src="./images/highlights-retreats.jpeg"
+              alt="Guided retreats at the cabin"
+              class="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/25 to-transparent"
+            ></div>
+            <div class="absolute inset-x-0 bottom-0 p-6">
+              <h3 class="font-accent text-2xl text-white drop-shadow-sm">
+                Guided Retreats
+              </h3>
+              <p class="mt-1 text-sm text-white/90 leading-relaxed">
+                Breathwork • Sound healing • Sauna & cold plunge • Hikes •
+                Homemade meals (up to 8 guests)
+              </p>
             </div>
-            <p class="mt-3 text-sm leading-6 text-neutral-700">
-              A slow, restorative heat ritual by the water. Aromatherapy, tea,
-              and mineral water included—add breathwork or a cooling plunge in
-              summer.
-            </p>
-            <a
-              href="/sauna"
-              class="mt-4 inline-flex text-[#A45D3D] font-medium hover:underline"
-            >
-              Learn more →
-            </a>
-          </article>
+          </a>
 
-          <article
-            class="rounded-2xl ring-1 ring-neutral-200 bg-neutral-50 p-6 hover:shadow-sm transition"
+          <!-- Pond-Side Sauna -->
+          <a
+            href="#retreats"
+            class="group relative block aspect-[3/4] rounded-3xl overflow-hidden ring-1 ring-neutral-200 hover:ring-neutral-300 shadow transition-all"
           >
-            <div class="flex items-center gap-3">
-              <img src="/icons/event.svg" alt="" class="h-6 w-6" />
-              <h3 class="text-lg font-semibold">Private Events</h3>
+            <img
+              src="./images/highlights-sauna.jpeg"
+              alt="Pond-side sauna with cold plunge"
+              class="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/25 to-transparent"
+            ></div>
+            <div class="absolute inset-x-0 bottom-0 p-6">
+              <h3 class="font-accent text-2xl text-white drop-shadow-sm">
+                Pond-Side Sauna
+              </h3>
+              <p class="mt-1 text-sm text-white/90 leading-relaxed">
+                Wood-burning heat, tea & aromatherapy, easy ladder into the pond
+                for a refreshing plunge
+              </p>
             </div>
-            <p class="mt-3 text-sm leading-6 text-neutral-700">
-              Host an intimate celebration or team reset in the woods—custom
-              session flow, optional sound healing, and cozy outdoor seating by
-              the fire.
-            </p>
-            <a
-              href="/events"
-              class="mt-4 inline-flex text-[#A45D3D] font-medium hover:underline"
-            >
-              Plan an event →
-            </a>
-          </article>
+          </a>
+
+          <!-- Private Events -->
+          <a
+            href="#events"
+            class="group relative block aspect-[3/4] rounded-3xl overflow-hidden ring-1 ring-neutral-200 hover:ring-neutral-300 shadow transition-all"
+          >
+            <img
+              src="./images/highlights-events.jpg"
+              alt="Private event with nature views"
+              class="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/25 to-transparent"
+            ></div>
+            <div class="absolute inset-x-0 bottom-0 p-6">
+              <h3 class="font-accent text-2xl text-white drop-shadow-sm">
+                Private Events
+              </h3>
+              <p class="mt-1 text-sm text-white/90 leading-relaxed">
+                Workshops, celebrations, or team resets • Custom session flow •
+                Optional sound healing & breathwork
+              </p>
+            </div>
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- Retreats (Full-Width Banner) -->
-    <section id="retreats" class="relative isolate">
-      <!-- Full-bleed image -->
-      <div class="absolute inset-0">
-        <img
-          src="./images/retreats-hero.jpeg"
-          alt="Guided nature retreat by the lake"
-          class="h-full w-full object-cover"
-          loading="lazy"
-          sizes="100vw"
-        />
-        <!-- Legibility gradient -->
-        <div
-          class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/25 to-transparent"
-        ></div>
-      </div>
-
-      <!-- Content -->
-      <div class="relative mx-auto max-w-7xl px-6 py-24 lg:py-32">
-        <!-- Heading & intro -->
-        <div class="max-w-2xl">
-          <h2 class="text-4xl lg:text-5xl font-bold tracking-tight text-white">
-            Guided Retreats
-          </h2>
-          <p class="mt-4 text-lg text-white/90 leading-relaxed">
-            Transformative 3–4 day immersions combining breathwork,
-            <span class="font-medium">sound healing</span>, sauna rituals,
-            nourishing meals, and nature connection.
-            <span class="font-medium">Capacity: up to 8 guests.</span>
-          </p>
-        </div>
-
-        <!-- Cards: Experience / Lodging / Meals -->
-        <div class="mt-10 lg:mt-12 grid gap-6 lg:gap-7 lg:grid-cols-3">
-          <!-- Experience (spans 2 cols on lg for more breathing room) -->
-          <article
-            class="lg:col-span-2 rounded-3xl bg-white/85 backdrop-blur-md ring-1 ring-white/50 shadow-xl p-6 sm:p-8"
-          >
-            <h3 class="text-xl font-semibold text-neutral-900">
-              Retreat Experience
-            </h3>
-            <ul
-              class="mt-4 grid sm:grid-cols-2 gap-x-6 gap-y-3 text-sm text-neutral-800"
-            >
-              <li class="flex gap-2">
-                <span class="mt-2 h-1.5 w-1.5 rounded-full bg-[#A45D3D]"></span>
-                Wim Hof Method: breath, cold exposure, mindfulness
-              </li>
-              <li class="flex gap-2">
-                <span class="mt-2 h-1.5 w-1.5 rounded-full bg-[#A45D3D]"></span>
-                Daily sauna ritual with pond-side cold plunge
-              </li>
-              <li class="flex gap-2">
-                <span class="mt-2 h-1.5 w-1.5 rounded-full bg-[#A45D3D]"></span>
-                Guided sound healing &amp; vibration therapy
-              </li>
-              <li class="flex gap-2">
-                <span class="mt-2 h-1.5 w-1.5 rounded-full bg-[#A45D3D]"></span>
-                Qi Gong, hikes, stretching &amp; interoceptive practices
-              </li>
-              <li class="flex gap-2">
-                <span class="mt-2 h-1.5 w-1.5 rounded-full bg-[#A45D3D]"></span>
-                Community connection &amp; evening wind-down rituals
-              </li>
-              <li class="flex gap-2">
-                <span class="mt-2 h-1.5 w-1.5 rounded-full bg-[#A45D3D]"></span>
-                Select dates: guest instructors (ecstatic dance, yoga, Thai
-                massage)
-              </li>
-            </ul>
-
-            <!-- Links under Experience -->
-            <div class="mt-5 flex flex-wrap gap-4 text-sm font-medium">
-              <a
-                href="#sample-flow"
-                class="inline-flex items-center gap-2 text-[#A45D3D] hover:underline"
-              >
-                View Sample Daily Flow
-                <svg class="h-4 w-4" viewBox="0 0 24 24" aria-hidden="true">
-                  <path
-                    d="M9 5l7 7-7 7"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    fill="none"
-                  />
-                </svg>
-              </a>
-              <a
-                href="#about"
-                class="inline-flex items-center gap-2 text-[#A45D3D] hover:underline"
-              >
-                Meet Your Hosts
-                <svg class="h-4 w-4" viewBox="0 0 24 24" aria-hidden="true">
-                  <path
-                    d="M9 5l7 7-7 7"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    fill="none"
-                  />
-                </svg>
-              </a>
-            </div>
-          </article>
-
-          <!-- Lodging -->
-          <article
-            class="rounded-3xl bg-white/85 backdrop-blur-md ring-1 ring-white/50 shadow-xl p-6 sm:p-8"
-          >
-            <h3 class="text-xl font-semibold text-neutral-900">Lodging</h3>
-            <p class="mt-1 text-sm text-neutral-600">
-              Rustic cabin designed for comfort and connection.
-            </p>
-            <ul class="mt-4 divide-y divide-neutral-200/70 text-sm">
-              <li class="py-2">Shared loft with 8 single beds</li>
-              <li class="py-2">3 full bathrooms with showers</li>
-              <li class="py-2">Full kitchen &amp; dining area • Wi-Fi</li>
-              <li class="py-2">Wood stove heating</li>
-            </ul>
-          </article>
-
-          <!-- Meals (full width under on large screens) -->
-          <article
-            class="lg:col-span-3 rounded-3xl bg-white/85 backdrop-blur-md ring-1 ring-white/50 shadow-xl p-6 sm:p-8"
-          >
-            <h3 class="text-xl font-semibold text-neutral-900">Meals</h3>
-            <p class="mt-1 text-sm text-neutral-600">
-              Wholesome, homemade Eastern European food prepared fresh daily.
-            </p>
-            <ul
-              class="mt-4 grid sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-2 text-sm text-neutral-800"
-            >
-              <li>Breakfast, lunch, dinner + snacks</li>
-              <li>Grain/avocado bowls • Hearty soups</li>
-              <li>Pilaf (lamb/beef/chicken)</li>
-              <li>Vegetable stew • “Secret” fish dish</li>
-              <li>Some meals cooked over fire in a kazan</li>
-              <li>Vegetarian available on request</li>
-            </ul>
-          </article>
-        </div>
-
-        <!-- Pricing + CTA (clean banner, not a card) -->
-        <div class="mt-10 lg:mt-12">
+    <!-- Retreats -->
+    <section id="retreats" class="py-20 bg-neutral-50">
+      <div
+        class="mx-auto max-w-6xl px-6 grid items-start lg:grid-cols-2 gap-10 lg:gap-12 relative"
+      >
+        <!-- Image (left) -->
+        <div class="relative order-1 z-0">
           <div
-            class="rounded-2xl bg-white/80 backdrop-blur-md ring-1 ring-white/50 shadow-lg px-5 py-4 sm:px-6 sm:py-5 lg:px-8 lg:py-6"
+            class="relative aspect-[4/3] md:aspect-[3/4] w-full overflow-hidden rounded-3xl lg:-mt-8"
           >
-            <div
-              class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"
-            >
-              <p class="text-base sm:text-lg text-neutral-900">
-                <span class="font-semibold">Typical Retreat Investment:</span>
-                $600–$800 (varies by season &amp; length)
-              </p>
-              <a
-                href="#contact"
-                class="inline-flex items-center justify-center rounded-xl bg-[#A45D3D] px-6 py-3 text-white font-medium shadow hover:opacity-95 active:opacity-90"
-              >
-                Inquire About Dates
-              </a>
-            </div>
+            <img
+              src="./images/retreats-hero.jpeg"
+              alt="Guided nature retreat by the lake"
+              class="h-full w-full object-cover"
+              loading="lazy"
+              sizes="(min-width:1024px) 50vw, 100vw"
+            />
           </div>
+        </div>
+
+        <!-- Info Card (right, overlaps left image) -->
+        <div
+          class="relative order-2 z-10 lg:col-start-2 lg:-ml-16 xl:-ml-20 -mt-8 lg:-mt-2"
+        >
+          <article
+            class="rounded-3xl bg-white/90 backdrop-blur-md ring-1 ring-black/5 shadow-xl p-6 sm:p-8"
+          >
+            <!-- Heading & intro -->
+            <header>
+              <h2
+                class="font-heading font-bold text-3xl lg:text-4xl tracking-tight text-neutral-900"
+              >
+                Guided Retreats
+              </h2>
+              <p class="mt-3 text-neutral-700 leading-relaxed">
+                Transformative 3–4 day immersions combining breathwork,
+                <span class="font-medium">sound healing</span>, sauna rituals,
+                nourishing meals, and nature connection.
+                <span class="font-medium">Capacity: up to 8 guests.</span>
+              </p>
+            </header>
+
+            <!-- Content grid -->
+            <div class="mt-6 grid gap-8">
+              <!-- Retreat Experience -->
+              <section>
+                <h3 class="text-lg font-semibold text-neutral-900">
+                  Retreat Experience
+                </h3>
+                <ul
+                  class="mt-3 grid sm:grid-cols-2 gap-x-6 gap-y-3 text-sm text-neutral-800"
+                >
+                  <li class="flex gap-2">
+                    <span
+                      class="mt-2 h-1.5 w-1.5 rounded-full bg-[#A45D3D]"
+                    ></span
+                    >Wim Hof Method: breath, cold exposure, mindfulness
+                  </li>
+                  <li class="flex gap-2">
+                    <span
+                      class="mt-2 h-1.5 w-1.5 rounded-full bg-[#A45D3D]"
+                    ></span
+                    >Daily sauna ritual with pond-side cold plunge
+                  </li>
+                  <li class="flex gap-2">
+                    <span
+                      class="mt-2 h-1.5 w-1.5 rounded-full bg-[#A45D3D]"
+                    ></span
+                    >Guided sound healing &amp; vibration therapy
+                  </li>
+                  <li class="flex gap-2">
+                    <span
+                      class="mt-2 h-1.5 w-1.5 rounded-full bg-[#A45D3D]"
+                    ></span
+                    >Qi Gong, hikes, stretching &amp; interoceptive practices
+                  </li>
+                  <li class="flex gap-2">
+                    <span
+                      class="mt-2 h-1.5 w-1.5 rounded-full bg-[#A45D3D]"
+                    ></span
+                    >Community connection &amp; evening wind-down rituals
+                  </li>
+                  <li class="flex gap-2">
+                    <span
+                      class="mt-2 h-1.5 w-1.5 rounded-full bg-[#A45D3D]"
+                    ></span
+                    >Select dates: guest instructors (ecstatic dance, yoga, Thai
+                    massage)
+                  </li>
+                </ul>
+
+                <!-- Inline links -->
+                <div class="mt-4 flex flex-wrap gap-4 text-sm font-medium">
+                  <a
+                    href="#sample-flow"
+                    class="inline-flex items-center gap-2 text-[#A45D3D] hover:underline"
+                  >
+                    View Sample Daily Flow
+                    <svg class="h-4 w-4" viewBox="0 0 24 24" aria-hidden="true">
+                      <path
+                        d="M9 5l7 7-7 7"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        fill="none"
+                      />
+                    </svg>
+                  </a>
+                  <a
+                    href="#about"
+                    class="inline-flex items-center gap-2 text-[#A45D3D] hover:underline"
+                  >
+                    Meet Your Hosts
+                    <svg class="h-4 w-4" viewBox="0 0 24 24" aria-hidden="true">
+                      <path
+                        d="M9 5l7 7-7 7"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        fill="none"
+                      />
+                    </svg>
+                  </a>
+                </div>
+              </section>
+
+              <!-- Quick Facts -->
+              <section class="grid gap-6 sm:grid-cols-2">
+                <div>
+                  <h3 class="text-lg font-semibold text-neutral-900">
+                    Lodging
+                  </h3>
+                  <p class="mt-1 text-sm text-neutral-600">
+                    Rustic cabin designed for comfort and connection.
+                  </p>
+                  <ul class="mt-3 divide-y divide-neutral-200/70 text-sm">
+                    <li class="py-2">Shared loft with 8 single beds</li>
+                    <li class="py-2">3 full bathrooms with showers</li>
+                    <li class="py-2">Full kitchen &amp; Wi-Fi</li>
+                    <li class="py-2">Wood stove heating</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 class="text-lg font-semibold text-neutral-900">Meals</h3>
+                  <p class="mt-1 text-sm text-neutral-600">
+                    Wholesome, homemade Eastern European food prepared daily.
+                  </p>
+                  <ul class="mt-3 grid gap-y-2 text-sm text-neutral-800">
+                    <li>Breakfast, lunch, dinner + snacks</li>
+                    <li>Grain/avocado bowls • Hearty soups</li>
+                    <li>Pilaf (lamb/beef/chicken)</li>
+                    <li>Vegetable stew • “Secret” fish dish</li>
+                    <li>Fire-cooked meals in a kazan (select nights)</li>
+                    <li>Vegetarian on request</li>
+                  </ul>
+                </div>
+              </section>
+            </div>
+
+            <!-- Pricing + CTAs -->
+            <footer class="mt-8">
+              <div
+                class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"
+              >
+                <p class="text-base sm:text-lg text-neutral-900">
+                  <span class="font-semibold">Typical Retreat Investment:</span>
+                  $600–$800 (varies by season &amp; length)
+                </p>
+                <div class="flex flex-wrap gap-3">
+                  <a
+                    href="#contact"
+                    class="inline-flex items-center justify-center rounded-full bg-[#A45D3D] px-6 py-3 text-white font-medium shadow hover:opacity-95 active:opacity-90"
+                  >
+                    Inquire About Dates
+                  </a>
+                  <a
+                    href="#retreats-details"
+                    class="inline-flex items-center justify-center rounded-full ring-1 ring-[#A45D3D]/30 px-6 py-3 text-[#A45D3D] font-medium hover:bg-[#A45D3D]/5"
+                  >
+                    See What’s Included
+                  </a>
+                </div>
+              </div>
+            </footer>
+          </article>
         </div>
       </div>
     </section>
@@ -487,132 +567,160 @@
     <!-- Sauna -->
     <section id="sauna" class="py-20 bg-neutral-50">
       <div
-        class="mx-auto max-w-6xl px-6 grid gap-12 lg:grid-cols-2 items-start"
+        class="mx-auto max-w-6xl px-6 grid gap-12 lg:grid-cols-2 items-start relative"
       >
-        <!-- Image -->
-        <div class="order-1 lg:order-2">
+        <!-- Image (right: pokes above & sits under card) -->
+        <div class="order-1 lg:order-2 relative z-0 lg:-mt-6 xl:-mt-10">
           <div
-            class="aspect-[4/3] md:aspect-[3/4] w-full overflow-hidden rounded-3xl"
+            class="aspect-[4/3] md:aspect-[3/4] w-full overflow-hidden rounded-3xl shadow-lg"
           >
             <img
-              src="./images/sauna-hero.jpeg"
+              src="./images/sauna-hero.jpg"
               alt="Lakeside sauna experience"
               class="h-full w-full object-cover"
             />
           </div>
         </div>
 
-        <!-- Copy -->
-        <div class="order-2 lg:order-1">
-          <h2 class="text-3xl font-bold tracking-tight">Pond-Side Sauna</h2>
-          <p class="mt-3 text-neutral-700">
-            Traditional heat and lake air in a calm, grounding ritual.
-          </p>
-
-          <div class="mt-6 grid sm:grid-cols-2 gap-5">
-            <!-- Standard Session -->
-            <div
-              class="rounded-2xl bg-white/80 backdrop-blur ring-1 ring-neutral-200 p-6"
+        <!-- Overlapping Card (left) -->
+        <div
+          class="order-2 lg:order-1 relative z-20 lg:-mr-16 xl:-mr-20 -mt-8 lg:-mt-2"
+        >
+          <div
+            class="rounded-3xl bg-white shadow-xl ring-1 ring-neutral-200 p-6 sm:p-8"
+          >
+            <h2
+              class="text-4xl font-heading font-bold tracking-tight text-neutral-900"
             >
-              <div class="flex h-full flex-col">
-                <div>
-                  <h3 class="text-lg font-semibold">Standard Sauna Session</h3>
-                  <p class="mt-1 text-sm text-neutral-600">
-                    Four-hour session • Minimum three people
-                  </p>
+              Pond-Side Sauna
+            </h2>
+            <p class="mt-3 text-neutral-700">
+              Traditional heat and lake air in a calm, grounding ritual.
+            </p>
 
-                  <div class="mt-4 border-t border-neutral-200/70 pt-4">
-                    <div class="text-sm font-medium text-neutral-900">
-                      Includes
-                    </div>
-                    <ul class="mt-2 space-y-1.5 text-sm text-neutral-700">
-                      <li class="flex items-start gap-2">
-                        <span
-                          class="mt-[6px] h-1.5 w-1.5 rounded-full bg-neutral-400"
-                        ></span>
-                        Aromatherapy
-                      </li>
-                      <li class="flex items-start gap-2">
-                        <span
-                          class="mt-[6px] h-1.5 w-1.5 rounded-full bg-neutral-400"
-                        ></span>
-                        Tea service
-                      </li>
-                      <li class="flex items-start gap-2">
-                        <span
-                          class="mt-[6px] h-1.5 w-1.5 rounded-full bg-neutral-400"
-                        ></span>
-                        Mineral water
-                      </li>
-                    </ul>
+            <!-- Session details -->
+            <div class="mt-6">
+              <h3 class="text-lg font-semibold">Standard Sauna Session</h3>
+              <p class="mt-1 text-sm text-neutral-600">
+                Four-hour session • Minimum three people
+              </p>
+
+              <!-- Base Rate (moved up, clearly labeled) -->
+              <div
+                class="mt-4 rounded-2xl border border-neutral-200/80 bg-neutral-50 p-4"
+              >
+                <div class="flex items-center justify-between">
+                  <div class="text-sm font-medium text-neutral-900">
+                    Base Rate
+                    <span
+                      class="ml-2 rounded-full bg-neutral-900/5 px-2.5 py-0.5 text-[12px] font-normal text-neutral-700"
+                      >per person</span
+                    >
                   </div>
+                  <div class="text-2xl font-semibold tracking-tight">$100</div>
                 </div>
+                <p class="mt-2 text-xs text-neutral-500">
+                  Includes sauna time, changing area access, and session
+                  guidance.
+                </p>
+              </div>
 
-                <!-- Price anchored at bottom -->
-                <div
-                  class="mt-6 border-t border-neutral-200/70 pt-4 flex items-baseline justify-between"
-                >
-                  <span class="text-sm text-neutral-500">Per person</span>
-                  <span class="text-2xl font-semibold">$100</span>
-                </div>
+              <!-- Included -->
+              <div class="mt-5 border-t border-neutral-200/70 pt-4">
+                <div class="text-sm font-medium text-neutral-900">Included</div>
+                <ul class="mt-2 space-y-1.5 text-sm text-neutral-700">
+                  <li class="flex items-start gap-2">
+                    <span
+                      class="mt-[6px] h-1.5 w-1.5 rounded-full bg-neutral-400"
+                    ></span
+                    >Aromatherapy
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span
+                      class="mt-[6px] h-1.5 w-1.5 rounded-full bg-neutral-400"
+                    ></span
+                    >Tea service
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span
+                      class="mt-[6px] h-1.5 w-1.5 rounded-full bg-neutral-400"
+                    ></span
+                    >Mineral water
+                  </li>
+                </ul>
               </div>
             </div>
 
-            <!-- Add-Ons -->
-            <div
-              class="rounded-2xl bg-white/80 backdrop-blur ring-1 ring-neutral-200 p-6"
-            >
-              <div class="font-semibold">Add-Ons</div>
+            <!-- Add-ons (clearly optional + “each”) -->
+            <div class="mt-6">
+              <div class="text-sm font-medium text-neutral-900">
+                Optional Add-Ons
+              </div>
               <ul class="mt-3 divide-y divide-neutral-200 text-sm">
                 <li class="py-3 flex items-center justify-between">
-                  <span>Veniks Massage</span
-                  ><span class="text-neutral-900 font-medium ml-1">$40</span>
+                  <span>Veniks Massage</span>
+                  <span class="text-neutral-900 font-medium ml-1"
+                    >$40
+                    <span class="text-neutral-500 font-normal">each</span></span
+                  >
                 </li>
                 <li class="py-3 flex items-center justify-between">
-                  <span>Breathing + Sound Healing</span
-                  ><span class="text-neutral-900 font-medium ml-1">$40</span>
+                  <span>Breathing + Sound Healing</span>
+                  <span class="text-neutral-900 font-medium ml-1"
+                    >$40
+                    <span class="text-neutral-500 font-normal">each</span></span
+                  >
                 </li>
                 <li class="py-3 flex items-center justify-between">
                   <span
                     >Ice Bath
                     <span class="text-neutral-500">(summer only)</span></span
                   >
-                  <span class="text-neutral-900 font-medium ml-1">$40</span>
+                  <span class="text-neutral-900 font-medium ml-1"
+                    >$40
+                    <span class="text-neutral-500 font-normal">each</span></span
+                  >
                 </li>
                 <li class="py-3 flex items-center justify-between">
-                  <span>Soup + Salad</span
-                  ><span class="text-neutral-900 font-medium ml-1">$20</span>
+                  <span>Soup + Salad</span>
+                  <span class="text-neutral-900 font-medium ml-1"
+                    >$20
+                    <span class="text-neutral-500 font-normal">each</span></span
+                  >
                 </li>
               </ul>
+              <p class="mt-2 text-xs text-neutral-500">
+                Add-ons are priced per person unless noted.
+              </p>
             </div>
-          </div>
 
-          <!-- Info note (subtle alert) -->
-          <div
-            class="mt-5 rounded-xl border border-[#A45D3D]/15 bg-[#A45D3D]/5 p-4"
-          >
-            <p class="text-[13px] leading-5 text-neutral-700">
-              <span class="font-medium text-neutral-800">Booking:</span>
-              Please request at least one week in advance. A deposit of
-              <span class="font-medium">20%</span> of your party’s total is
-              required upon booking.
-            </p>
-          </div>
+            <!-- Booking note -->
+            <div
+              class="mt-6 rounded-xl border border-[#A45D3D]/15 bg-[#A45D3D]/5 p-4"
+            >
+              <p class="text-[13px] leading-5 text-neutral-700">
+                <span class="font-medium text-neutral-800">Booking:</span>
+                Please request at least one week in advance. A deposit of
+                <span class="font-medium">20%</span> of your party’s total is
+                required upon booking.
+              </p>
+            </div>
 
-          <!-- Buttons -->
-          <div class="mt-6 flex flex-col sm:flex-row gap-4">
-            <a
-              href="#contact"
-              class="inline-flex items-center justify-center rounded-xl bg-[#A45D3D] px-5 py-3 text-white font-medium shadow-sm hover:opacity-95 active:opacity-90"
-            >
-              Reserve a Session
-            </a>
-            <a
-              href="/sauna"
-              class="inline-flex items-center justify-center rounded-xl border border-[#A45D3D]/80 px-5 py-3 text-[#A45D3D] font-medium hover:bg-[#A45D3D]/10"
-            >
-              More Info
-            </a>
+            <!-- CTAs -->
+            <div class="mt-6 flex flex-col sm:flex-row gap-4">
+              <a
+                href="#contact"
+                class="inline-flex items-center justify-center rounded-full bg-[#A45D3D] px-6 py-3 text-white font-medium shadow-sm hover:opacity-95 active:opacity-90"
+              >
+                Reserve a Session
+              </a>
+              <a
+                href="/sauna"
+                class="inline-flex items-center justify-center rounded-full border border-[#A45D3D]/80 px-6 py-3 text-[#A45D3D] font-medium hover:bg-[#A45D3D]/10"
+              >
+                More Info
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -660,7 +768,9 @@
       <div class="mx-auto max-w-6xl px-6">
         <!-- Heading -->
         <div class="text-center max-w-3xl mx-auto">
-          <h2 class="text-4xl font-bold tracking-tight text-neutral-900">
+          <h2
+            class="text-4xl font-heading font-bold tracking-tight text-neutral-900 uppercase"
+          >
             Meet Your Hosts
           </h2>
           <p class="mt-4 text-lg text-neutral-700 leading-relaxed">
@@ -730,15 +840,35 @@
     <!-- Contact -->
     <section id="contact" class="py-24 bg-neutral-50">
       <div class="mx-auto max-w-5xl px-6">
+        <!-- Heading + CTA copy -->
         <div class="text-center max-w-2xl mx-auto">
-          <h2 class="text-4xl font-bold tracking-tight text-neutral-900">
+          <h2
+            class="text-4xl font-heading font-bold tracking-tight text-neutral-900 uppercase"
+          >
             Get in Touch
           </h2>
           <p class="mt-4 text-lg text-neutral-700 leading-relaxed">
-            Our preferred channel is
-            <span class="font-medium text-[#A45D3D]">Instagram</span>, but you
-            can also reach us on Messenger, Telegram, or Email.
+            Ready to plan your retreat?
+            <span class="font-medium text-neutral-900">DM us on Instagram</span>
+            to get dates, pricing, and availability. Prefer something else? You
+            can also reach us via Messenger, Telegram, or Email below.
           </p>
+          <div class="mt-6">
+            <a
+              href="https://instagram.com/yourhandle"
+              target="_blank"
+              rel="noopener"
+              class="inline-flex items-center gap-2 rounded-full bg-[#A45D3D] px-6 py-3 text-white font-medium shadow hover:opacity-95 active:opacity-90"
+            >
+              <!-- insta glyph -->
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 4a5 5 0 100 10 5 5 0 000-10zm5-.8a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4z"
+                />
+              </svg>
+              DM us on Instagram
+            </a>
+          </div>
         </div>
 
         <!-- Contact Methods -->
@@ -752,8 +882,8 @@
           >
             <svg
               class="mx-auto h-8 w-8 text-[#A45D3D] group-hover:scale-110 transition"
-              fill="currentColor"
               viewBox="0 0 24 24"
+              fill="currentColor"
             >
               <path
                 d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 4a5 5 0 100 10 5 5 0 000-10zm5-.8a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4z"
@@ -772,8 +902,8 @@
           >
             <svg
               class="mx-auto h-8 w-8 text-[#A45D3D] group-hover:scale-110 transition"
-              fill="currentColor"
               viewBox="0 0 24 24"
+              fill="currentColor"
             >
               <path
                 d="M12 2C6.5 2 2 6 2 11.5c0 2.9 1.4 5.5 3.7 7.2V22l3.3-1.8c.9.2 1.8.3 2.8.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm.1 13.7l-2.9-3.1-5.1 3.1 5.6-6.1 2.9 3.1 5.1-3.1-5.6 6.1z"
@@ -792,8 +922,8 @@
           >
             <svg
               class="mx-auto h-8 w-8 text-[#A45D3D] group-hover:scale-110 transition"
-              fill="currentColor"
               viewBox="0 0 24 24"
+              fill="currentColor"
             >
               <path
                 d="M21.5 3.3l-19 7.3c-1.3.5-1.3 1.3-.2 1.6l4.9 1.5 11.5-7.7c.6-.4 1.2-.2.7.3l-9.3 8.8-.3 4c.5 0 .7-.2 1-.5l2.4-2.3 5 3.6c.9.5 1.6.2 1.8-.8l3.3-15.3c.3-1.5-.6-2.1-1.8-1.5z"
@@ -810,8 +940,8 @@
           >
             <svg
               class="mx-auto h-8 w-8 text-[#A45D3D] group-hover:scale-110 transition"
-              fill="currentColor"
               viewBox="0 0 24 24"
+              fill="currentColor"
             >
               <path
                 d="M2 6a2 2 0 012-2h16a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6zm2 0l8 5 8-5H4zm0 2.2v9.8h16V8.2l-8 5-8-5z"
@@ -822,85 +952,52 @@
           </a>
         </div>
 
-        <!-- Map (link tile by default; auto-embeds if coords provided) -->
+        <!-- Map: uses your BUSINESS LINK directly (no coordinates) -->
         <div class="mt-14">
           <h3 class="text-xl font-semibold text-neutral-900 text-center">
             Find Us
           </h3>
 
-          <!-- Wrap holds optional coordinates; fill these to switch to embedded map -->
-          <div
-            id="mapWrap"
-            data-lat="41.234567"
-            data-lng="-74.123456"
-            class="relative mt-4 aspect-[16/9] w-full rounded-2xl overflow-hidden shadow ring-1 ring-neutral-200"
+          <!-- Clickable map tile that opens your exact business link -->
+          <a
+            href="https://maps.app.goo.gl/ErMqpm4ywgvJ5teu6?g_st=atm"
+            target="_blank"
+            rel="noopener"
+            class="mt-4 block aspect-[16/9] w-full rounded-2xl overflow-hidden shadow ring-1 ring-neutral-200 relative bg-[url('./images/map-placeholder.jpg')] bg-cover bg-center"
           >
-            <!-- Open-in-Maps tile (always correct) -->
-            <a
-              id="mapLink"
-              href="https://maps.app.goo.gl/ErMqpm4ywgvJ5teu6?g_st=atm"
-              target="_blank"
-              rel="noopener"
-              class="absolute inset-0 grid place-items-center bg-[url('./images/map-placeholder.jpg')] bg-cover bg-center"
+            <span
+              class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/15 to-transparent"
+            ></span>
+            <span
+              class="absolute bottom-4 left-4 inline-flex items-center gap-2 rounded-xl bg-white/90 px-4 py-2 text-sm font-medium text-neutral-900 ring-1 ring-white/70 backdrop-blur"
             >
-              <div
-                class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"
-              ></div>
-              <span
-                class="relative inline-flex items-center gap-2 rounded-xl bg-white/90 px-4 py-2 text-sm font-medium text-neutral-900 ring-1 ring-white/70 backdrop-blur"
+              Open in Google Maps
+              <svg
+                class="h-4 w-4 text-[#A45D3D]"
+                viewBox="0 0 24 24"
+                fill="currentColor"
               >
-                Open in Google Maps
-                <svg
-                  class="h-4 w-4 text-[#A45D3D]"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path
-                    d="M12 4l1.41 1.41L8.83 10H20v2H8.83l4.58 4.59L12 18l-8-8 8-8z"
-                  />
-                </svg>
-              </span>
-            </a>
+                <path
+                  d="M12 4l1.41 1.41L8.83 10H20v2H8.83l4.58 4.59L12 18l-8-8 8-8z"
+                />
+              </svg>
+            </span>
+          </a>
 
-            <!-- Embedded map (hidden until we have coordinates) -->
-            <iframe
-              id="mapFrame"
-              class="hidden h-full w-full"
-              style="border: 0"
-              loading="lazy"
-              allowfullscreen
-              referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </div>
-
-          <p class="mt-2 text-center text-sm text-neutral-600">
-            Prefer a full-screen view?
+          <!-- Show the business link plainly if you want it visible on the page -->
+          <p class="mt-2 text-center text-sm text-neutral-600 break-all">
+            <span class="mr-1">Business link:</span>
             <a
               href="https://maps.app.goo.gl/ErMqpm4ywgvJ5teu6?g_st=atm"
               target="_blank"
               rel="noopener"
               class="text-[#A45D3D] hover:underline"
             >
-              Open in Google Maps
+              https://maps.app.goo.gl/ErMqpm4ywgvJ5teu6?g_st=atm
             </a>
           </p>
         </div>
       </div>
-
-      <!-- Tiny helper: if you add coords above, we embed the exact spot -->
-      <script>
-        (function () {
-          const wrap = document.getElementById("mapWrap");
-          const lat = wrap?.dataset.lat;
-          const lng = wrap?.dataset.lng;
-          if (lat && lng) {
-            const frame = document.getElementById("mapFrame");
-            frame.src = `https://www.google.com/maps?q=loc:${lat},${lng}&z=14&output=embed`;
-            frame.classList.remove("hidden");
-            document.getElementById("mapLink").classList.add("hidden");
-          }
-        })();
-      </script>
     </section>
 
     <!-- Footer -->
