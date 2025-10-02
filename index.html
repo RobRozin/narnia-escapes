@@ -26,6 +26,17 @@
     <script type="text/javascript" src="./js/petite-vue.iife.js" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="./js/tailwind-config.js"></script>
+
+    <style>
+      .ios-composite {
+        transform: translateZ(0);
+        backface-visibility: hidden;
+        -webkit-font-smoothing: antialiased;
+      }
+      body {
+        -webkit-overflow-scrolling: touch;
+      }
+    </style>
   </head>
   <body
     id="app"
@@ -154,11 +165,11 @@
         v-if="isMobileMenuOpen"
         class="md:hidden absolute inset-x-0 top-full bg-cream border-t border-accent-clay/20 shadow-lg z-40"
       >
-        <nav class="px-5 py-4 space-y-4">
+        <nav class="px-5 py-4 space-y-12">
           <a
             href="#home"
             @click="isMobileMenuOpen=false"
-            class="block text-lg font-medium text-ink hover:text-primary"
+            class="block text-lg font-medium text-ink hover:text-primary mt-6"
             >Home</a
           >
           <a
@@ -470,7 +481,7 @@
 
                 <!-- Inline links -->
                 <div class="mt-4 flex flex-wrap gap-4 text-sm font-medium">
-                  <a
+                  <!-- <a
                     href="#sample-flow"
                     class="inline-flex items-center gap-2 text-[#A45D3D] hover:underline"
                   >
@@ -483,7 +494,7 @@
                         fill="none"
                       />
                     </svg>
-                  </a>
+                  </a> -->
                   <a
                     href="#about"
                     class="inline-flex items-center gap-2 text-[#A45D3D] hover:underline"
@@ -665,34 +676,22 @@
               <ul class="mt-3 divide-y divide-neutral-200 text-sm">
                 <li class="py-3 flex items-center justify-between">
                   <span>Veniks Massage</span>
-                  <span class="text-neutral-900 font-medium ml-1"
-                    >$40
-                    <span class="text-neutral-500 font-normal">each</span></span
-                  >
+                  <span class="text-neutral-900 font-medium ml-1">$40 </span>
                 </li>
                 <li class="py-3 flex items-center justify-between">
                   <span>Breathing + Sound Baths</span>
-                  <span class="text-neutral-900 font-medium ml-1"
-                    >$40
-                    <span class="text-neutral-500 font-normal">each</span></span
-                  >
+                  <span class="text-neutral-900 font-medium ml-1">$40 </span>
                 </li>
                 <li class="py-3 flex items-center justify-between">
                   <span
                     >Ice Bath
                     <span class="text-neutral-500">(summer only)</span></span
                   >
-                  <span class="text-neutral-900 font-medium ml-1"
-                    >$40
-                    <span class="text-neutral-500 font-normal">each</span></span
-                  >
+                  <span class="text-neutral-900 font-medium ml-1">$40 </span>
                 </li>
                 <li class="py-3 flex items-center justify-between">
                   <span>Soup + Salad</span>
-                  <span class="text-neutral-900 font-medium ml-1"
-                    >$20
-                    <span class="text-neutral-500 font-normal">each</span></span
-                  >
+                  <span class="text-neutral-900 font-medium ml-1">$20 </span>
                 </li>
               </ul>
               <p class="mt-2 text-xs text-neutral-500">
