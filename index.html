@@ -36,6 +36,15 @@
       body {
         -webkit-overflow-scrolling: touch;
       }
+
+      [data-parallax] > * {
+        transform: translateZ(0);
+      }
+      @media (prefers-reduced-motion: reduce) {
+        [data-parallax] > * {
+          transform: none !important;
+        }
+      }
     </style>
   </head>
   <body
@@ -43,7 +52,8 @@
     class="bg-paper text-body font-body overscroll-y-none"
     v-cloak
     v-scope
-    @vue:mounted="init"
+    @vue:mounted="mounted"
+    @vue:unmounted="unmounted"
   >
     <!-- Navbar -->
     <header
@@ -239,7 +249,7 @@
               rgba(0, 0, 0, 0.25) 35%,
               rgba(0, 0, 0, 0.55)
             ),
-            url('./images/hero-fall.png');
+            url('./images/hero-home-fall.png');
         "
       ></div>
 
@@ -255,8 +265,8 @@
         <p
           class="mt-5 text-white/90 text-base sm:text-lg leading-relaxed px-1 max-w-md"
         >
-          Step into 40 acres of serene forests, healing sauna rituals, and
-          guided practices designed to reconnect you with nature and yourself.
+          Step into 40 acres of serene forests, healing sauna, and guided
+          practices designed to reconnect you with nature and yourself.
         </p>
 
         <!-- CTAs: stacked on mobile, side-by-side from sm+ -->
@@ -299,7 +309,7 @@
 
     <!-- Quick Highlights -->
     <section id="highlights" class="py-24 bg-white">
-      <div class="mx-auto max-w-6xl px-6">
+      <div id="highlights-container" class="mx-auto max-w-6xl px-6">
         <!-- Title + Body (centered, header font) -->
         <header class="text-center">
           <h2
@@ -316,7 +326,8 @@
           <!-- Guided Retreats -->
           <a
             href="#retreats"
-            class="group relative block aspect-[3/4] rounded-3xl overflow-hidden ring-1 ring-neutral-200 hover:ring-neutral-300 shadow transition-all"
+            class="card group relative block aspect-[3/4] rounded-3xl overflow-hidden ring-1 ring-neutral-200 hover:ring-neutral-300 shadow transition-all opacity-0"
+            style="animation-delay: 0ms"
           >
             <img
               src="./images/highlights-retreats.jpeg"
@@ -331,8 +342,8 @@
                 Guided Retreats
               </h3>
               <p class="mt-1 text-sm text-white/90 leading-relaxed">
-                Breathwork • Sound bathing • Sauna & cold plunge • Hikes •
-                Homemade meals (up to 8 guests)
+                Breathwork • Sound bath • Sauna & cold plunge • Hikes • Homemade
+                meals
               </p>
             </div>
           </a>
@@ -340,10 +351,11 @@
           <!-- Sauna Experience -->
           <a
             href="#sauna"
-            class="group relative block aspect-[3/4] rounded-3xl overflow-hidden ring-1 ring-neutral-200 hover:ring-neutral-300 shadow transition-all"
+            class="card group relative block aspect-[3/4] rounded-3xl overflow-hidden ring-1 ring-neutral-200 hover:ring-neutral-300 shadow transition-all opacity-0"
+            style="animation-delay: 20ms"
           >
             <img
-              src="./images/highlights-sauna.jpeg"
+              src="./images/highlights-sauna.jpg"
               alt="Sauna experience with cold plunge"
               class="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]"
             />
@@ -355,8 +367,8 @@
                 Sauna Experience
               </h3>
               <p class="mt-1 text-sm text-white/90 leading-relaxed">
-                Wood-burning heat, tea & aromatherapy, easy ladder into the pond
-                for a refreshing plunge
+                Wood-fired sauna • Cold plunge • Chill room • Herbal tea •
+                Pondside relaxation
               </p>
             </div>
           </a>
@@ -364,7 +376,8 @@
           <!-- Private Events -->
           <a
             href="#events"
-            class="group relative block aspect-[3/4] rounded-3xl overflow-hidden ring-1 ring-neutral-200 hover:ring-neutral-300 shadow transition-all"
+            class="card group relative block aspect-[3/4] rounded-3xl overflow-hidden ring-1 ring-neutral-200 hover:ring-neutral-300 shadow transition-all opacity-0"
+            style="animation-delay: 40ms"
           >
             <img
               src="./images/highlights-events.jpg"
@@ -389,14 +402,14 @@
     </section>
 
     <!-- Retreats -->
-    <section id="retreats" class="py-20 bg-neutral-50">
+    <section id="retreats" class="py-20 bg-neutral-50 js-parallax-section">
       <div
         class="mx-auto max-w-6xl px-6 grid items-start lg:grid-cols-2 gap-10 lg:gap-12 relative"
       >
         <!-- Image (left) -->
-        <div class="relative order-1 z-0">
+        <div class="relative order-1 z-0" data-parallax="back">
           <div
-            class="relative aspect-[4/3] md:aspect-[3/4] w-full overflow-hidden rounded-3xl lg:-mt-8"
+            class="relative aspect-[4/3] md:aspect-[3/4] w-full overflow-hidden rounded-3xl lg:-mt-8 will-change-transform"
           >
             <img
               src="./images/retreats-hero.jpeg"
@@ -411,9 +424,10 @@
         <!-- Info Card (right, overlaps left image) -->
         <div
           class="relative order-2 z-10 lg:col-start-2 lg:-ml-16 xl:-ml-20 -mt-8 lg:-mt-2"
+          data-parallax="front"
         >
           <article
-            class="rounded-3xl bg-white/90 backdrop-blur-md ring-1 ring-black/5 shadow-xl p-6 sm:p-8"
+            class="rounded-3xl bg-white/90 backdrop-blur-md ring-1 ring-black/5 shadow-xl p-6 sm:p-8 will-change-transform"
           >
             <!-- Heading & intro -->
             <header>
@@ -444,13 +458,13 @@
                     <span
                       class="mt-2 h-1.5 w-1.5 rounded-full bg-[#A45D3D]"
                     ></span
-                    >Wim Hof Method: breath, cold exposure, mindfulness
+                    >Wim Hof Method: breathwork, cold exposure, mindfulness
                   </li>
                   <li class="flex gap-2">
                     <span
                       class="mt-2 h-1.5 w-1.5 rounded-full bg-[#A45D3D]"
                     ></span
-                    >Daily sauna ritual with pond-side cold plunge
+                    >Daily sauna ritual with cold plunge
                   </li>
                   <li class="flex gap-2">
                     <span
@@ -468,7 +482,7 @@
                     <span
                       class="mt-2 h-1.5 w-1.5 rounded-full bg-[#A45D3D]"
                     ></span
-                    >Community connection &amp; evening wind-down rituals
+                    >Community connection &amp; evening wind-down
                   </li>
                   <li class="flex gap-2">
                     <span
@@ -552,8 +566,8 @@
               >
                 <!-- Investment text -->
                 <p class="text-base sm:text-lg text-neutral-900 sm:flex-1">
-                  <span class="font-semibold">Typical Retreat Investment:</span>
-                  $600–$800 (varies by season &amp; length)
+                  <span class="font-semibold">Typical Retreat:</span>
+                  $600–$1,000 (varies by season &amp; length)
                 </p>
 
                 <!-- Buttons -->
@@ -565,13 +579,13 @@
                     Inquire About Dates
                   </a>
                   <!--
-      <a
-        href="#retreats-details"
-        class="inline-flex w-full sm:w-auto items-center justify-center rounded-full ring-1 ring-[#A45D3D]/30 px-6 py-3 text-[#A45D3D] font-medium hover:bg-[#A45D3D]/5"
-      >
-        See What’s Included
-      </a>
-      -->
+                    <a
+                        href="#retreats-details"
+                        class="inline-flex w-full sm:w-auto items-center justify-center rounded-full ring-1 ring-[#A45D3D]/30 px-6 py-3 text-[#A45D3D] font-medium hover:bg-[#A45D3D]/5"
+                    >
+                        See What’s Included
+                    </a>
+                    -->
                 </div>
               </div>
             </footer>
@@ -581,29 +595,23 @@
     </section>
 
     <!-- Sauna -->
-    <section id="sauna" class="py-20 bg-neutral-50">
+    <section id="sauna" class="py-20 bg-white js-parallax-section">
       <div
-        class="mx-auto max-w-6xl px-6 grid gap-12 lg:grid-cols-2 items-start relative"
+        class="mx-auto max-w-6xl px-6 grid items-start lg:grid-cols-2 gap-10 lg:gap-12 relative"
       >
-        <!-- Image (right: pokes above & sits under card) -->
-        <div class="order-1 lg:order-2 relative z-0 lg:-mt-6 xl:-mt-10">
-          <div
-            class="aspect-[4/3] md:aspect-[3/4] w-full overflow-hidden rounded-3xl shadow-lg"
-          >
-            <img
-              src="./images/sauna-hero.jpg"
-              alt="Lakeside sauna experience"
-              class="h-full w-full object-cover"
-            />
-          </div>
-        </div>
-
-        <!-- Overlapping Card (left) -->
+        <img
+          src="./images/venik.png"
+          alt=""
+          aria-hidden="true"
+          class="pointer-events-none select-none hidden md:block absolute -top-20 -left-40 rotate-[0.55rad] opacity-60 w-80 md:w-82 lg:w-96 z-0 mix-blend-multiply"
+        />
+        <!-- Info Card (left) -->
         <div
-          class="order-2 lg:order-1 relative z-20 lg:-mr-16 xl:-mr-20 -mt-8 lg:-mt-2"
+          class="relative order-1 z-10 lg:col-start-1 lg:-mr-16 xl:-mr-20 -mt-8 lg:-mt-2"
+          data-parallax="front"
         >
-          <div
-            class="rounded-3xl bg-white shadow-xl ring-1 ring-neutral-200 p-6 sm:p-8"
+          <article
+            class="rounded-3xl bg-white/90 backdrop-blur-md ring-1 ring-black/5 shadow-xl p-6 sm:p-8"
           >
             <h2
               class="text-4xl font-heading font-bold tracking-tight text-neutral-900"
@@ -611,8 +619,12 @@
               Sauna Experience
             </h2>
             <p class="mt-3 text-neutral-700">
-              A traditional wood-fired sauna surrounded by nature, offering
-              heat, fresh air, and a calming, grounding ritual.
+              A wood-fired sauna by the pond, where warmth and nature meet —
+              soothing the mind, easing tension, and renewing the body.
+            </p>
+            <p class="mt-2">
+              Enhance your experience with the Eastern European Platza (Venik)
+              massage, blending heat, aroma, and renewal.
             </p>
 
             <!-- Session details -->
@@ -675,11 +687,11 @@
               </div>
               <ul class="mt-3 divide-y divide-neutral-200 text-sm">
                 <li class="py-3 flex items-center justify-between">
-                  <span>Veniks Massage</span>
+                  <span>Platza (Venik) Massage</span>
                   <span class="text-neutral-900 font-medium ml-1">$40 </span>
                 </li>
                 <li class="py-3 flex items-center justify-between">
-                  <span>Breathing + Sound Baths</span>
+                  <span>Breathwork + Sound Baths</span>
                   <span class="text-neutral-900 font-medium ml-1">$40 </span>
                 </li>
                 <li class="py-3 flex items-center justify-between">
@@ -726,31 +738,50 @@
                 More Info
               </a> -->
             </div>
+          </article>
+        </div>
+
+        <!-- Image (right) -->
+        <div class="relative order-2 z-0" data-parallax="back">
+          <div
+            class="relative aspect-[4/3] md:aspect-[3/4] w-full overflow-hidden rounded-3xl lg:-mt-8"
+          >
+            <img
+              src="./images/sauna-hero.jpg"
+              alt="Traditional wood-burning sauna beside the pond"
+              class="h-full w-full object-cover"
+              loading="lazy"
+            />
           </div>
         </div>
       </div>
     </section>
 
     <!-- Events -->
-    <section id="events" class="py-20 bg-neutral-50">
+    <section id="events" class="py-20 bg-neutral-50 js-parallax-section">
       <div class="mx-auto max-w-6xl px-6">
-        <div class="grid gap-10 lg:grid-cols-2 items-start">
-          <!-- Image (poke above, sits under card) -->
-          <div class="order-1 relative z-10 lg:-mt-6 xl:-mt-10">
+        <div class="grid gap-10 lg:grid-cols-2 items-start relative">
+          <!-- Image (under card) -->
+          <div
+            class="order-1 relative z-0 lg:-mt-8 xl:-mt-12"
+            data-parallax="back"
+          >
             <div
               class="aspect-[4/3] md:aspect-[3/4] w-full overflow-hidden rounded-3xl shadow-lg bg-neutral-200"
             >
-              <!-- Replace with your image -->
               <img
                 src="./images/events-hero.jpg"
                 alt="Private events with a Narnia vibe"
-                class="h-full w-full object-cover"
+                class="h-full w-full object-cover will-change-transform scale-[1.8]"
               />
             </div>
           </div>
 
-          <!-- Overlapping Card -->
-          <div class="order-2 relative z-20 lg:-ml-8 xl:-ml-12">
+          <!-- Overlapping Card (on top) -->
+          <div
+            class="order-2 relative z-10 lg:-ml-16 xl:-ml-20 -mt-8 lg:-mt-2"
+            data-parallax="front"
+          >
             <div
               class="rounded-3xl border border-neutral-200 bg-white/90 shadow-xl backdrop-blur p-6 md:p-8"
             >
@@ -761,9 +792,9 @@
               </h2>
 
               <p class="mt-3 text-neutral-700">
-                Bring your workshop or gathering to our woodland space—we’ll
-                infuse it with the Narnia vibe and take care of the essentials
-                so you can focus on your guests.
+                Bring your workshop or gathering to our magical woodland
+                space—we'll infuse it with the Narnia vibe and take care of the
+                essentials so you can focus on your guests.
               </p>
 
               <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
@@ -771,23 +802,22 @@
                   <li>
                     • Add the Narnia vibe to any workshop or private event
                   </li>
-                  <li>
-                    • Accommodations available: homemade meals &amp; sauna
-                  </li>
+                  <li>• Accommodations available with homemade meals</li>
                 </ul>
                 <ul class="space-y-2 text-neutral-700">
                   <li>
-                    • Optional experiences: breathing, cold exposure &amp; sauna
+                    • Optional experiences: breathwork, cold exposure &amp;
+                    sauna
                   </li>
                   <li>
-                    • Need more room or private suites? Upscale to local Airbnbs
+                    • Need more room or private suites? Local Airbnb partners
+                    available
                   </li>
                 </ul>
               </div>
-
               <a
                 href="#contact"
-                class="mt-6 inline-flex w-full sm:w-auto items-center justify-center rounded-full border border-[#A45D3D] px-6 py-3 text-[#A45D3D] font-medium hover:bg-[#A45D3D]/5"
+                class="mt-6 inline-flex w-full sm:w-auto items-center justify-center rounded-full bg-[#A45D3D] px-6 py-3 text-white font-medium shadow-sm hover:opacity-95 active:opacity-90"
               >
                 Plan Your Event
               </a>
@@ -874,7 +904,7 @@
     <!-- Contact -->
     <section id="contact" class="py-24 bg-neutral-50">
       <div class="mx-auto max-w-5xl px-6">
-        <!-- Heading + CTA copy -->
+        <!-- Heading -->
         <div class="text-center max-w-2xl mx-auto">
           <h2
             class="text-4xl font-heading font-bold tracking-tight text-neutral-900 uppercase"
@@ -882,117 +912,119 @@
             Get in Touch
           </h2>
           <p class="mt-4 text-lg text-neutral-700 leading-relaxed">
-            Ready to plan your retreat?
-            <span class="font-medium text-neutral-900">DM us on Instagram</span>
-            to get dates, pricing, and availability. Prefer something else? You
-            can also reach us via Messenger, Telegram, or Email below.
+            Ready to plan your retreat?<br />
+            Send us a message below — we’ll reply on the platform you choose.
           </p>
-          <div class="mt-6">
+
+          <!-- Prefill message -->
+          <div class="mt-6 text-left">
+            <label
+              for="contactMessage"
+              class="block text-sm font-medium text-neutral-800"
+            >
+              Your message (edit if you like)
+            </label>
+            <textarea
+              id="contactMessage"
+              class="mt-2 w-full rounded-xl border border-neutral-300 bg-white p-3 text-neutral-900 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-[#A45D3D]"
+              rows="3"
+              placeholder="Hello! I'm interested in your retreats, sauna, or private events. Could you share availability and pricing?"
+            ></textarea>
+          </div>
+
+          <!-- Buttons -->
+          <div
+            class="mt-8 flex flex-col sm:flex-row flex-wrap justify-center gap-4"
+          >
+            <!-- Instagram -->
             <a
-              href="https://instagram.com/yourhandle"
+              id="btnInstagram"
+              href="#"
               target="_blank"
               rel="noopener"
-              class="inline-flex items-center gap-2 rounded-full bg-[#A45D3D] px-6 py-3 text-white font-medium shadow hover:opacity-95 active:opacity-90"
+              class="inline-flex items-center gap-2 rounded-full bg-[#A45D3D] px-6 py-3 text-white font-medium shadow hover:opacity-95 active:opacity-90 transition"
             >
-              <!-- insta glyph -->
-              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+              <svg
+                class="h-5 w-5"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
                 <path
                   d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 4a5 5 0 100 10 5 5 0 000-10zm5-.8a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4z"
                 />
               </svg>
-              DM us on Instagram
+              Message on Instagram
+            </a>
+
+            <!-- Messenger -->
+            <a
+              id="btnMessenger"
+              href="#"
+              target="_blank"
+              rel="noopener"
+              class="inline-flex items-center gap-2 rounded-full bg-[#A45D3D] px-6 py-3 text-white font-medium shadow hover:opacity-95 active:opacity-90 transition"
+            >
+              <svg
+                class="h-5 w-5"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  d="M12 2C6.5 2 2 6 2 11.5c0 2.9 1.4 5.5 3.7 7.2V22l3.3-1.8c.9.2 1.8.3 2.8.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm.1 13.7l-2.9-3.1-5.1 3.1 5.6-6.1 2.9 3.1 5.1-3.1-5.6 6.1z"
+                />
+              </svg>
+              Message on Messenger
+            </a>
+
+            <!-- Telegram -->
+            <a
+              id="btnTelegram"
+              href="#"
+              target="_blank"
+              rel="noopener"
+              class="inline-flex items-center gap-2 rounded-full bg-[#A45D3D] px-6 py-3 text-white font-medium shadow hover:opacity-95 active:opacity-90 transition"
+            >
+              <svg
+                class="h-5 w-5"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  d="M21.5 3.3l-19 7.3c-1.3.5-1.3 1.3-.2 1.6l4.9 1.5 11.5-7.7c.6-.4 1.2-.2.7.3l-9.3 8.8-.3 4c.5 0 .7-.2 1-.5l2.4-2.3 5 3.6c.9.5 1.6.2 1.8-.8l3.3-15.3c.3-1.5-.6-2.1-1.8-1.5z"
+                />
+              </svg>
+              Message on Telegram
+            </a>
+
+            <!-- Email -->
+            <a
+              id="btnEmail"
+              href="#"
+              class="inline-flex items-center gap-2 rounded-full bg-[#A45D3D] px-6 py-3 text-white font-medium shadow hover:opacity-95 active:opacity-90 transition"
+            >
+              <svg
+                class="h-5 w-5"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  d="M2 6a2 2 0 012-2h16a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6zm2 0l8 5 8-5H4zm0 2.2v9.8h16V8.2l-8 5-8-5z"
+                />
+              </svg>
+              Send Email
             </a>
           </div>
         </div>
 
-        <!-- Contact Methods -->
-        <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4 text-center">
-          <!-- Instagram (preferred) -->
-          <a
-            href="https://instagram.com/yourhandle"
-            target="_blank"
-            rel="noopener"
-            class="group rounded-2xl bg-white shadow ring-1 ring-neutral-200 p-6 hover:shadow-md transition"
-          >
-            <svg
-              class="mx-auto h-8 w-8 text-[#A45D3D] group-hover:scale-110 transition"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-            >
-              <path
-                d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 4a5 5 0 100 10 5 5 0 000-10zm5-.8a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4z"
-              />
-            </svg>
-            <h3 class="mt-3 font-semibold text-neutral-900">Instagram</h3>
-            <p class="mt-1 text-sm text-neutral-600">Preferred</p>
-          </a>
-
-          <!-- Messenger -->
-          <a
-            href="https://m.me/yourhandle"
-            target="_blank"
-            rel="noopener"
-            class="group rounded-2xl bg-white shadow ring-1 ring-neutral-200 p-6 hover:shadow-md transition"
-          >
-            <svg
-              class="mx-auto h-8 w-8 text-[#A45D3D] group-hover:scale-110 transition"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-            >
-              <path
-                d="M12 2C6.5 2 2 6 2 11.5c0 2.9 1.4 5.5 3.7 7.2V22l3.3-1.8c.9.2 1.8.3 2.8.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm.1 13.7l-2.9-3.1-5.1 3.1 5.6-6.1 2.9 3.1 5.1-3.1-5.6 6.1z"
-              />
-            </svg>
-            <h3 class="mt-3 font-semibold text-neutral-900">Messenger</h3>
-            <p class="mt-1 text-sm text-neutral-600">Facebook</p>
-          </a>
-
-          <!-- Telegram -->
-          <a
-            href="https://t.me/yourhandle"
-            target="_blank"
-            rel="noopener"
-            class="group rounded-2xl bg-white shadow ring-1 ring-neutral-200 p-6 hover:shadow-md transition"
-          >
-            <svg
-              class="mx-auto h-8 w-8 text-[#A45D3D] group-hover:scale-110 transition"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-            >
-              <path
-                d="M21.5 3.3l-19 7.3c-1.3.5-1.3 1.3-.2 1.6l4.9 1.5 11.5-7.7c.6-.4 1.2-.2.7.3l-9.3 8.8-.3 4c.5 0 .7-.2 1-.5l2.4-2.3 5 3.6c.9.5 1.6.2 1.8-.8l3.3-15.3c.3-1.5-.6-2.1-1.8-1.5z"
-              />
-            </svg>
-            <h3 class="mt-3 font-semibold text-neutral-900">Telegram</h3>
-            <p class="mt-1 text-sm text-neutral-600">Private messages</p>
-          </a>
-
-          <!-- Email -->
-          <a
-            href="mailto:hello@narniaescapes.com"
-            class="group rounded-2xl bg-white shadow ring-1 ring-neutral-200 p-6 hover:shadow-md transition"
-          >
-            <svg
-              class="mx-auto h-8 w-8 text-[#A45D3D] group-hover:scale-110 transition"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-            >
-              <path
-                d="M2 6a2 2 0 012-2h16a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6zm2 0l8 5 8-5H4zm0 2.2v9.8h16V8.2l-8 5-8-5z"
-              />
-            </svg>
-            <h3 class="mt-3 font-semibold text-neutral-900">Email</h3>
-            <p class="mt-1 text-sm text-neutral-600">hello@narniaescapes.com</p>
-          </a>
-        </div>
-
-        <!-- Map: uses your BUSINESS LINK directly (no coordinates) -->
+        <!-- Map -->
         <div class="mt-14">
           <h3 class="text-xl font-semibold text-neutral-900 text-center">
             Find Us
           </h3>
-
-          <!-- Clickable map tile that opens your exact business link -->
           <a
             href="https://maps.app.goo.gl/ErMqpm4ywgvJ5teu6?g_st=atm"
             target="_blank"
@@ -1010,6 +1042,7 @@
                 class="h-4 w-4 text-[#A45D3D]"
                 viewBox="0 0 24 24"
                 fill="currentColor"
+                aria-hidden="true"
               >
                 <path
                   d="M12 4l1.41 1.41L8.83 10H20v2H8.83l4.58 4.59L12 18l-8-8 8-8z"
@@ -1017,8 +1050,6 @@
               </svg>
             </span>
           </a>
-
-          <!-- Show the business link plainly if you want it visible on the page -->
           <p class="mt-2 text-center text-sm text-neutral-600 break-all">
             <span class="mr-1">Business link:</span>
             <a
@@ -1032,6 +1063,40 @@
           </p>
         </div>
       </div>
+
+      <!-- JS -->
+      <script>
+        const getMsg = () =>
+          encodeURIComponent(
+            document.getElementById("contactMessage").value.trim()
+          );
+
+        document.getElementById("btnInstagram").onclick = (e) => {
+          e.preventDefault();
+          window.open(
+            `https://instagram.com/direct/t/irenasmirnowa?text=${getMsg()}`,
+            "_blank"
+          );
+        };
+
+        document.getElementById("btnMessenger").onclick = (e) => {
+          e.preventDefault();
+          window.open(`https://m.me/narniaescapes?text=${getMsg()}`, "_blank");
+        };
+
+        document.getElementById("btnTelegram").onclick = (e) => {
+          e.preventDefault();
+          window.open(`https://t.me/irenasmirnowa?text=${getMsg()}`, "_blank");
+        };
+
+        document.getElementById("btnEmail").onclick = (e) => {
+          e.preventDefault();
+          window.open(
+            `mailto:narniaescapes22@gmail.com?subject=Narnia%20Inquiry&body=${getMsg()}`,
+            "_blank"
+          );
+        };
+      </script>
     </section>
 
     <!-- Footer -->
