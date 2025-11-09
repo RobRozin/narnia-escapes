@@ -1,3 +1,5 @@
+// app.js
+
 async function loadPartial(elId, url) {
   const res = await fetch(url);
   if (!res.ok) throw new Error(`Failed to load ${url}`);
@@ -6,46 +8,47 @@ async function loadPartial(elId, url) {
   const el = document.getElementById(elId);
   if (!el) {
     console.warn(`[loadPartial] target #${elId} not found when loading ${url}`);
-    return; // or throw new Error(...) if you prefer failing fast
+    return;
   }
   el.innerHTML = html;
 }
 
 const app = {
+  // ======= State =======
   pages: ["home", "retreats", "sauna", "events", "about"],
-  activePage: "home",
+  // activePage: "home",
   isScrolled: false,
   isMobileMenuOpen: false,
   isCollapsed: false,
   isHidden: false,
   _lastY: 0,
-  isModalVisible: false,
-  templateMessage: encodeURIComponent(
-    "Hello! I'm interested in booking a consultation. Could you please share more information?"
-  ),
-  services: [
-    {
-      id: 1,
-      accent: "One",
-      title: "Complimentary Diagnostics",
-      details:
-        "Start with a free mini-diagnostic to assess your skin, explain how I can help, and review consultation plans & costs.",
-    },
-    {
-      id: 2,
-      accent: "Two",
-      title: "Comprehensive Consultation",
-      details:
-        "In-depth session to analyze your skin type, review your current routine, select the right products, and craft your personalized plan.",
-    },
-    {
-      id: 3,
-      accent: "Three",
-      title: "Ongoing Support",
-      details:
-        "Get follow-up support: 5 days included with consultation and an optional 2 months with the option to extend as needed.",
-    },
-  ],
+
+  contactTypes: {
+    sauna:
+      "Hello, I'm interested in reserving your sauna. Could you share availability?",
+  },
+
+  // Contact message
+  contactMessage:
+    "Hello! I'm interested in your retreats, sauna, or private events. Could you share availability and pricing?",
+  contactTemplates: {
+    retreat:
+      "Hello! I'm interested in joining one of your upcoming retreats. Could you share more details about locations, pricing, and available dates?",
+    sauna:
+      "Hi! I'd like to learn more about your sauna sessions. Could you share the schedule, pricing, and whether private bookings are available?",
+    event:
+      "Hello! I'm interested in hosting a private event. Could you tell me more about available venues, packages, and capacity limits?",
+  },
+  updateContactMessage(id) {
+    const message = this.contactTemplates[id];
+    if (message) {
+      this.contactMessage = message;
+    } else {
+      console.warn(`[updateContactMessage] Unknown id: ${id}`);
+    }
+  },
+
+  // ToDo: Recycle this logic
   contactOptions: [
     {
       id: "telegram",
@@ -72,21 +75,75 @@ const app = {
       note: null,
     },
   ],
+
   fired: false,
 
-  contactHref(opt) {
-    return opt.appendMessage ? opt.href + this.templateMessage : opt.href;
+  // ======= Newsletter (NEW) =======
+  _NL_KEY: "nl_seen_until",
+  _NL_THRESHOLD: 0.35, // 35% scroll depth
+  _NL_SNOOZE_DAYS: 14, // after dismiss
+  _NL_SUB_SNOOZE_DAYS: 180, // after subscribe (~6 months)
+  _nlPrefersReduced: false,
+  _nlShownThisSession: false,
+  nlOpen: false,
+  nlEmail: "",
+
+  // ======= Helpers =======
+  _encodeMsg(text) {
+    return encodeURIComponent((text || "").trim());
   },
-  openService: null,
+  _safeGet(key) {
+    try {
+      return localStorage.getItem(key);
+    } catch {
+      return null;
+    }
+  },
+  _safeSet(key, val) {
+    try {
+      localStorage.setItem(key, val);
+    } catch {}
+  },
+  _futureISO(days) {
+    const d = new Date();
+    d.setDate(d.getDate() + days);
+    return d.toISOString();
+  },
+  _nlHasActiveSnooze() {
+    const until = this._safeGet(this._NL_KEY);
+    return until && new Date(until) > new Date();
+  },
+  _nlSnooze(days) {
+    this._safeSet(this._NL_KEY, this._futureISO(days));
+  },
 
-  // Hero Section Image Animation
-  heroImages: [
-    { src: "./images/about/hero_about_3.jpg", alt: "Irina 3", show: false },
-    { src: "./images/about/hero_about_2.jpg", alt: "Irina 2", show: false },
-    { src: "./images/about/hero_about_1.jpg", alt: "Irina 1", show: false },
-  ],
+  // ======= Contact actions =======
+  openInstagram() {
+    const msg = this._encodeMsg(this.contactMessage);
+    window.open(
+      `https://instagram.com/direct/t/narniaescapes?text=${msg}`,
+      "_blank"
+    );
+  },
+  openMessenger() {
+    const msg = this._encodeMsg(this.contactMessage);
+    window.open(`https://m.me/narniaescapes?text=${msg}`, "_blank");
+  },
+  openTelegram() {
+    const msg = this._encodeMsg(this.contactMessage);
+    window.open(`https://t.me/irenasmirnowa?text=${msg}`, "_blank");
+  },
+  openEmail() {
+    const msg = this._encodeMsg(this.contactMessage);
+    window.open(
+      `mailto:narniaescapes22@gmail.com?subject=Narnia%20Inquiry&body=${msg}`,
+      "_blank"
+    );
+  },
 
-  instaPosts: ["first", "second", "third"],
+  _isMobile() {
+    return window.matchMedia("(max-width: 1023.98px)").matches;
+  },
 
   /* =========================
      In-view Parallax (Depth)
@@ -97,18 +154,27 @@ const app = {
     sections: [], // [{ el, front, back, inView }]
     io: null,
     rafId: null,
-    frontMax: 150, // px (moves a bit more/faster)
-    backMax: 10, // px (moves a bit less/slower)
+    frontMax: 150,
+    backMax: 50,
+  },
+
+  easeOutCubic(t) {
+    return 1 - Math.pow(1 - t, 3);
+  },
+  _clamp(n, min, max) {
+    return Math.max(min, Math.min(max, n));
+  },
+  _progress(rect, vh) {
+    const p = (vh - rect.top) / (vh + rect.height);
+    return this._clamp(p, 0, 1);
   },
 
   initParallax() {
-    // Respect user motion settings
     this._parallax.prefersReduced = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
     if (this._parallax.prefersReduced) return;
 
-    // Collect all sections that should have the effect
     const nodes = document.querySelectorAll(".js-parallax-section");
     if (!nodes.length) return;
 
@@ -120,16 +186,13 @@ const app = {
       const back =
         el.querySelector('[data-parallax="back"] > *') ||
         el.querySelector('[data-parallax="back"]');
-      // initial transform hints
       if (front) front.style.willChange = "transform";
       if (back) back.style.willChange = "transform";
       return { el, front, back, inView: false };
     });
 
-    // If nothing to move, bail
     if (!this._parallax.sections.some((s) => s.front && s.back)) return;
 
-    // IntersectionObserver to run RAF only when visible
     this._parallax.io = new IntersectionObserver(
       (entries) => {
         let anyInView = false;
@@ -149,13 +212,11 @@ const app = {
       { root: null, rootMargin: "10% 0px 10% 0px", threshold: [0, 1] }
     );
 
-    // Observe all sections + set initial positions
     this._parallax.sections.forEach((s) => {
       this.updateParallaxSection(s);
       this._parallax.io.observe(s.el);
     });
 
-    // Keep in sync on resize
     window.addEventListener("resize", this.updateParallaxAll, {
       passive: true,
     });
@@ -180,18 +241,6 @@ const app = {
     this._parallax.enabled = false;
   },
 
-  easeOutCubic(t) {
-    return 1 - Math.pow(1 - t, 3);
-  },
-  _clamp(n, min, max) {
-    return Math.max(min, Math.min(max, n));
-  },
-  _progress(rect, vh) {
-    // 0..1 as the section travels through viewport
-    const p = (vh - rect.top) / (vh + rect.height);
-    return this._clamp(p, 0, 1);
-  },
-
   updateParallaxSection(sec) {
     if (!sec.front || !sec.back) return;
 
@@ -199,7 +248,6 @@ const app = {
     const rect = sec.el.getBoundingClientRect();
     const eased = this.easeOutCubic(this._progress(rect, vh));
 
-    // Move from MAX -> 0 as it enters view
     const frontY = (1 - eased) * this._parallax.frontMax;
     const backY = (1 - eased) * this._parallax.backMax;
 
@@ -207,12 +255,11 @@ const app = {
     sec.back.style.transform = `translate3d(0, ${backY}px, 0)`;
   },
 
-  updateParallaxAll: null, // assigned in mounted
+  updateParallaxAll: null,
 
   startParallax() {
     if (this._parallax.rafId) return;
     const tick = () => {
-      // Only compute for visible sections
       for (const s of this._parallax.sections) {
         if (s.inView) this.updateParallaxSection(s);
       }
@@ -234,37 +281,44 @@ const app = {
     window.addEventListener("scroll", this.onScroll, { passive: true });
     window.addEventListener("resize", this.onScroll);
 
-    // init parallax (scoped, perf-safe)
+    this._parallax.frontMax = this._isMobile() ? 50 : 150;
+    this._parallax.backMax = this._isMobile() ? -20 : 10;
+
+    // Parallax
     this.updateParallaxAll = () => {
       if (!this._parallax.enabled) return;
       for (const s of this._parallax.sections) this.updateParallaxSection(s);
     };
     this.initParallax();
 
+    // ======= Newsletter init (NEW) =======
+    this._nlPrefersReduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    // ESC to close newsletter
+    window.addEventListener("keydown", (e) => {
+      if (this.nlOpen && e.key === "Escape") this.dismissNewsletter("esc");
+    });
+
     const initialPage = window.location.hash.replace("#", "");
-    if (initialPage) this.navigateTo(initialPage, false); // Don't push state for initial load
+    if (initialPage) this.navigateTo(initialPage, false);
   },
 
   unmounted() {
     window.removeEventListener("scroll", this.onScroll, { passive: true });
     window.removeEventListener("resize", this.onScroll);
     this.destroyParallax();
+    this.destroyEdgePull();
   },
 
   navigateTo(pageId, pushState = true) {
     if (pushState) {
       history.pushState({ page: pageId }, "", "#" + pageId);
     }
-    this.activePage = pageId;
+    // this.activePage = pageId;
     this.isMobileMenuOpen = false;
-
-    // Scroll to the top of the page
     window.scrollTo({ top: 0, behavior: "smooth" });
-
-    // Trigger hero image animations if on the About page
-    if (pageId === "about") {
-      this.animateHeroImages();
-    }
   },
 
   triggerHighlights() {
@@ -275,7 +329,6 @@ const app = {
     const top = container.getBoundingClientRect().top;
     if (top <= 600) {
       this.fired = true;
-
       const cards = container.querySelectorAll(".card");
       cards.forEach((el, i) => {
         setTimeout(() => {
@@ -289,6 +342,51 @@ const app = {
       });
     }
   },
+
+  //#region
+
+  //#endregion
+
+  //#region ======= Newsletter =======
+  triggerNewsletter() {
+    if (this._nlShownThisSession) return;
+    if (this._nlHasActiveSnooze()) return;
+
+    const doc = document.documentElement;
+    const maxScroll = doc.scrollHeight - doc.clientHeight || 1;
+    const scrolled = (window.scrollY || doc.scrollTop) / maxScroll;
+
+    if (scrolled >= this._NL_THRESHOLD) {
+      this.showNewsletter();
+      this._nlShownThisSession = true;
+    }
+  },
+
+  showNewsletter() {
+    const delay = this._nlPrefersReduced ? 0 : 150;
+    setTimeout(() => {
+      this.nlOpen = true;
+    }, delay);
+  },
+
+  dismissNewsletter(reason = "dismiss") {
+    this.nlOpen = false;
+    this._nlSnooze(this._NL_SNOOZE_DAYS);
+  },
+
+  snoozeNewsletter() {
+    this.nlOpen = false;
+    this._nlSnooze(this._NL_SNOOZE_DAYS);
+  },
+
+  async subscribeNewsletter() {
+    // TODO: hook provider here (Mailchimp/ConvertKit/etc.)
+    // await fetch('/api/subscribe', { method: 'POST', body: JSON.stringify({ email: this.nlEmail }) })
+    this.nlOpen = false;
+    this._nlSnooze(this._NL_SUB_SNOOZE_DAYS);
+    alert("Thanks for subscribing!");
+  },
+  //#endregion
 
   checkScroll() {
     const y = window.scrollY || 0;
@@ -312,22 +410,12 @@ const app = {
     window.requestAnimationFrame(() => {
       this.checkScroll();
       this.triggerHighlights();
-      // Parallax is handled by RAF + IO; nothing needed here.
-    });
-  },
-
-  // Hero Image Animation Logic
-  animateHeroImages() {
-    this.heroImages.forEach((image) => (image.show = false));
-    this.heroImages.forEach((image, index) => {
-      setTimeout(() => {
-        image.show = true;
-      }, index * 500);
+      this.triggerNewsletter(); // <— integrated here
+      // Parallax uses RAF; edge-pull is throttled in its own listener.
     });
   },
 };
 
-document.addEventListener("DOMContentLoaded", async () => {
-  console.log("mounted");
+document.addEventListener("DOMContentLoaded", () => {
   PetiteVue.createApp(app).mount("#app");
 });

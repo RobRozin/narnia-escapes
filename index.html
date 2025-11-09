@@ -22,30 +22,15 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Vollkorn+SC:wght@400;600;700;900&display=swap"
       rel="stylesheet"
     />
+    <style>
+      [v-cloak] {
+        display: none;
+      }
+    </style>
     <!--  Petite Vue -->
     <script type="text/javascript" src="./js/petite-vue.iife.js" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="./js/tailwind-config.js"></script>
-
-    <style>
-      .ios-composite {
-        transform: translateZ(0);
-        backface-visibility: hidden;
-        -webkit-font-smoothing: antialiased;
-      }
-      body {
-        -webkit-overflow-scrolling: touch;
-      }
-
-      [data-parallax] > * {
-        transform: translateZ(0);
-      }
-      @media (prefers-reduced-motion: reduce) {
-        [data-parallax] > * {
-          transform: none !important;
-        }
-      }
-    </style>
   </head>
   <body
     id="app"
@@ -58,9 +43,9 @@
     <!-- Navbar -->
     <header
       :class="{
-    'backdrop-blur-md bg-white/70 text-ink shadow-sm': isScrolled || isMobileMenuOpen,
-    'bg-transparent text-white': !isScrolled && !isMobileMenuOpen
-  }"
+        'backdrop-blur-md bg-white/70 text-body shadow-sm': isScrolled || isMobileMenuOpen,
+        'bg-transparent text-white': !isScrolled && !isMobileMenuOpen
+      }"
       class="fixed inset-x-0 top-0 z-50 transition-colors duration-300 pt-[env(safe-area-inset-top)]"
     >
       <nav
@@ -173,7 +158,7 @@
       <!-- Mobile Nav -->
       <div
         v-if="isMobileMenuOpen"
-        class="md:hidden absolute inset-x-0 top-full bg-cream border-t border-accent-clay/20 shadow-lg z-40"
+        class="md:hidden absolute inset-x-0 top-full bg-offwhite border-t border-accent-soft/20 shadow-lg z-40"
       >
         <nav class="px-5 py-4 space-y-12">
           <a
@@ -238,19 +223,15 @@
       id="home"
       class="relative flex min-h-[100svh] md:min-h-[100dvh] items-center justify-center text-center overflow-hidden"
     >
-      <!-- Background -->
+      <!-- Background image -->
       <div
         aria-hidden
-        class="absolute inset-0 -z-10 bg-cover bg-center"
-        style="
-          background-image: linear-gradient(
-              to bottom,
-              rgba(0, 0, 0, 0.45),
-              rgba(0, 0, 0, 0.25) 35%,
-              rgba(0, 0, 0, 0.55)
-            ),
-            url('./images/hero-home-fall.png');
-        "
+        class="absolute inset-0 -z-20 bg-cover bg-center bg-[url('./images/hero-home-fall.png')]"
+      ></div>
+      <!-- Overlay gradient -->
+      <div
+        aria-hidden
+        class="absolute inset-0 -z-10 bg-gradient-to-b from-black/45 via-black/25 to-black/55"
       ></div>
 
       <!-- Content -->
@@ -261,7 +242,6 @@
           Revitalize Your Body,<br />Mind, and Spirit
         </h1>
 
-        <!-- tighter, padded body copy -->
         <p
           class="mt-5 text-white/90 text-base sm:text-lg leading-relaxed px-1 max-w-md"
         >
@@ -269,7 +249,7 @@
           practices designed to reconnect you with nature and yourself.
         </p>
 
-        <!-- CTAs: stacked on mobile, side-by-side from sm+ -->
+        <!-- CTAs -->
         <div
           class="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3"
         >
@@ -288,7 +268,7 @@
         </div>
       </div>
 
-      <!-- Scroll cue lifted above home indicator -->
+      <!-- Scroll cue -->
       <div
         class="pointer-events-none absolute bottom-[calc(1.25rem+env(safe-area-inset-bottom))] left-1/2 -translate-x-1/2"
       >
@@ -310,7 +290,6 @@
     <!-- Quick Highlights -->
     <section id="highlights" class="py-24 bg-white">
       <div id="highlights-container" class="mx-auto max-w-6xl px-6">
-        <!-- Title + Body (centered, header font) -->
         <header class="text-center">
           <h2
             class="text-4xl font-heading font-bold tracking-tight text-neutral-900 uppercase"
@@ -319,14 +298,13 @@
           </h2>
         </header>
 
-        <!-- Image Cards -->
         <div
           class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4"
         >
           <!-- Guided Retreats -->
           <a
             href="#retreats"
-            class="card group relative block aspect-[3/4] rounded-3xl overflow-hidden ring-1 ring-neutral-200 hover:ring-neutral-300 shadow transition-all opacity-0"
+            class="card group relative block aspect-[3/4] rounded-3xl overflow-hidden ring-1 ring-ash hover:ring-primary/40 shadow transition-all opacity-0"
             style="animation-delay: 0ms"
           >
             <img
@@ -351,7 +329,7 @@
           <!-- Sauna Experience -->
           <a
             href="#sauna"
-            class="card group relative block aspect-[3/4] rounded-3xl overflow-hidden ring-1 ring-neutral-200 hover:ring-neutral-300 shadow transition-all opacity-0"
+            class="card group relative block aspect-[3/4] rounded-3xl overflow-hidden ring-1 ring-ash hover:ring-primary/40 shadow transition-all opacity-0"
             style="animation-delay: 20ms"
           >
             <img
@@ -376,7 +354,7 @@
           <!-- Private Events -->
           <a
             href="#events"
-            class="card group relative block aspect-[3/4] rounded-3xl overflow-hidden ring-1 ring-neutral-200 hover:ring-neutral-300 shadow transition-all opacity-0"
+            class="card group relative block aspect-[3/4] rounded-3xl overflow-hidden ring-1 ring-ash hover:ring-primary/40 shadow transition-all opacity-0"
             style="animation-delay: 40ms"
           >
             <img
@@ -421,7 +399,7 @@
           </div>
         </div>
 
-        <!-- Info Card (right, overlaps left image) -->
+        <!-- Info Card (right) -->
         <div
           class="relative order-2 z-10 lg:col-start-2 lg:-ml-16 xl:-ml-20 -mt-8 lg:-mt-2"
           data-parallax="front"
@@ -429,7 +407,6 @@
           <article
             class="rounded-3xl bg-white/90 backdrop-blur-md ring-1 ring-black/5 shadow-xl p-6 sm:p-8 will-change-transform"
           >
-            <!-- Heading & intro -->
             <header>
               <h2
                 class="font-heading font-bold text-3xl lg:text-4xl tracking-tight text-neutral-900"
@@ -444,7 +421,6 @@
               </p>
             </header>
 
-            <!-- Content grid -->
             <div class="mt-6 grid gap-8">
               <!-- Retreat Experience -->
               <section>
@@ -456,62 +432,48 @@
                 >
                   <li class="flex gap-2">
                     <span
-                      class="mt-2 h-1.5 w-1.5 rounded-full bg-[#A45D3D]"
+                      class="mt-2 h-1.5 w-1.5 rounded-full bg-neutral-400"
                     ></span
                     >Wim Hof Method: breathwork, cold exposure, mindfulness
                   </li>
                   <li class="flex gap-2">
                     <span
-                      class="mt-2 h-1.5 w-1.5 rounded-full bg-[#A45D3D]"
+                      class="mt-2 h-1.5 w-1.5 rounded-full bg-neutral-400"
                     ></span
                     >Daily sauna ritual with cold plunge
                   </li>
                   <li class="flex gap-2">
                     <span
-                      class="mt-2 h-1.5 w-1.5 rounded-full bg-[#A45D3D]"
+                      class="mt-2 h-1.5 w-1.5 rounded-full bg-neutral-400"
                     ></span
                     >Guided sound baths &amp; vibration therapy
                   </li>
                   <li class="flex gap-2">
                     <span
-                      class="mt-2 h-1.5 w-1.5 rounded-full bg-[#A45D3D]"
+                      class="mt-2 h-1.5 w-1.5 rounded-full bg-neutral-400"
                     ></span
                     >Qi Gong, hikes, stretching &amp; interoceptive practices
                   </li>
                   <li class="flex gap-2">
                     <span
-                      class="mt-2 h-1.5 w-1.5 rounded-full bg-[#A45D3D]"
+                      class="mt-2 h-1.5 w-1.5 rounded-full bg-neutral-400"
                     ></span
                     >Community connection &amp; evening wind-down
                   </li>
                   <li class="flex gap-2">
                     <span
-                      class="mt-2 h-1.5 w-1.5 rounded-full bg-[#A45D3D]"
+                      class="mt-2 h-1.5 w-1.5 rounded-full bg-neutral-400"
                     ></span
                     >Select dates: guest instructors (ecstatic dance, yoga, Thai
                     massage)
                   </li>
                 </ul>
 
-                <!-- Inline links -->
+                <!-- Inline link -->
                 <div class="mt-4 flex flex-wrap gap-4 text-sm font-medium">
-                  <!-- <a
-                    href="#sample-flow"
-                    class="inline-flex items-center gap-2 text-[#A45D3D] hover:underline"
-                  >
-                    View Sample Daily Flow
-                    <svg class="h-4 w-4" viewBox="0 0 24 24" aria-hidden="true">
-                      <path
-                        d="M9 5l7 7-7 7"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        fill="none"
-                      />
-                    </svg>
-                  </a> -->
                   <a
                     href="#about"
-                    class="inline-flex items-center gap-2 text-[#A45D3D] hover:underline"
+                    class="inline-flex items-center gap-2 text-primary hover:underline"
                   >
                     Meet Your Hosts
                     <svg class="h-4 w-4" viewBox="0 0 24 24" aria-hidden="true">
@@ -564,28 +526,27 @@
               <div
                 class="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between"
               >
-                <!-- Investment text -->
                 <p class="text-base sm:text-lg text-neutral-900 sm:flex-1">
                   <span class="font-semibold">Typical Retreat:</span>
                   $600–$1,000 (varies by season &amp; length)
                 </p>
 
-                <!-- Buttons -->
                 <div class="flex flex-col sm:flex-row gap-4 sm:flex-shrink-0">
                   <a
                     href="#contact"
-                    class="inline-flex w-full sm:w-auto items-center justify-center rounded-full bg-[#A45D3D] px-6 py-3 text-white font-medium shadow-sm hover:opacity-95 active:opacity-90"
+                    class="inline-flex w-full sm:w-auto items-center justify-center rounded-full bg-primary px-6 py-3 text-white font-medium shadow-sm hover:opacity-95 active:opacity-90"
+                    @click="updateContactMessage('retreat')"
                   >
                     Inquire About Dates
                   </a>
                   <!--
                     <a
-                        href="#retreats-details"
-                        class="inline-flex w-full sm:w-auto items-center justify-center rounded-full ring-1 ring-[#A45D3D]/30 px-6 py-3 text-[#A45D3D] font-medium hover:bg-[#A45D3D]/5"
+                      href="#retreats-details"
+                      class="inline-flex w-full sm:w-auto items-center justify-center rounded-full ring-1 ring-primary/30 px-6 py-3 text-primary font-medium hover:bg-primary/5"
                     >
-                        See What’s Included
+                      See What’s Included
                     </a>
-                    -->
+                  -->
                 </div>
               </div>
             </footer>
@@ -599,15 +560,15 @@
       <div
         class="mx-auto max-w-6xl px-6 grid items-start lg:grid-cols-2 gap-10 lg:gap-12 relative"
       >
-        <img
+        <!-- <img
           src="./images/venik.png"
           alt=""
           aria-hidden="true"
           class="pointer-events-none select-none hidden md:block absolute -top-20 -left-40 rotate-[0.55rad] opacity-60 w-80 md:w-82 lg:w-96 z-0 mix-blend-multiply"
-        />
+        /> -->
         <!-- Info Card (left) -->
         <div
-          class="relative order-1 z-10 lg:col-start-1 lg:-mr-16 xl:-mr-20 -mt-8 lg:-mt-2"
+          class="relative order-2 md:order-1 z-10 lg:col-start-1 lg:-mr-16 xl:-mr-20 -mt-8 lg:-mt-2"
           data-parallax="front"
         >
           <article
@@ -634,7 +595,7 @@
                 Four-hour session • Minimum three people
               </p>
 
-              <!-- Base Rate (moved up, clearly labeled) -->
+              <!-- Base Rate -->
               <div
                 class="mt-4 rounded-2xl border border-neutral-200/80 bg-neutral-50 p-4"
               >
@@ -680,7 +641,7 @@
               </div>
             </div>
 
-            <!-- Add-ons (clearly optional + “each”) -->
+            <!-- Add-ons -->
             <div class="mt-6">
               <div class="text-sm font-medium text-neutral-900">
                 Optional Add-Ons
@@ -713,7 +674,7 @@
 
             <!-- Booking note -->
             <div
-              class="mt-6 rounded-xl border border-[#A45D3D]/15 bg-[#A45D3D]/5 p-4"
+              class="mt-6 rounded-xl border border-primary/15 bg-primary/5 p-4"
             >
               <p class="text-[13px] leading-5 text-neutral-700">
                 <span class="font-medium text-neutral-800">Booking:</span>
@@ -727,13 +688,14 @@
             <div class="mt-6 flex flex-col sm:flex-row gap-4">
               <a
                 href="#contact"
-                class="inline-flex items-center justify-center rounded-full bg-[#A45D3D] px-6 py-3 text-white font-medium shadow-sm hover:opacity-95 active:opacity-90"
+                class="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-white font-medium shadow-sm hover:opacity-95 active:opacity-90"
+                @click="updateContactMessage('sauna')"
               >
                 Reserve a Session
               </a>
               <!-- <a
                 href="/sauna"
-                class="inline-flex items-center justify-center rounded-full border border-[#A45D3D]/80 px-6 py-3 text-[#A45D3D] font-medium hover:bg-[#A45D3D]/10"
+                class="inline-flex items-center justify-center rounded-full ring-1 ring-primary/30 px-6 py-3 text-primary font-medium hover:bg-primary/5"
               >
                 More Info
               </a> -->
@@ -742,7 +704,7 @@
         </div>
 
         <!-- Image (right) -->
-        <div class="relative order-2 z-0" data-parallax="back">
+        <div class="relative order-1 md:order-2 z-0" data-parallax="back">
           <div
             class="relative aspect-[4/3] md:aspect-[3/4] w-full overflow-hidden rounded-3xl lg:-mt-8"
           >
@@ -777,7 +739,7 @@
             </div>
           </div>
 
-          <!-- Overlapping Card (on top) -->
+          <!-- Overlapping Card -->
           <div
             class="order-2 relative z-10 lg:-ml-16 xl:-ml-20 -mt-8 lg:-mt-2"
             data-parallax="front"
@@ -817,7 +779,8 @@
               </div>
               <a
                 href="#contact"
-                class="mt-6 inline-flex w-full sm:w-auto items-center justify-center rounded-full bg-[#A45D3D] px-6 py-3 text-white font-medium shadow-sm hover:opacity-95 active:opacity-90"
+                class="mt-6 inline-flex w-full sm:w-auto items-center justify-center rounded-full bg-primary px-6 py-3 text-white font-medium shadow-sm hover:opacity-95 active:opacity-90"
+                @click="updateContactMessage('event')"
               >
                 Plan Your Event
               </a>
@@ -854,11 +817,9 @@
                 alt="Stan — sauna master and sound healer"
                 class="h-full w-full object-cover object-top"
               />
-              <!-- Gradient overlay -->
               <div
                 class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/70 via-black/30 to-transparent"
               ></div>
-              <!-- Text overlay -->
               <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
                 <h3 class="text-2xl font-semibold">Stan</h3>
                 <p class="mt-2 text-sm leading-relaxed text-white/90">
@@ -880,11 +841,9 @@
                 alt="Alex — certified Wim Hof instructor"
                 class="h-full w-full object-cover object-top"
               />
-              <!-- Gradient overlay -->
               <div
                 class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/70 via-black/30 to-transparent"
               ></div>
-              <!-- Text overlay -->
               <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
                 <h3 class="text-2xl font-semibold">Alex</h3>
                 <p class="mt-2 text-sm leading-relaxed text-white/90">
@@ -926,7 +885,8 @@
             </label>
             <textarea
               id="contactMessage"
-              class="mt-2 w-full rounded-xl border border-neutral-300 bg-white p-3 text-neutral-900 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-[#A45D3D]"
+              class="mt-2 w-full rounded-xl border border-neutral-300 bg-white p-3 text-neutral-900 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-primary"
+              v-model="contactMessage"
               rows="3"
               placeholder="Hello! I'm interested in your retreats, sauna, or private events. Could you share availability and pricing?"
             ></textarea>
@@ -938,11 +898,8 @@
           >
             <!-- Instagram -->
             <a
-              id="btnInstagram"
-              href="#"
-              target="_blank"
-              rel="noopener"
-              class="inline-flex items-center gap-2 rounded-full bg-[#A45D3D] px-6 py-3 text-white font-medium shadow hover:opacity-95 active:opacity-90 transition"
+              class="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-white font-medium shadow hover:opacity-95 active:opacity-90 transition"
+              @click.prevent="openInstagram"
             >
               <svg
                 class="h-5 w-5"
@@ -959,11 +916,8 @@
 
             <!-- Messenger -->
             <a
-              id="btnMessenger"
-              href="#"
-              target="_blank"
-              rel="noopener"
-              class="inline-flex items-center gap-2 rounded-full bg-[#A45D3D] px-6 py-3 text-white font-medium shadow hover:opacity-95 active:opacity-90 transition"
+              class="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-white font-medium shadow hover:opacity-95 active:opacity-90 transition"
+              @click.prevent="openMessenger"
             >
               <svg
                 class="h-5 w-5"
@@ -980,11 +934,8 @@
 
             <!-- Telegram -->
             <a
-              id="btnTelegram"
-              href="#"
-              target="_blank"
-              rel="noopener"
-              class="inline-flex items-center gap-2 rounded-full bg-[#A45D3D] px-6 py-3 text-white font-medium shadow hover:opacity-95 active:opacity-90 transition"
+              class="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-white font-medium shadow hover:opacity-95 active:opacity-90 transition"
+              @click.prevent="openTelegram"
             >
               <svg
                 class="h-5 w-5"
@@ -1001,9 +952,8 @@
 
             <!-- Email -->
             <a
-              id="btnEmail"
-              href="#"
-              class="inline-flex items-center gap-2 rounded-full bg-[#A45D3D] px-6 py-3 text-white font-medium shadow hover:opacity-95 active:opacity-90 transition"
+              class="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-white font-medium shadow hover:opacity-95 active:opacity-90 transition"
+              @click.prevent="openEmail"
             >
               <svg
                 class="h-5 w-5"
@@ -1039,7 +989,7 @@
             >
               Open in Google Maps
               <svg
-                class="h-4 w-4 text-[#A45D3D]"
+                class="h-4 w-4 text-primary"
                 viewBox="0 0 24 24"
                 fill="currentColor"
                 aria-hidden="true"
@@ -1056,47 +1006,13 @@
               href="https://maps.app.goo.gl/ErMqpm4ywgvJ5teu6?g_st=atm"
               target="_blank"
               rel="noopener"
-              class="text-[#A45D3D] hover:underline"
+              class="text-primary hover:underline"
             >
               https://maps.app.goo.gl/ErMqpm4ywgvJ5teu6?g_st=atm
             </a>
           </p>
         </div>
       </div>
-
-      <!-- JS -->
-      <script>
-        const getMsg = () =>
-          encodeURIComponent(
-            document.getElementById("contactMessage").value.trim()
-          );
-
-        document.getElementById("btnInstagram").onclick = (e) => {
-          e.preventDefault();
-          window.open(
-            `https://instagram.com/direct/t/irenasmirnowa?text=${getMsg()}`,
-            "_blank"
-          );
-        };
-
-        document.getElementById("btnMessenger").onclick = (e) => {
-          e.preventDefault();
-          window.open(`https://m.me/narniaescapes?text=${getMsg()}`, "_blank");
-        };
-
-        document.getElementById("btnTelegram").onclick = (e) => {
-          e.preventDefault();
-          window.open(`https://t.me/irenasmirnowa?text=${getMsg()}`, "_blank");
-        };
-
-        document.getElementById("btnEmail").onclick = (e) => {
-          e.preventDefault();
-          window.open(
-            `mailto:narniaescapes22@gmail.com?subject=Narnia%20Inquiry&body=${getMsg()}`,
-            "_blank"
-          );
-        };
-      </script>
     </section>
 
     <!-- Footer -->
@@ -1106,12 +1022,273 @@
       >
         <p>© 2025 Narnia Escapes. All rights reserved.</p>
         <div class="mt-4 sm:mt-0 flex gap-4">
-          <a href="#" class="hover:text-[#A45D3D]">Instagram</a>
-          <a href="#" class="hover:text-[#A45D3D]">Facebook</a>
-          <a href="#" class="hover:text-[#A45D3D]">Telegram</a>
+          <a href="#" class="hover:text-primary">Instagram</a>
+          <a href="#" class="hover:text-primary">Facebook</a>
+          <a href="#" class="hover:text-primary">Telegram</a>
         </div>
       </div>
     </footer>
+
+    <!-- Newsletter UI -->
+    <div id="newsletter-root">
+      <!-- Backdrop for desktop modal -->
+      <div
+        v-show="nlOpen && !_isMobile()"
+        class="fixed inset-0 z-[70] bg-black/40 backdrop-blur-sm"
+        @click="dismissNewsletter('backdrop')"
+        aria-hidden="true"
+      ></div>
+
+      <!-- Desktop modal (themed split layout) -->
+      <section
+        v-show="nlOpen && !_isMobile()"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="nl-title"
+        class="fixed inset-0 z-[80] grid place-items-center p-4"
+      >
+        <div
+          class="w-full max-w-4xl overflow-hidden rounded-3xl bg-white shadow-2xl ring-1 ring-black/10"
+        >
+          <div class="grid md:grid-cols-2">
+            <!-- Left: image panel -->
+            <div
+              class="relative min-h-[22rem] md:min-h-[30rem] bg-cover bg-center"
+              style="background-image: url('./images/newsletter-woods.jpg')"
+              aria-hidden="true"
+            >
+              <div
+                class="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black/30"
+              ></div>
+            </div>
+
+            <!-- Right: content panel -->
+            <div class="relative p-8 md:p-10 flex flex-col justify-center">
+              <!-- close -->
+              <button
+                @click="dismissNewsletter('x')"
+                class="absolute right-3 top-3 rounded-lg p-2 text-neutral-500 hover:text-neutral-800 hover:bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-secondary"
+                aria-label="Close"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </button>
+
+              <!-- header -->
+              <div class="flex items-start gap-3">
+                <div
+                  class="shrink-0 mt-0.5 h-9 w-9 rounded-full bg-secondary/10 grid place-items-center"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5 text-secondary"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      d="M3 8l9 6 9-6M4 6h16a1 1 0 011 1v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a1 1 0 011-1z"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <h2
+                    id="nl-title"
+                    class="text-2xl font-semibold tracking-tight"
+                  >
+                    Stay up to date on the latest retreats and upcoming events
+                  </h2>
+                  <p class="mt-1 text-sm text-muted">
+                    Join our newsletter to be in the know about new experiences
+                    and seasonal offerings.
+                  </p>
+                </div>
+              </div>
+
+              <!-- form -->
+              <form class="mt-5 grid gap-3" @submit.prevent="subscribe">
+                <label for="nl-email" class="sr-only">Email</label>
+                <input
+                  id="nl-email"
+                  v-model="nlEmail"
+                  type="email"
+                  required
+                  autocomplete="email"
+                  placeholder="you@example.com"
+                  class="w-full rounded-xl border border-neutral-300 bg-white px-4 py-2.5 text-sm shadow-sm focus:border-secondary focus:ring-2 focus:ring-secondary/30"
+                />
+
+                <!-- actions -->
+                <div class="mt-2 flex items-center gap-3">
+                  <button
+                    type="submit"
+                    class="inline-flex flex-1 items-center justify-center rounded-full bg-secondary px-6 py-3 text-sm font-medium text-white shadow hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-secondary"
+                  >
+                    Subscribe
+                  </button>
+                  <button
+                    type="button"
+                    @click="snoozeNewsletter"
+                    class="text-xs text-neutral-500 hover:text-neutral-700 underline underline-offset-4"
+                  >
+                    Not now
+                  </button>
+                </div>
+
+                <p class="text-[11px] text-neutral-500 mt-1">
+                  By subscribing, you agree to our
+                  <a href="/privacy" class="underline">privacy policy</a>.
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Mobile bottom sheet / banner -->
+      <section
+        v-show="nlOpen && _isMobile()"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="nl-title-mobile"
+        class="fixed inset-x-0 bottom-0 z-[80] px-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] pt-2"
+      >
+        <div
+          class="mx-auto max-w-lg rounded-2xl bg-white shadow-2xl ring-1 ring-black/10"
+        >
+          <div class="p-4">
+            <!-- Header -->
+            <div class="flex items-start gap-3">
+              <div
+                class="shrink-0 mt-0.5 h-8 w-8 rounded-full bg-primary/10 grid place-items-center"
+                aria-hidden="true"
+              >
+                <!-- mail icon -->
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 text-primary"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="M3 8l9 6 9-6M4 6h16a1 1 0 011 1v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a1 1 0 011-1z"
+                  />
+                </svg>
+              </div>
+
+              <div class="min-w-0">
+                <h2
+                  id="nl-title-mobile"
+                  class="text-base font-semibold tracking-tight"
+                >
+                  Stay up to date on the latest retreats and upcoming events
+                </h2>
+                <p class="mt-0.5 text-xs text-neutral-600">
+                  Join our newsletter to be in the know about new experiences
+                  and seasonal offerings.
+                </p>
+              </div>
+
+              <button
+                @click="dismissNewsletter('x-mobile')"
+                class="ml-auto rounded-lg p-1.5 text-neutral-500 hover:text-neutral-800 hover:bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-primary"
+                aria-label="Close"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            <!-- Form -->
+            <form class="mt-3 grid gap-2" @submit.prevent="subscribe">
+              <label class="sr-only" for="nl-email-mobile">Email</label>
+
+              <div class="relative">
+                <span
+                  class="pointer-events-none absolute inset-y-0 left-3 grid place-items-center"
+                >
+                  <svg
+                    class="h-4 w-4 text-neutral-400"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M4 6h16v12H4z"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    />
+                    <path
+                      d="M4 6l8 6 8-6"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    />
+                  </svg>
+                </span>
+                <input
+                  id="nl-email-mobile"
+                  v-model="nlEmail"
+                  type="email"
+                  required
+                  inputmode="email"
+                  autocomplete="email"
+                  placeholder="you@example.com"
+                  class="w-full rounded-xl border border-neutral-300 bg-white pl-9 pr-3 py-2 text-sm shadow-sm focus:border-accent-soft focus:ring-2 focus:ring-accent/30"
+                />
+              </div>
+
+              <button
+                type="submit"
+                class="mt-1 inline-flex items-center justify-center rounded-full bg-secondary px-5 py-2.5 text-sm font-medium text-white shadow hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-accent"
+              >
+                Subscribe
+              </button>
+
+              <div class="flex items-center justify-between pt-1">
+                <button
+                  type="button"
+                  @click="snoozeNewsletter"
+                  class="text-xs text-neutral-500 hover:text-neutral-700 underline underline-offset-4"
+                >
+                  Not now
+                </button>
+                <p class="text-[11px] text-neutral-500">
+                  By subscribing, you agree to our
+                  <a href="/privacy" class="underline">privacy policy</a>.
+                </p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
 
     <script src="./js/app.js" defer></script>
   </body>
