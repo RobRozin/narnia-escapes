@@ -881,14 +881,14 @@
               for="contactMessage"
               class="block text-sm font-medium text-neutral-800"
             >
-              Your message (edit if you like)
+              Your message
             </label>
             <textarea
               id="contactMessage"
               class="mt-2 w-full rounded-xl border border-neutral-300 bg-white p-3 text-neutral-900 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-primary"
               v-model="contactMessage"
               rows="3"
-              placeholder="Hello! I'm interested in your retreats, sauna, or private events. Could you share availability and pricing?"
+              placeholder="What would you like to explore?"
             ></textarea>
           </div>
 
@@ -975,16 +975,31 @@
           <h3 class="text-xl font-semibold text-neutral-900 text-center">
             Find Us
           </h3>
-          <a
-            href="https://maps.app.goo.gl/ErMqpm4ywgvJ5teu6?g_st=atm"
-            target="_blank"
-            rel="noopener"
-            class="mt-4 block aspect-[16/9] w-full rounded-2xl overflow-hidden shadow ring-1 ring-neutral-200 relative bg-[url('./images/map-placeholder.jpg')] bg-cover bg-center"
+
+          <div
+            class="mt-4 block aspect-[16/9] w-full rounded-2xl overflow-hidden shadow ring-1 ring-neutral-200 relative"
           >
+            <!-- Google Maps Embed for Narnia Escapes -->
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2935.093346624777!2d-74.409268!3d42.638180999999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89dc256dfe685da9%3A0x19d29229d7ad4d7c!2sNarnia%20Escapes!5e0!3m2!1sen!2sus!4v1762991505591!5m2!1sen!2sus"
+              width="976"
+              height="550"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+
+            <!-- Gradient overlay -->
             <span
-              class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/15 to-transparent"
+              class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/15 to-transparent pointer-events-none"
             ></span>
-            <span
+
+            <!-- Button -->
+            <a
+              href="https://maps.app.goo.gl/y9GvBGuq72aHAHno9"
+              target="_blank"
+              rel="noopener"
               class="absolute bottom-4 left-4 inline-flex items-center gap-2 rounded-xl bg-white/90 px-4 py-2 text-sm font-medium text-neutral-900 ring-1 ring-white/70 backdrop-blur"
             >
               Open in Google Maps
@@ -998,19 +1013,8 @@
                   d="M12 4l1.41 1.41L8.83 10H20v2H8.83l4.58 4.59L12 18l-8-8 8-8z"
                 />
               </svg>
-            </span>
-          </a>
-          <p class="mt-2 text-center text-sm text-neutral-600 break-all">
-            <span class="mr-1">Business link:</span>
-            <a
-              href="https://maps.app.goo.gl/ErMqpm4ywgvJ5teu6?g_st=atm"
-              target="_blank"
-              rel="noopener"
-              class="text-primary hover:underline"
-            >
-              https://maps.app.goo.gl/ErMqpm4ywgvJ5teu6?g_st=atm
             </a>
-          </p>
+          </div>
         </div>
       </div>
     </section>
@@ -1127,7 +1131,7 @@
                   type="email"
                   required
                   autocomplete="email"
-                  placeholder="you@example.com"
+                  placeholder="Enter your email"
                   class="w-full rounded-xl border border-neutral-300 bg-white px-4 py-2.5 text-sm shadow-sm focus:border-secondary focus:ring-2 focus:ring-secondary/30"
                 />
 
@@ -1137,7 +1141,7 @@
                     type="submit"
                     class="inline-flex flex-1 items-center justify-center rounded-full bg-secondary px-6 py-3 text-sm font-medium text-white shadow hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-secondary"
                   >
-                    Subscribe
+                    Sign up
                   </button>
                   <button
                     type="button"
@@ -1148,10 +1152,10 @@
                   </button>
                 </div>
 
-                <p class="text-[11px] text-neutral-500 mt-1">
+                <!-- <p class="text-[11px] text-neutral-500 mt-1">
                   By subscribing, you agree to our
                   <a href="/privacy" class="underline">privacy policy</a>.
-                </p>
+                </p> -->
               </form>
             </div>
           </div>
@@ -1259,7 +1263,7 @@
                   required
                   inputmode="email"
                   autocomplete="email"
-                  placeholder="you@example.com"
+                  placeholder="Enter your email"
                   class="w-full rounded-xl border border-neutral-300 bg-white pl-9 pr-3 py-2 text-sm shadow-sm focus:border-accent-soft focus:ring-2 focus:ring-accent/30"
                 />
               </div>
@@ -1268,7 +1272,7 @@
                 type="submit"
                 class="mt-1 inline-flex items-center justify-center rounded-full bg-secondary px-5 py-2.5 text-sm font-medium text-white shadow hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-accent"
               >
-                Subscribe
+                Sign up
               </button>
 
               <div class="flex items-center justify-between pt-1">
@@ -1279,10 +1283,10 @@
                 >
                   Not now
                 </button>
-                <p class="text-[11px] text-neutral-500">
+                <!-- <p class="text-[11px] text-neutral-500">
                   By subscribing, you agree to our
                   <a href="/privacy" class="underline">privacy policy</a>.
-                </p>
+                </p> -->
               </div>
             </form>
           </div>

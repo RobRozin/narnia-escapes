@@ -29,8 +29,7 @@ const app = {
   },
 
   // Contact message
-  contactMessage:
-    "Hello! I'm interested in your retreats, sauna, or private events. Could you share availability and pricing?",
+  contactMessage: "",
   contactTemplates: {
     retreat:
       "Hello! I'm interested in joining one of your upcoming retreats. Could you share more details about locations, pricing, and available dates?",
