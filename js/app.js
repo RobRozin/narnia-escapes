@@ -29,7 +29,7 @@ const app = {
   },
 
   // Contact message
-  contactMessage: "",
+  contactMessage: "Hello! I'm interested ",
   contactTemplates: {
     retreat:
       "Hello! I'm interested in joining one of your upcoming retreats. Could you share more details about locations, pricing, and available dates?",
@@ -118,11 +118,17 @@ const app = {
 
   // ======= Contact actions =======
   openInstagram() {
-    const msg = this._encodeMsg(this.contactMessage);
-    window.open(
-      `https://instagram.com/direct/t/narniaescapes?text=${msg}`,
-      "_blank"
-    );
+    // Always fall back to web browser if the IG app isn't installed
+    const appLink = `instagram://user?username=narniaescapes`;
+    const webLink = `https://instagram.com/narniaescapes`;
+
+    // Try open the app first
+    window.location.href = appLink;
+
+    // Fallback to web
+    setTimeout(() => {
+      window.open(webLink, "_blank");
+    }, 500);
   },
   openMessenger() {
     const msg = this._encodeMsg(this.contactMessage);
@@ -130,7 +136,7 @@ const app = {
   },
   openTelegram() {
     const msg = this._encodeMsg(this.contactMessage);
-    window.open(`https://t.me/irenasmirnowa?text=${msg}`, "_blank");
+    window.open(`https://t.me/mouzerG?text=${msg}`, "_blank");
   },
   openEmail() {
     const msg = this._encodeMsg(this.contactMessage);
