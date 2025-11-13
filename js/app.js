@@ -29,7 +29,8 @@ const app = {
   },
 
   // Contact message
-  contactMessage: "Hello! I'm interested ",
+  contactMessage:
+    "Hi! I'm interested in experiencing Narnia Escapes. Could you share details on your sessions and availability?",
   contactTemplates: {
     retreat:
       "Hello! I'm interested in joining one of your upcoming retreats. Could you share more details about locations, pricing, and available dates?",
@@ -127,22 +128,22 @@ const app = {
 
     // Fallback to web
     setTimeout(() => {
-      window.open(webLink, "_blank");
+      window.open(webLink, "blank");
     }, 500);
   },
   openMessenger() {
     const msg = this._encodeMsg(this.contactMessage);
-    window.open(`https://m.me/narniaescapes?text=${msg}`, "_blank");
+    window.open(`https://m.me/narniaescapes?text=${msg}`, "blank");
   },
   openTelegram() {
     const msg = this._encodeMsg(this.contactMessage);
-    window.open(`https://t.me/mouzerG?text=${msg}`, "_blank");
+    window.open(`https://t.me/mouzerG?text=${msg}`, "blank");
   },
   openEmail() {
     const msg = this._encodeMsg(this.contactMessage);
     window.open(
       `mailto:narniaescapes22@gmail.com?subject=Narnia%20Inquiry&body=${msg}`,
-      "_blank"
+      "blank"
     );
   },
 
