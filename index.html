@@ -294,7 +294,7 @@
     </section>
 
     <!-- Quick Highlights -->
-    <section id="highlights" class="py-24 bg-white">
+    <section id="highlights" class="py-14 md:py-24 bg-white">
       <div id="highlights-container" class="mx-auto max-w-6xl px-6">
         <header class="text-center">
           <h2
@@ -386,12 +386,15 @@
     </section>
 
     <!-- Retreats -->
-    <section id="retreats" class="py-20 bg-neutral-50 js-parallax-section">
+    <section
+      id="retreats"
+      class="py-12 md:py-20 bg-neutral-50 js-parallax-section"
+    >
       <div
         class="mx-auto max-w-6xl px-6 grid items-start lg:grid-cols-2 gap-10 lg:gap-12 relative"
       >
         <!-- Image (left) -->
-        <div class="relative order-1 z-0" data-parallax="back">
+        <div class="relative order-1 z-0 hidden md:block" data-parallax="back">
           <div
             class="relative aspect-[4/3] md:aspect-[3/4] w-full overflow-hidden rounded-3xl lg:-mt-8 will-change-transform"
           >
@@ -413,19 +416,47 @@
           <article
             class="rounded-3xl bg-white/90 backdrop-blur-md ring-1 ring-black/5 shadow-xl p-6 sm:p-8 will-change-transform"
           >
-            <header>
-              <h2
-                class="font-accent font-semibold text-3xl lg:text-4xl tracking-tight text-neutral-900"
+            <!-- Hero header -->
+            <header class="relative">
+              <!-- MOBILE VERSION (hero image + overlay title) -->
+              <div
+                class="md:hidden relative -mx-6 -mt-6 sm:-mx-8 sm:-mt-8 overflow-hidden rounded-t-3xl"
               >
-                Guided Retreats
-              </h2>
-              <p class="mt-3 text-neutral-700 leading-relaxed">
-                Transformative 3–4 day immersions combining breathwork,
-                <span class="font-medium">sound baths</span>, sauna rituals,
-                nourishing meals, and nature connection.
+                <img
+                  src="./images/retreats-hero.jpeg"
+                  alt="Guided nature retreat by the lake"
+                  class="w-full h-64 object-cover object-[25%_65%]"
+                />
+
+                <div
+                  class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-transparent"
+                ></div>
+
+                <h2
+                  class="absolute top-4 left-6 sm:left-8 font-accent font-semibold text-3xl lg:text-4xl tracking-tight text-white drop-shadow-md"
+                >
+                  Guided Retreats
+                </h2>
+              </div>
+
+              <!-- DESKTOP VERSION (original) -->
+              <div class="hidden md:block">
+                <h2
+                  class="font-accent font-semibold text-3xl lg:text-4xl tracking-tight text-neutral-900"
+                >
+                  Guided Retreats
+                </h2>
+              </div>
+            </header>
+
+            <!-- Content below image -->
+            <div class="mt-6">
+              <p class="text-neutral-700 leading-relaxed">
+                Transformative 3-4 day immersions combining breathwork, sound
+                baths, sauna rituals, nourishing meals, and nature connection.
                 <span class="font-medium">Capacity: up to 8 guests.</span>
               </p>
-            </header>
+            </div>
 
             <div class="mt-6 grid gap-8">
               <!-- Retreat Experience -->
@@ -503,25 +534,89 @@
                   <p class="mt-1 text-sm text-neutral-600">
                     Rustic cabin designed for comfort and connection.
                   </p>
-                  <ul class="mt-3 divide-y divide-neutral-200/70 text-sm">
-                    <li class="py-2">Shared loft with 8 single beds</li>
-                    <li class="py-2">3 full bathrooms with showers</li>
-                    <li class="py-2">Full kitchen &amp; Wi-Fi</li>
-                    <li class="py-2">Wood stove heating</li>
+
+                  <ul
+                    class="mt-3 grid gap-x-6 gap-y-3 text-sm text-neutral-800"
+                  >
+                    <li class="flex items-start gap-2">
+                      <span
+                        class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-neutral-400"
+                      ></span>
+                      Shared loft with 8 single beds
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <span
+                        class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-neutral-400"
+                      ></span>
+                      3 full bathrooms with showers
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <span
+                        class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-neutral-400"
+                      ></span>
+                      Full kitchen &amp; Wi-Fi
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <span
+                        class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-neutral-400"
+                      ></span>
+                      Wood stove heating
+                    </li>
                   </ul>
                 </div>
                 <div>
                   <h3 class="text-lg font-semibold text-neutral-900">Meals</h3>
                   <p class="mt-1 text-sm text-neutral-600">
                     Wholesome, homemade Eastern European food prepared daily.
+                    Breakfast, lunch, dinner + snacks
                   </p>
-                  <ul class="mt-3 grid gap-y-2 text-sm text-neutral-800">
-                    <li>Breakfast, lunch, dinner + snacks</li>
-                    <li>Grain/avocado bowls • Hearty soups</li>
-                    <li>Pilaf (lamb/beef/chicken)</li>
-                    <li>Vegetable stew • “Secret” fish dish</li>
-                    <li>Fire-cooked meals in a kazan (select nights)</li>
-                    <li>Vegetarian on request</li>
+
+                  <ul
+                    class="mt-3 grid gap-x-6 gap-y-3 text-sm text-neutral-800"
+                  >
+                    <li class="flex items-start gap-2">
+                      <span
+                        class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-neutral-400"
+                      ></span>
+                      Grain/avocado bowls
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <span
+                        class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-neutral-400"
+                      ></span>
+                      Hearty soups
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <span
+                        class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-neutral-400"
+                      ></span>
+                      Pilaf (lamb/beef/chicken)
+                    </li>
+
+                    <li class="flex items-start gap-2">
+                      <span
+                        class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-neutral-400"
+                      ></span>
+                      Vegetable stew
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <span
+                        class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-neutral-400"
+                      ></span>
+                      “Secret” fish dish
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <span
+                        class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-neutral-400"
+                      ></span>
+                      Fire-cooked meals in a kazan (select nights)
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <span
+                        class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-neutral-400"
+                      ></span>
+                      Vegetarian on request
+                    </li>
                   </ul>
                 </div>
               </section>
@@ -565,16 +660,10 @@
     </section>
 
     <!-- Sauna -->
-    <section id="sauna" class="py-20 bg-white js-parallax-section">
+    <section id="sauna" class="py-12 md:py-20 bg-white js-parallax-section">
       <div
         class="mx-auto max-w-6xl px-6 grid items-start lg:grid-cols-2 gap-10 lg:gap-12 relative"
       >
-        <!-- <img
-          src="./images/venik.png"
-          alt=""
-          aria-hidden="true"
-          class="pointer-events-none select-none hidden md:block absolute -top-20 -left-40 rotate-[0.55rad] opacity-60 w-80 md:w-82 lg:w-96 z-0 mix-blend-multiply"
-        /> -->
         <!-- Info Card (left) -->
         <div
           class="relative order-2 md:order-1 z-10 lg:col-start-1 lg:-mr-16 xl:-mr-20 -mt-8 lg:-mt-2"
@@ -583,12 +672,39 @@
           <article
             class="rounded-3xl bg-white/90 backdrop-blur-md ring-1 ring-black/5 shadow-xl p-6 sm:p-8"
           >
-            <h2
-              class="text-3xl font-accent font-semibold tracking-tight text-neutral-900"
-            >
-              Sauna Experience
-            </h2>
-            <p class="mt-3 text-neutral-700">
+            <header class="relative">
+              <!-- MOBILE VERSION (hero image + overlay title) -->
+              <div
+                class="md:hidden relative -mx-6 -mt-6 sm:-mx-8 sm:-mt-8 overflow-hidden rounded-t-3xl"
+              >
+                <img
+                  src="./images/sauna-hero.jpeg"
+                  alt="Traditional wood-burning sauna beside the pond"
+                  class="w-full h-64 object-cover object-[25%_55%]"
+                />
+
+                <div
+                  class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-transparent"
+                ></div>
+
+                <h2
+                  class="absolute top-4 left-6 sm:left-8 font-accent font-semibold text-3xl lg:text-4xl tracking-tight text-white drop-shadow-md"
+                >
+                  Sauna Experience
+                </h2>
+              </div>
+
+              <!-- DESKTOP VERSION (original) -->
+              <div class="hidden md:block">
+                <h2
+                  class="font-accent font-semibold text-3xl lg:text-4xl tracking-tight text-neutral-900"
+                >
+                  Sauna Experience
+                </h2>
+              </div>
+            </header>
+
+            <p class="mt-4 text-neutral-700">
               A wood-fired sauna by the pond, where warmth and nature meet —
               soothing the mind, easing tension, and renewing the body.
             </p>
@@ -713,7 +829,10 @@
         </div>
 
         <!-- Image (right) -->
-        <div class="relative order-1 md:order-2 z-0" data-parallax="back">
+        <div
+          class="relative order-1 md:order-2 z-0 hidden md:block"
+          data-parallax="back"
+        >
           <div
             class="relative aspect-[4/3] md:aspect-[3/4] w-full overflow-hidden rounded-3xl lg:-mt-8"
           >
@@ -729,12 +848,15 @@
     </section>
 
     <!-- Events -->
-    <section id="events" class="py-20 bg-neutral-50 js-parallax-section">
+    <section
+      id="events"
+      class="py-12 md:py-20 bg-neutral-50 js-parallax-section"
+    >
       <div class="mx-auto max-w-6xl px-6">
         <div class="grid gap-10 lg:grid-cols-2 items-start relative">
           <!-- Image (under card) -->
           <div
-            class="order-1 relative z-0 lg:-mt-8 xl:-mt-12"
+            class="order-1 relative z-0 lg:-mt-8 xl:-mt-12 hidden md:block"
             data-parallax="back"
           >
             <div
@@ -756,15 +878,41 @@
             <div
               class="rounded-3xl border border-neutral-200 bg-white/90 shadow-xl backdrop-blur p-6 md:p-8"
             >
-              <h2
-                class="font-accent font-semibold text-3xl md:text-4xl text-neutral-900"
-              >
-                Private Events
-              </h2>
+              <header class="relative">
+                <!-- MOBILE VERSION (hero image + overlay title) -->
+                <div
+                  class="md:hidden relative -mx-6 -mt-6 sm:-mx-8 sm:-mt-8 overflow-hidden rounded-t-3xl"
+                >
+                  <img
+                    src="./images/events-hero.jpg"
+                    alt="Private events with a Narnia vibe"
+                    class="w-full h-64 object-cover object-[25%_50%]"
+                  />
+
+                  <div
+                    class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-transparent"
+                  ></div>
+
+                  <h2
+                    class="absolute top-4 left-6 sm:left-8 font-accent font-semibold text-3xl lg:text-4xl tracking-tight text-white drop-shadow-md"
+                  >
+                    Private Events
+                  </h2>
+                </div>
+
+                <!-- DESKTOP VERSION (original) -->
+                <div class="hidden md:block">
+                  <h2
+                    class="font-accent font-semibold text-3xl lg:text-4xl tracking-tight text-neutral-900"
+                  >
+                    Private Events
+                  </h2>
+                </div>
+              </header>
 
               <p class="mt-3 text-neutral-700">
-                Bring your workshop or gathering to our magical woodland
-                space—we'll infuse it with the Narnia vibe and take care of the
+                Bring your workshop or gathering to our magical woodland space —
+                we'll infuse it with the Narnia vibe and take care of the
                 essentials so you can focus on your guests.
               </p>
 
@@ -813,7 +961,7 @@
     </section>
 
     <!-- Meet Your Hosts -->
-    <section id="about" class="py-24 bg-neutral-100">
+    <section id="about" class="py-14 md:py-24 bg-neutral-100">
       <div class="mx-auto max-w-6xl px-6">
         <!-- Heading -->
         <div class="text-center max-w-3xl mx-auto">
@@ -845,7 +993,7 @@
                 class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/70 via-black/30 to-transparent"
               ></div>
               <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
-                <h3 class="text-2xl font-semibold">Stan</h3>
+                <h3 class="text-2xl font-semibold font-accent">Stan</h3>
                 <p class="mt-2 text-sm leading-relaxed text-white/90">
                   Sauna practitioner and sound healer who brings traditional
                   Eastern European sauna rituals, vibration therapy, and hapé
@@ -869,7 +1017,7 @@
                 class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/70 via-black/30 to-transparent"
               ></div>
               <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
-                <h3 class="text-2xl font-semibold">Alex</h3>
+                <h3 class="text-2xl font-semibold font-accent">Alex</h3>
                 <p class="mt-2 text-sm leading-relaxed text-white/90">
                   Certified Wim Hof Method instructor guiding breathwork, cold
                   exposure, and meditation. Known by many as a “witch doctor”
@@ -885,7 +1033,7 @@
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="py-24 bg-neutral-50">
+    <section id="contact" class="py-14 md:py-24 bg-neutral-50">
       <div class="mx-auto max-w-5xl px-6">
         <!-- Heading -->
         <div class="text-center max-w-2xl mx-auto">
