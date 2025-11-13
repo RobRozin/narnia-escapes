@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta
@@ -34,7 +34,7 @@
   </head>
   <body
     id="app"
-    class="bg-paper text-body font-body overscroll-y-none"
+    class="bg-paper text-body font-body overscroll-y-none scroll-smooth"
     v-cloak
     v-scope
     @vue:mounted="mounted"
@@ -203,20 +203,6 @@
         </nav>
       </div>
     </header>
-
-    <main id="content">
-      <!-- HOME -->
-      <div id="site-home"></div>
-
-      <!-- RETREATS -->
-      <div id="site-retreats"></div>
-
-      <!-- SAUNA -->
-      <div id="site-sauna"></div>
-
-      <!-- EVENT HOSTING -->
-      <div id="site-events"></div>
-    </main>
 
     <!-- Hero -->
     <section
@@ -388,7 +374,7 @@
     <!-- Retreats -->
     <section
       id="retreats"
-      class="py-12 md:py-20 bg-neutral-50 js-parallax-section"
+      class="py-12 md:py-20 bg-neutral-50 js-parallax-section scroll-mt-20"
     >
       <div
         class="mx-auto max-w-6xl px-6 grid items-start lg:grid-cols-2 gap-10 lg:gap-12 relative"
@@ -660,7 +646,10 @@
     </section>
 
     <!-- Sauna -->
-    <section id="sauna" class="py-12 md:py-20 bg-white js-parallax-section">
+    <section
+      id="sauna"
+      class="py-12 md:py-20 bg-white js-parallax-section scroll-mt-20"
+    >
       <div
         class="mx-auto max-w-6xl px-6 grid items-start lg:grid-cols-2 gap-10 lg:gap-12 relative"
       >
@@ -688,7 +677,7 @@
                 ></div>
 
                 <h2
-                  class="absolute top-4 left-6 sm:left-8 font-accent font-semibold text-3xl lg:text-4xl tracking-tight text-white drop-shadow-md"
+                  class="absolute top-4 left-6 sm:left-8 font-accent font-semibold text-3xl tracking-tight text-white drop-shadow-md"
                 >
                   Sauna Experience
                 </h2>
@@ -850,7 +839,7 @@
     <!-- Events -->
     <section
       id="events"
-      class="py-12 md:py-20 bg-neutral-50 js-parallax-section"
+      class="py-12 md:py-20 bg-neutral-50 js-parallax-section scroll-mt-20"
     >
       <div class="mx-auto max-w-6xl px-6">
         <div class="grid gap-10 lg:grid-cols-2 items-start relative">
@@ -886,7 +875,7 @@
                   <img
                     src="./images/events-hero.jpg"
                     alt="Private events with a Narnia vibe"
-                    class="w-full h-64 object-cover object-[25%_50%]"
+                    class="w-full h-64 object-cover object-[25%_50%] will-change-transform scale-[1.6]"
                   />
 
                   <div
@@ -894,7 +883,7 @@
                   ></div>
 
                   <h2
-                    class="absolute top-4 left-6 sm:left-8 font-accent font-semibold text-3xl lg:text-4xl tracking-tight text-white drop-shadow-md"
+                    class="absolute top-4 left-6 sm:left-8 font-accent font-semibold text-3xl tracking-tight text-white drop-shadow-md"
                   >
                     Private Events
                   </h2>
@@ -1033,7 +1022,7 @@
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="py-14 md:py-24 bg-neutral-50">
+    <section id="contact" class="py-14 md:py-24 bg-neutral-50 scroll-mt-20">
       <div class="mx-auto max-w-5xl px-6">
         <!-- Heading -->
         <div class="text-center max-w-2xl mx-auto">
@@ -1042,9 +1031,9 @@
           >
             Get in Touch
           </h2>
-          <p class="mt-4 text-lg text-neutral-700 leading-relaxed">
+          <p class="mt-4 px-2 text-lg text-neutral-700 leading-relaxed">
             Ready to plan your retreat?<br />
-            Send us a message below — we’ll reply on the platform you choose.
+            Send us a message below - we'll reply on the platform you choose.
           </p>
 
           <!-- Prefill message -->
