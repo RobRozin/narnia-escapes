@@ -1,32 +1,142 @@
 // app.js
-
-async function loadPartial(elId, url) {
-  const res = await fetch(url);
-  if (!res.ok) throw new Error(`Failed to load ${url}`);
-  const html = await res.text();
-
-  const el = document.getElementById(elId);
-  if (!el) {
-    console.warn(`[loadPartial] target #${elId} not found when loading ${url}`);
-    return;
-  }
-  el.innerHTML = html;
-}
+import { AboutSection } from "./components/AboutSection.js";
+import { Button } from "./components/Button.js";
+import { ContactSection } from "./components/ContactSection.js";
+import { EventsSection } from "./components/EventsSection.js";
+import { FooterSection } from "./components/FooterSection.js";
+import { HeroSection } from "./components/HeroSection.js";
+import { HighlightCard } from "./components/HighlightCard.js";
+import { HighlightsSection } from "./components/HighlightsSection.js";
+import { Navbar } from "./components/Navbar.js";
+import { RetreatsSection } from "./components/RetreatsSection.js";
+import { SaunaSection } from "./components/SaunaSection.js";
 
 const app = {
   // ======= State =======
-  pages: ["home", "retreats", "sauna", "events", "about"],
-  // activePage: "home",
   isScrolled: false,
   isMobileMenuOpen: false,
-  isCollapsed: false,
-  isHidden: false,
-  _lastY: 0,
+  navItems: [
+    { id: "home", label: "Home", href: "#home" },
+    { id: "retreats", label: "Retreats", href: "#retreats" },
+    { id: "sauna", label: "Sauna", href: "#sauna" },
+    { id: "events", label: "Events", href: "#events" },
+    { id: "about", label: "About", href: "#about" },
+  ],
+  highlights: [
+    {
+      id: "retreats",
+      href: "#retreats",
+      imgSrc: "./images/highlights-retreats.jpeg",
+      imgAlt: "Guided retreats at the cabin",
+      title: "Guided Retreats",
+      text: "Breathwork - Sound bath - Sauna & cold plunge - Hikes - Homemade meals",
+    },
+    {
+      id: "sauna",
+      href: "#sauna",
+      imgSrc: "./images/highlights-sauna.jpeg",
+      imgAlt: "Sauna experience with cold plunge",
+      title: "Sauna Experience",
+      text: "Wood-fired sauna - Cold plunge - Chill room - Herbal tea - Pondside relaxation",
+    },
+    {
+      id: "events",
+      href: "#events",
+      imgSrc: "./images/highlights-events.jpg",
+      imgAlt: "Private event with nature views",
+      title: "Private Events",
+      text: "Workshops, celebrations, or team resets - Custom session flow - Optional sound bathing & breathwork",
+    },
+  ],
+  retreatExperience: [
+    "Wim Hof Method: breathwork, cold exposure, mindfulness",
+    "Daily sauna ritual with cold plunge",
+    "Guided sound baths & vibration therapy",
+    "Qi Gong, hikes, stretching & interoceptive practices",
+    "Community connection & evening wind-down",
+    "Select dates: guest instructors (ecstatic dance, yoga, Thai massage)",
+  ],
+  retreatLodging: [
+    "Shared loft with 8 single beds",
+    "3 full bathrooms with showers",
+    "Full kitchen & Wi-Fi",
+    "Wood stove heating",
+  ],
+  retreatMeals: [
+    "Grain/avocado bowls",
+    "Hearty soups",
+    "Pilaf (lamb/beef/chicken)",
+    "Vegetable stew",
+    '"Secret" fish dish',
+    "Fire-cooked meals in a kazan (select nights)",
+    "Vegetarian on request",
+  ],
+  saunaIncluded: ["Aromatherapy", "Tea service", "Mineral water"],
+  saunaAddOns: [
+    { label: "Platza (Venik) Massage", price: "$40" },
+    { label: "Breathwork + Sound Baths", price: "$40" },
+    { label: "Ice Bath", price: "$40", note: "(summer only)" },
+    { label: "Soup + Salad", price: "$20" },
+  ],
+  eventHighlightsLeft: [
+    "Add the Narnia vibe to any workshop or private event",
+    "Accommodations available with homemade meals",
+  ],
+  eventHighlightsRight: [
+    "Optional experiences: breathwork, cold exposure & sauna",
+    "Need more room or private suites? Local Airbnb partners available",
+  ],
+  contactMethods: [
+    {
+      id: "instagram",
+      label: "Send on Instagram",
+      iconPath:
+        "M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 4a5 5 0 100 10 5 5 0 000-10zm5-.8a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4z",
+    },
+    {
+      id: "messenger",
+      label: "Send on Messenger",
+      iconPath:
+        "M12 2C6.5 2 2 6 2 11.5c0 2.9 1.4 5.5 3.7 7.2V22l3.3-1.8c.9.2 1.8.3 2.8.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm.1 13.7l-2.9-3.1-5.1 3.1 5.6-6.1 2.9 3.1 5.1-3.1-5.6 6.1z",
+    },
+    {
+      id: "telegram",
+      label: "Send on Telegram",
+      iconPath:
+        "M21.5 3.3l-19 7.3c-1.3.5-1.3 1.3-.2 1.6l4.9 1.5 11.5-7.7c.6-.4 1.2-.2.7.3l-9.3 8.8-.3 4c.5 0 .7-.2 1-.5l2.4-2.3 5 3.6c.9.5 1.6.2 1.8-.8l3.3-15.3c.3-1.5-.6-2.1-1.8-1.5z",
+    },
+    {
+      id: "email",
+      label: "Send Email",
+      iconPath:
+        "M2 6a2 2 0 012-2h16a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6zm2 0l8 5 8-5H4zm0 2.2v9.8h16V8.2l-8 5-8-5z",
+    },
+  ],
+  footerLinks: [
+    {
+      id: "instagram",
+      label: "Instagram",
+      href: "https://instagram.com/narniaescapes",
+    },
+    {
+      id: "facebook",
+      label: "Facebook",
+      href: "https://facebook.com/narniaescapes",
+    },
+  ],
 
-  contactTypes: {
-    sauna:
-      "Hello, I'm interested in reserving your sauna. Could you share availability?",
-  },
+  // ======= Components =======
+  AboutSection,
+  Button,
+  ContactSection,
+  EventsSection,
+  FooterSection,
+  HeroSection,
+  HighlightCard,
+  HighlightsSection,
+  Navbar,
+  RetreatsSection,
+  SaunaSection,
 
   // Contact message
   contactMessage:
@@ -48,73 +158,11 @@ const app = {
     }
   },
 
-  // ToDo: Recycle this logic
-  contactOptions: [
-    {
-      id: "telegram",
-      label: "Send Message on Telegram",
-      href: "https://t.me/irenasmirnowa?text=",
-      appendMessage: true,
-      color: "#26A5E4",
-      note: "Fast",
-    },
-    {
-      id: "instagram",
-      label: "Send Message on Instagram",
-      href: "https://instagram.com/natur_esthetics",
-      appendMessage: false,
-      color: "#FF0069",
-      note: null,
-    },
-    {
-      id: "whatsapp",
-      label: "Message Me on WhatsApp",
-      href: "https://wa.me/12154212775",
-      appendMessage: true,
-      color: "#25D366",
-      note: null,
-    },
-  ],
-
   fired: false,
-
-  // ======= Newsletter (NEW) =======
-  _NL_KEY: "nl_seen_until",
-  _NL_THRESHOLD: 0.35, // 35% scroll depth
-  _NL_SNOOZE_DAYS: 14, // after dismiss
-  _NL_SUB_SNOOZE_DAYS: 180, // after subscribe (~6 months)
-  _nlPrefersReduced: false,
-  _nlShownThisSession: false,
-  nlOpen: false,
-  nlEmail: "",
 
   // ======= Helpers =======
   _encodeMsg(text) {
     return encodeURIComponent((text || "").trim());
-  },
-  _safeGet(key) {
-    try {
-      return localStorage.getItem(key);
-    } catch {
-      return null;
-    }
-  },
-  _safeSet(key, val) {
-    try {
-      localStorage.setItem(key, val);
-    } catch {}
-  },
-  _futureISO(days) {
-    const d = new Date();
-    d.setDate(d.getDate() + days);
-    return d.toISOString();
-  },
-  _nlHasActiveSnooze() {
-    const until = this._safeGet(this._NL_KEY);
-    return until && new Date(until) > new Date();
-  },
-  _nlSnooze(days) {
-    this._safeSet(this._NL_KEY, this._futureISO(days));
   },
 
   // ======= Contact actions =======
@@ -145,6 +193,24 @@ const app = {
       `mailto:narniaescapes22@gmail.com?subject=Narnia%20Inquiry&body=${msg}`,
       "blank"
     );
+  },
+  handleContact(methodId) {
+    switch (methodId) {
+      case "instagram":
+        this.openInstagram();
+        break;
+      case "messenger":
+        this.openMessenger();
+        break;
+      case "telegram":
+        this.openTelegram();
+        break;
+      case "email":
+        this.openEmail();
+        break;
+      default:
+        console.warn(`[handleContact] Unknown method: ${methodId}`);
+    }
   },
 
   _isMobile() {
@@ -282,7 +348,6 @@ const app = {
   },
 
   mounted() {
-    this._lastY = window.scrollY || 0;
     this.checkScroll();
     window.addEventListener("scroll", this.onScroll, { passive: true });
     window.addEventListener("resize", this.onScroll);
@@ -297,16 +362,6 @@ const app = {
     };
     this.initParallax();
 
-    // ======= Newsletter init (NEW) =======
-    this._nlPrefersReduced = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-
-    // ESC to close newsletter
-    window.addEventListener("keydown", (e) => {
-      if (this.nlOpen && e.key === "Escape") this.dismissNewsletter("esc");
-    });
-
     const initialPage = window.location.hash.replace("#", "");
     if (initialPage) this.navigateTo(initialPage, false);
   },
@@ -315,7 +370,6 @@ const app = {
     window.removeEventListener("scroll", this.onScroll, { passive: true });
     window.removeEventListener("resize", this.onScroll);
     this.destroyParallax();
-    this.destroyEdgePull();
   },
 
   navigateTo(pageId, pushState = true) {
@@ -349,75 +403,16 @@ const app = {
     }
   },
 
-  //#region
-
-  //#endregion
-
-  //#region ======= Newsletter =======
-  triggerNewsletter() {
-    if (this._nlShownThisSession) return;
-    if (this._nlHasActiveSnooze()) return;
-
-    const doc = document.documentElement;
-    const maxScroll = doc.scrollHeight - doc.clientHeight || 1;
-    const scrolled = (window.scrollY || doc.scrollTop) / maxScroll;
-
-    if (scrolled >= this._NL_THRESHOLD) {
-      this.showNewsletter();
-      this._nlShownThisSession = true;
-    }
-  },
-
-  showNewsletter() {
-    const delay = this._nlPrefersReduced ? 0 : 150;
-    setTimeout(() => {
-      this.nlOpen = true;
-    }, delay);
-  },
-
-  dismissNewsletter(reason = "dismiss") {
-    this.nlOpen = false;
-    this._nlSnooze(this._NL_SNOOZE_DAYS);
-  },
-
-  snoozeNewsletter() {
-    this.nlOpen = false;
-    this._nlSnooze(this._NL_SNOOZE_DAYS);
-  },
-
-  async subscribeNewsletter() {
-    // TODO: hook provider here (Mailchimp/ConvertKit/etc.)
-    // await fetch('/api/subscribe', { method: 'POST', body: JSON.stringify({ email: this.nlEmail }) })
-    this.nlOpen = false;
-    this._nlSnooze(this._NL_SUB_SNOOZE_DAYS);
-    alert("Thanks for subscribing!");
-  },
-  //#endregion
-
   checkScroll() {
     const y = window.scrollY || 0;
-    const dy = y - this._lastY;
-
     this.isScrolled = y > 80;
-
-    const COLLAPSE_AT = 24;
-    if (y > COLLAPSE_AT && !this.isCollapsed) this.isCollapsed = true;
-    if (y <= COLLAPSE_AT && this.isCollapsed) this.isCollapsed = false;
-
-    if (dy > 4 && y > COLLAPSE_AT && !this.isHidden) this.isHidden = true;
-    else if (dy < -6 && this.isHidden) this.isHidden = false;
-
-    if (y <= 0) this.isHidden = false;
-
-    this._lastY = y;
   },
 
   onScroll() {
     window.requestAnimationFrame(() => {
       this.checkScroll();
       this.triggerHighlights();
-      this.triggerNewsletter(); // <— integrated here
-      // Parallax uses RAF; edge-pull is throttled in its own listener.
+      // Parallax uses RAF for in-view updates.
     });
   },
 };
