@@ -4,7 +4,7 @@ export function SaunaSection() {
     $template: `
       <section
         id="sauna"
-        class="py-12 md:py-20 bg-white js-parallax-section scroll-mt-20"
+        class="py-12 md:py-20 bg-offwhite js-parallax-section scroll-mt-20"
       >
         <div
           class="mx-auto max-w-6xl px-6 grid items-start lg:grid-cols-2 gap-10 lg:gap-12 relative"
@@ -39,7 +39,7 @@ export function SaunaSection() {
 
                 <div class="hidden md:block">
                   <h2
-                    class="font-accent font-semibold text-3xl lg:text-4xl tracking-tight text-neutral-900"
+                    class="font-accent font-semibold text-3xl lg:text-4xl tracking-tight text-tan"
                   >
                     Sauna Experience
                   </h2>
@@ -56,7 +56,7 @@ export function SaunaSection() {
               </p>
 
               <div class="mt-6">
-                <h3 class="text-lg font-semibold">Standard Sauna Session</h3>
+                <h3 class="text-lg font-semibold text-tan">Standard Sauna Session</h3>
                 <p class="mt-1 text-sm text-neutral-600">
                   Four-hour session - Minimum three people
                 </p>
@@ -136,7 +136,7 @@ export function SaunaSection() {
 
               <div class="mt-6 flex flex-col sm:flex-row gap-4">
                 <div
-                  v-scope="Button({ text: 'Reserve a Session', href: '#contact', variant: 'primary', size: 'lg', className: 'w-full sm:w-auto', onClick: () => updateContactMessage('sauna') })"
+                  v-scope="Button({ text: 'Reserve a Session', href: '#contact', variant: 'primary', size: 'lg', className: 'w-full sm:w-auto', iconPath: 'M8 7V3m8 4V3M4 11h16M4 7a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V7z', onClick: () => updateContactMessage('sauna') })"
                 ></div>
                 <!-- <a
                   href="/sauna"

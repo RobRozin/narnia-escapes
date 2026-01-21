@@ -4,7 +4,7 @@ export function EventsSection() {
     $template: `
       <section
         id="events"
-        class="py-12 md:py-20 bg-neutral-50 js-parallax-section scroll-mt-20"
+        class="py-12 md:py-20 bg-ash js-parallax-section scroll-mt-20"
       >
         <div class="mx-auto max-w-6xl px-6">
           <div class="grid gap-10 lg:grid-cols-2 items-start relative">
@@ -53,7 +53,7 @@ export function EventsSection() {
 
                   <div class="hidden md:block">
                     <h2
-                      class="font-accent font-semibold text-3xl lg:text-4xl tracking-tight text-neutral-900"
+                      class="font-accent font-semibold text-3xl lg:text-4xl tracking-tight text-tan"
                     >
                       Private Events
                     </h2>
@@ -93,7 +93,7 @@ export function EventsSection() {
                   </ul>
                 </div>
                 <div
-                  v-scope="Button({ text: 'Plan Your Event', href: '#contact', variant: 'primary', size: 'lg', className: 'mt-6 w-full sm:w-auto', onClick: () => updateContactMessage('event') })"
+                  v-scope="Button({ text: 'Plan Your Event', href: '#contact', variant: 'primary', size: 'lg', className: 'mt-6 w-full sm:w-auto', iconPath: 'M8 7V3m8 4V3M4 11h16M4 7a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V7z', onClick: () => updateContactMessage('event') })"
                 ></div>
               </div>
             </div>

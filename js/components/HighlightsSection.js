@@ -2,13 +2,13 @@ export function HighlightsSection() {
   return {
     /*html*/
     $template: `
-      <section id="highlights" class="py-14 md:py-24 bg-white">
+      <section id="highlights" class="py-14 md:py-24 bg-offwhite">
         <div id="highlights-container" class="mx-auto max-w-6xl px-6">
           <header class="text-center">
             <h2
-              class="text-4xl font-heading font-bold tracking-tight text-neutral-900 uppercase"
+              class="text-4xl font-heading font-bold tracking-tight text-tan uppercase"
             >
-              Ways To Experience Narnia
+              Experience Narnia
             </h2>
           </header>
 

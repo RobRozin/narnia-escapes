@@ -4,7 +4,7 @@ export function RetreatsSection() {
     $template: `
       <section
         id="retreats"
-        class="py-12 md:py-20 bg-neutral-50 js-parallax-section scroll-mt-20"
+        class="py-12 md:py-20 bg-ballet js-parallax-section scroll-mt-20"
       >
         <div
           class="mx-auto max-w-6xl px-6 grid items-start lg:grid-cols-2 gap-10 lg:gap-12 relative"
@@ -53,7 +53,7 @@ export function RetreatsSection() {
 
                 <div class="hidden md:block">
                   <h2
-                    class="font-accent font-semibold text-3xl lg:text-4xl tracking-tight text-neutral-900"
+                    class="font-accent font-semibold text-3xl lg:text-4xl tracking-tight text-tan"
                   >
                     Guided Retreats
                   </h2>
@@ -70,7 +70,7 @@ export function RetreatsSection() {
 
               <div class="mt-6 grid gap-8">
                 <section>
-                  <h3 class="text-lg font-semibold text-neutral-900">
+                  <h3 class="text-lg font-semibold text-tan">
                     Retreat Experience
                   </h3>
                   <ul
@@ -108,7 +108,7 @@ export function RetreatsSection() {
 
                 <section class="grid gap-6 sm:grid-cols-2">
                   <div>
-                    <h3 class="text-lg font-semibold text-neutral-900">
+                    <h3 class="text-lg font-semibold text-tan">
                       Lodging
                     </h3>
                     <p class="mt-1 text-sm text-neutral-600">
@@ -131,7 +131,7 @@ export function RetreatsSection() {
                     </ul>
                   </div>
                   <div>
-                    <h3 class="text-lg font-semibold text-neutral-900">Meals</h3>
+                    <h3 class="text-lg font-semibold text-tan">Meals</h3>
                     <p class="mt-1 text-sm text-neutral-600">
                       Wholesome, homemade Eastern European food prepared daily.
                       Breakfast, lunch, dinner + snacks
@@ -169,7 +169,7 @@ export function RetreatsSection() {
 
                   <div class="flex flex-col sm:flex-row gap-4 sm:flex-shrink-0">
                     <div
-                      v-scope="Button({ text: 'Inquire About Dates', href: '#contact', variant: 'primary', size: 'lg', className: 'w-full sm:w-auto', onClick: () => updateContactMessage('retreat') })"
+                      v-scope="Button({ text: 'Inquire About Dates', href: '#contact', variant: 'primary', size: 'lg', className: 'w-full sm:w-auto', iconPath: 'M8 7V3m8 4V3M4 11h16M4 7a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V7z', onClick: () => updateContactMessage('retreat') })"
                     ></div>
                     <!--
                       <a

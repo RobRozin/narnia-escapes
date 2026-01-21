@@ -12,6 +12,9 @@ export function Button(props = {}) {
     target = null,
     rel = null,
     onClick = null, // optional: function handler
+    iconPath = null,
+    iconPosition = "left",
+    iconClass = "h-5 w-5",
   } = props;
 
   const base =
@@ -33,12 +36,19 @@ export function Button(props = {}) {
     base,
     sizes[size] || sizes.md,
     variants[variant] || variants.primary,
+    iconPath ? "gap-2" : "",
     block ? "w-full" : "",
     disabled ? "opacity-60 pointer-events-none" : "",
     className,
   ]
     .filter(Boolean)
     .join(" ");
+
+  const iconMarkup = iconPath
+    ? `<svg class="${iconClass}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+         <path d="${iconPath}" />
+       </svg>`
+    : "";
 
   return {
     ...props,
@@ -48,17 +58,24 @@ export function Button(props = {}) {
     classes,
     disabled,
     ariaLabel,
-    target,
-    rel,
+    target: href && href.startsWith("#") ? null : target,
+    rel: href && href.startsWith("#") ? null : rel,
     onClick,
+    iconPath,
+    iconPosition,
+    iconClass,
     $template: href
       ? /*html*/
         `<a :href="href" :class="classes" :aria-label="ariaLabel" :aria-disabled="disabled ? 'true' : null" :target="target" :rel="rel" @click="onClick && onClick()">
+           ${iconPosition === "right" ? "" : iconMarkup}
            <span v-text="text"></span>
+           ${iconPosition === "right" ? iconMarkup : ""}
          </a>`
       : /*html*/
         `<button :type="type" :class="classes" :disabled="disabled" :aria-label="ariaLabel" @click="onClick && onClick()">
+           ${iconPosition === "right" ? "" : iconMarkup}
            <span v-text="text"></span>
+           ${iconPosition === "right" ? iconMarkup : ""}
          </button>`,
   };
 }

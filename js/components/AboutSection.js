@@ -2,11 +2,11 @@ export function AboutSection() {
   return {
     /*html*/
     $template: `
-      <section id="about" class="py-14 md:py-24 bg-neutral-100 scroll-mt-20">
+      <section id="about" class="py-14 md:py-24 bg-ballet scroll-mt-20">
         <div class="mx-auto max-w-6xl px-6">
           <div class="text-center max-w-3xl mx-auto">
             <h2
-              class="text-4xl font-heading font-bold tracking-tight text-neutral-900 uppercase"
+              class="text-4xl font-heading font-bold tracking-tight text-tan uppercase"
             >
               Meet Your Hosts
             </h2>

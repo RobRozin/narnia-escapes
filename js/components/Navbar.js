@@ -10,13 +10,19 @@ export function Navbar() {
         class="fixed inset-x-0 top-0 z-50 transition-colors duration-300 pt-[env(safe-area-inset-top)]"
       >
         <nav
-          class="mx-auto max-w-7xl flex items-center justify-between px-4 sm:px-6 lg:px-8 transition-all duration-300 ease-out"
-          :class="[isScrolled ? 'py-2' : 'py-4']"
+          class="mx-auto max-w-7xl flex items-center justify-between px-4 sm:px-6 lg:px-8 ease-out"
+          :class="[
+            isScrolled ? 'py-2 transition-all duration-300' : 'py-4'
+          ]"
         >
           <a
             href="#home"
-            class="flex items-center gap-2 transition-all duration-300 ease-out"
-            :class="[isScrolled ? 'scale-[0.96]' : 'scale-100']"
+            class="flex items-center gap-2 ease-out"
+            :class="[
+              isScrolled
+                ? 'scale-[0.96] opacity-100 translate-y-0 transition-all duration-300'
+                : 'scale-100 opacity-0 -translate-y-2 pointer-events-none'
+            ]"
           >
             <img
               src="./images/logo.png"
@@ -25,7 +31,7 @@ export function Navbar() {
               :class="[isScrolled ? 'w-12' : 'w-16']"
             />
             <span
-              class="font-accent tracking-tight transition-all duration-300 ease-out"
+              class="font-accent tracking-tight transition-all duration-300 ease-out translate-y-[1px]"
               :class="[isScrolled ? 'text-2xl' : 'text-3xl']"
             >
               Narnia Escapes
@@ -40,7 +46,7 @@ export function Navbar() {
               v-for="item in navItems"
               :key="item.id"
               :href="item.href"
-              class="hover:text-primary transition-colors"
+              class="hover:text-tan transition-colors"
               :class="[isScrolled ? 'text-xs font-medium' : 'text-sm font-medium']"
               v-text="item.label"
             ></a>
@@ -92,27 +98,64 @@ export function Navbar() {
 
         <div
           v-if="isMobileMenuOpen"
-          class="md:hidden absolute inset-x-0 top-full bg-offwhite border-t border-accent-soft/20 shadow-lg z-40"
+          class="md:hidden fixed inset-x-0 top-0 h-[100svh] bg-offwhite shadow-lg z-40"
         >
-          <nav class="px-5 py-4 space-y-12 text-center">
-            <a
-              v-for="(item, index) in navItems"
-              :key="item.id"
-              :href="item.href"
-              @click="isMobileMenuOpen=false"
-              class="block text-lg font-medium text-ink hover:text-primary"
-              :class="[index === 0 ? 'mt-6' : '']"
-              v-text="item.label"
-            ></a>
+          <div
+            class="flex h-full flex-col px-5 pt-[env(safe-area-inset-top)]"
+          >
+            <div class="flex items-center justify-between py-4">
+              <a href="#home" class="flex items-center gap-2">
+                <img
+                  src="./images/logo.png"
+                  alt="Narnia Escapes logo"
+                  class="w-12"
+                />
+                <span class="font-accent text-2xl tracking-tight text-neutral-900">
+                  Narnia Escapes
+                </span>
+              </a>
+              <button
+                class="inline-flex items-center justify-center p-2 rounded-md focus:outline-none"
+                @click="isMobileMenuOpen = false"
+                aria-label="Close menu"
+              >
+                <svg
+                  class="h-6 w-6 text-neutral-900"
+                  stroke="currentColor"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            </div>
 
-            <a
-              href="#contact"
-              @click="isMobileMenuOpen=false"
-              class="block w-full rounded-full bg-primary text-white text-center font-semibold py-3 shadow hover:opacity-95"
-            >
-              Book Your Escape
-            </a>
-          </nav>
+            <nav class="flex flex-1 flex-col items-center justify-center gap-10 text-center">
+              <a
+                v-for="item in navItems"
+                :key="item.id"
+                :href="item.href"
+                @click="isMobileMenuOpen=false"
+                class="text-lg font-medium text-neutral-900 hover:text-tan"
+                v-text="item.label"
+              ></a>
+            </nav>
+
+            <div class="pb-6">
+              <a
+                href="#contact"
+                @click="isMobileMenuOpen=false"
+                class="block w-full rounded-full bg-primary text-white text-center font-semibold py-3 shadow hover:opacity-95"
+              >
+                Book Your Escape
+              </a>
+            </div>
+          </div>
         </div>
       </header>
     `,

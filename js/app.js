@@ -15,6 +15,7 @@ const app = {
   // ======= State =======
   isScrolled: false,
   isMobileMenuOpen: false,
+  isContactMenuOpen: false,
   navItems: [
     { id: "home", label: "Home", href: "#home" },
     { id: "retreats", label: "Retreats", href: "#retreats" },
@@ -90,24 +91,32 @@ const app = {
     {
       id: "instagram",
       label: "Send on Instagram",
+      brandColor: "#E1306C",
+      brandText: "#FFFFFF",
       iconPath:
         "M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 4a5 5 0 100 10 5 5 0 000-10zm5-.8a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4z",
     },
     {
       id: "messenger",
       label: "Send on Messenger",
+      brandColor: "#0084FF",
+      brandText: "#FFFFFF",
       iconPath:
         "M12 2C6.5 2 2 6 2 11.5c0 2.9 1.4 5.5 3.7 7.2V22l3.3-1.8c.9.2 1.8.3 2.8.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm.1 13.7l-2.9-3.1-5.1 3.1 5.6-6.1 2.9 3.1 5.1-3.1-5.6 6.1z",
     },
     {
       id: "telegram",
       label: "Send on Telegram",
+      brandColor: "#2AABEE",
+      brandText: "#FFFFFF",
       iconPath:
         "M21.5 3.3l-19 7.3c-1.3.5-1.3 1.3-.2 1.6l4.9 1.5 11.5-7.7c.6-.4 1.2-.2.7.3l-9.3 8.8-.3 4c.5 0 .7-.2 1-.5l2.4-2.3 5 3.6c.9.5 1.6.2 1.8-.8l3.3-15.3c.3-1.5-.6-2.1-1.8-1.5z",
     },
     {
       id: "email",
       label: "Send Email",
+      brandColor: "#706E49",
+      brandText: "#FFFFFF",
       iconPath:
         "M2 6a2 2 0 012-2h16a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6zm2 0l8 5 8-5H4zm0 2.2v9.8h16V8.2l-8 5-8-5z",
     },
@@ -191,7 +200,7 @@ const app = {
     const msg = this._encodeMsg(this.contactMessage);
     window.open(
       `mailto:narniaescapes22@gmail.com?subject=Narnia%20Inquiry&body=${msg}`,
-      "blank"
+      "blank",
     );
   },
   handleContact(methodId) {
@@ -211,6 +220,10 @@ const app = {
       default:
         console.warn(`[handleContact] Unknown method: ${methodId}`);
     }
+    this.isContactMenuOpen = false;
+  },
+  toggleContactMenu() {
+    this.isContactMenuOpen = !this.isContactMenuOpen;
   },
 
   _isMobile() {
@@ -243,7 +256,7 @@ const app = {
 
   initParallax() {
     this._parallax.prefersReduced = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
+      "(prefers-reduced-motion: reduce)",
     ).matches;
     if (this._parallax.prefersReduced) return;
 
@@ -270,7 +283,7 @@ const app = {
         let anyInView = false;
         for (const entry of entries) {
           const sec = this._parallax.sections.find(
-            (s) => s.el === entry.target
+            (s) => s.el === entry.target,
           );
           if (sec) {
             sec.inView = entry.isIntersecting;
@@ -281,7 +294,7 @@ const app = {
         else if (!this._parallax.sections.some((s) => s.inView))
           this.stopParallax();
       },
-      { root: null, rootMargin: "10% 0px 10% 0px", threshold: [0, 1] }
+      { root: null, rootMargin: "10% 0px 10% 0px", threshold: [0, 1] },
     );
 
     this._parallax.sections.forEach((s) => {
@@ -396,7 +409,7 @@ const app = {
           el.addEventListener(
             "animationend",
             () => el.classList.remove("opacity-0"),
-            { once: true }
+            { once: true },
           );
         }, i * 20);
       });
@@ -405,7 +418,7 @@ const app = {
 
   checkScroll() {
     const y = window.scrollY || 0;
-    this.isScrolled = y > 80;
+    this.isScrolled = y > 300;
   },
 
   onScroll() {
