@@ -2,7 +2,7 @@ export function ContactSection() {
   return {
     /*html*/
     $template: `
-      <section id="contact" class="py-14 md:py-24 bg-pine text-offwhite scroll-mt-20">
+      <section id="contact" class="py-14 md:py-24 bg-background-footer text-offwhite scroll-mt-20">
         <div class="mx-auto max-w-5xl px-6">
           <div class="grid items-start gap-12 md:grid-cols-2">
             <div class="text-center md:text-left">
@@ -11,14 +11,20 @@ export function ContactSection() {
               >
                 Get in Touch
               </h2>
-              <p class="mt-4 text-lg text-offwhite/80 leading-relaxed px-4 md:px-0">
-                Have a question or a date in mind? We'd love to help you plan it.
+              <p class="mt-4 text-lg text-offwhite/80 leading-relaxed px-10 md:px-0">
+                Questions, availability, or private bookings —
+reach out when you're ready.
               </p>
 
-              <div class="relative mt-8 flex flex-col items-center md:items-start">
+              <div class="relative mt-8 flex flex-col items-stretch md:items-start">
+                <div
+                  v-show="isContactMenuOpen"
+                  class="fixed inset-0 z-10"
+                  @click="isContactMenuOpen = false"
+                ></div>
                 <button
                   type="button"
-                  class="inline-flex items-center justify-center gap-3 rounded-full bg-primary px-7 py-3 text-white font-medium shadow hover:opacity-95 active:opacity-90 transition"
+                  class="inline-flex w-full items-center justify-center gap-3 rounded-full bg-primary px-7 py-3 text-white font-medium shadow hover:opacity-95 active:opacity-90 transition sm:w-auto"
                   :aria-expanded="isContactMenuOpen ? 'true' : 'false'"
                   aria-controls="contactMethods"
                   @click="toggleContactMenu"
@@ -36,7 +42,7 @@ export function ContactSection() {
 
               <div
                 id="contactMethods"
-                class="absolute left-1/2 top-full z-20 mt-4 w-full -translate-x-1/2 rounded-2xl border border-white/15 bg-white/95 p-4 shadow-xl backdrop-blur transition md:left-0 md:translate-x-0"
+                class="absolute left-1/2 top-full z-20 mt-4 w-full -translate-x-1/2 rounded-2xl border border-white/25 bg-white/20 p-4 shadow-xl backdrop-blur-xl transition md:left-0 md:translate-x-0"
                 v-show="isContactMenuOpen"
               >
                   <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -44,7 +50,7 @@ export function ContactSection() {
                       v-for="(method, index) in contactMethods"
                       :key="method.id"
                       type="button"
-                      class="flex items-center gap-3 rounded-xl border bg-white px-4 py-3 text-left text-neutral-900 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+                      class="flex items-center gap-3 rounded-xl border bg-offwhite/80 px-4 py-3 text-left text-neutral-900 shadow-sm transition hover:-translate-y-0.5 hover:bg-offwhite/95 hover:shadow-md"
                       :class="isContactMenuOpen ? 'animate-contact-pop' : 'opacity-0'"
                       :style="{ borderColor: method.brandColor, animationDelay: (index * 90) + 'ms' }"
                       @click="handleContact(method.id)"
@@ -70,7 +76,7 @@ export function ContactSection() {
             </div>
 
             <div>
-              <h3 class="text-xl font-semibold text-offwhite text-center md:text-left">
+              <h3 class="text-xl font-accent text-offwhite text-center md:text-left">
                 Find Us
               </h3>
 

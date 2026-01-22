@@ -14,7 +14,7 @@ export function Button(props = {}) {
     onClick = null, // optional: function handler
     iconPath = null,
     iconPosition = "left",
-    iconClass = "h-5 w-5",
+    iconClass = "h-5 w-5 shrink-0",
   } = props;
 
   const base =
@@ -28,6 +28,8 @@ export function Button(props = {}) {
   const variants = {
     primary:
       "bg-primary text-white shadow-sm hover:opacity-95 active:opacity-90",
+    secondary:
+      "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary-hover active:opacity-90",
     "outline-light":
       "border border-white/40 bg-white/10 text-white backdrop-blur hover:bg-white/20",
     "outline-primary": "ring-1 ring-primary/30 text-primary hover:bg-primary/5",
@@ -45,10 +47,12 @@ export function Button(props = {}) {
     .join(" ");
 
   const iconMarkup = iconPath
-    ? `<svg class="${iconClass}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    ? `<svg class="${iconClass} overflow-visible" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
          <path d="${iconPath}" />
        </svg>`
     : "";
+
+  const linkTargetAttrs = target ? ` :target="target" :rel="rel"` : "";
 
   return {
     ...props,
@@ -66,7 +70,7 @@ export function Button(props = {}) {
     iconClass,
     $template: href
       ? /*html*/
-        `<a :href="href" :class="classes" :aria-label="ariaLabel" :aria-disabled="disabled ? 'true' : null" :target="target" :rel="rel" @click="onClick && onClick()">
+        `<a :href="href" :class="classes" :aria-label="ariaLabel" :aria-disabled="disabled ? 'true' : null"${linkTargetAttrs} @click="onClick && onClick()">
            ${iconPosition === "right" ? "" : iconMarkup}
            <span v-text="text"></span>
            ${iconPosition === "right" ? iconMarkup : ""}

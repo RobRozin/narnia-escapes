@@ -7,48 +7,54 @@ tailwind.config = {
         accent: ['"Vollkorn SC"', "serif"],
       },
       colors: {
-        // 🌿 Typography
-        heading: "#2D2D2D", // Smoke – deep neutral for headings
-        body: "#2D2D2D", // same Smoke tone for main text (balanced contrast)
-        muted: "#817F56", // Dark Tan – for secondary text or labels
+        // 🌿 Typography (INK IS BACK)
+        ink: "#24251F", // deep pine-charcoal (anchor color)
+        heading: "#24251F", // headings use ink
+        body: "#2E2F28", // slightly softer than headings
+        muted: "#7E6A52", // muted bronze-brown
 
-        // 🌞 Brand / UI system
+        // 🌞 Brand / UI system (pastel, logo-led)
         primary: {
-          DEFAULT: "#C4784B", // Marmalade Glaze – main CTA/button fill
-          foreground: "#F8F4EB", // Off-White text for contrast
-          hover: "#B96A3E", // slightly darker hover state
+          DEFAULT: "#C89A73", // muted ochre / badge tone
+          foreground: "#F6F1E7",
+          hover: "#B88660",
         },
         secondary: {
-          DEFAULT: "#817F56", // Dark Tan – grounded olive tone
-          foreground: "#F8F4EB", // Off-White text
-          hover: "#706E49", // darker olive for hover
+          DEFAULT: "#6F7452", // muted olive
+          foreground: "#F6F1E7",
+          hover: "#5F6446",
         },
+
+        // 🌲 Deep nature tones (NEW)
+        evergreen: "#3F4737", // dark moss / pine (hero overlays, nav bg)
+        charcoal: "#24251F", // alias for ink (footer, text, dividers)
+
         accent: {
-          DEFAULT: "#A07F56", // Bronze – warm accent for borders/icons
-          soft: "#BCB2A6", // Ash – soft neutral variant
+          DEFAULT: "#9A7A5E", // muted bronze
+          soft: "#C8BEB2", // warm stone
         },
 
         // 🪶 Neutrals & Backgrounds
-        offwhite: "#F8F4EB", // main background
-        ballet: "#EDE3DA", // subtle alt section background
-        ash: "#BCB2A6", // card surfaces / dividers
-        bronze: "#A07F56", // accent only (buttons, dividers, icons)
-        marmalade: "#C4784B", // CTA accents only
-        tan: "#817F56", // primary brand olive tone
-        pine: "#2F3B34", // deep evergreen for headers/footers/overlays
-        smoke: "#2D2D2D", // primary text / deepest neutral
+        offwhite: "#F6F1E7", // warm paper
+        ballet: "#EEE5DA", // linen
+        ash: "#C8BEB2", // stone
+        bronze: "#9A7A5E",
+        marmalade: "#C89A73",
+        tan: "#6F7452",
 
-        // 🌗 Aliases for layout
+        // 🌗 Layout aliases (THIS is where balance lives)
         background: {
-          DEFAULT: "#F8F4EB", // default site background
-          section: "#EDE3DA", // alternate sections
-          card: "#BCB2A6", // raised surfaces
-          footer: "#2F3B34", // deep evergreen footer base
+          DEFAULT: "#F6F1E7",
+          section: "#EEE5DA",
+          card: "#F2ECE2",
+          footer: "#24251F", // deep anchor restored
+          overlay: "#3F4737", // hero / image overlays
         },
         text: {
-          DEFAULT: "#2D2D2D", // main text
-          light: "#817F56", // muted text
-          inverse: "#F8F4EB", // text over dark backgrounds
+          DEFAULT: "#2E2F28",
+          light: "#7E6A52",
+          inverse: "#F6F1E7",
+          strong: "#24251F", // emphasis text
         },
       },
 

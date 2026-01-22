@@ -62,15 +62,19 @@ export function RetreatsSection() {
 
               <div class="mt-4">
                 <p class="text-neutral-700 leading-relaxed">
-                  Transformative 3-4 day immersions combining breathwork, sound
-                  baths, sauna rituals, nourishing meals, and nature connection.
-                  <span class="font-medium">Capacity: up to 8 guests.</span>
+                  A 3-4 day immersion for up to 8 guests, blending breathwork,
+                  sound baths, sauna rituals, and deep nature connection.
                 </p>
               </div>
 
-              <div class="mt-6 grid gap-8">
+              <div
+                id="retreatDetails"
+                class="grid gap-8 overflow-hidden transition-all duration-300 ease-out"
+                :class="isRetreatDetailsOpen ? 'mt-6 max-h-[1400px] opacity-100' : 'mt-0 max-h-0 opacity-0 pointer-events-none'"
+                :aria-hidden="isRetreatDetailsOpen ? 'false' : 'true'"
+              >
                 <section>
-                  <h3 class="text-lg font-semibold text-tan">
+                  <h3 class="text-lg font-semibold text-body">
                     Retreat Experience
                   </h3>
                   <ul
@@ -91,7 +95,7 @@ export function RetreatsSection() {
                   <div class="mt-4 flex flex-wrap gap-4 text-sm font-medium">
                     <a
                       href="#about"
-                      class="inline-flex items-center gap-2 text-primary hover:underline"
+                      class="inline-flex items-center gap-2 text-bronze hover:text-tan transition-colors"
                     >
                       Meet Your Hosts
                       <svg class="h-4 w-4" viewBox="0 0 24 24" aria-hidden="true">
@@ -108,7 +112,7 @@ export function RetreatsSection() {
 
                 <section class="grid gap-6 sm:grid-cols-2">
                   <div>
-                    <h3 class="text-lg font-semibold text-tan">
+                    <h3 class="text-lg font-semibold text-body">
                       Lodging
                     </h3>
                     <p class="mt-1 text-sm text-neutral-600">
@@ -131,7 +135,7 @@ export function RetreatsSection() {
                     </ul>
                   </div>
                   <div>
-                    <h3 class="text-lg font-semibold text-tan">Meals</h3>
+                    <h3 class="text-lg font-semibold text-body">Meals</h3>
                     <p class="mt-1 text-sm text-neutral-600">
                       Wholesome, homemade Eastern European food prepared daily.
                       Breakfast, lunch, dinner + snacks
@@ -153,33 +157,26 @@ export function RetreatsSection() {
                     </ul>
                   </div>
                 </section>
+                <section>
+                  <h3 class="text-lg font-semibold text-body">Pricing</h3>
+                  <p class="mt-2 text-sm text-neutral-700">
+                    Typical retreat range: $600-$1,000.
+                  </p>
+                  <p class="mt-1 text-xs text-neutral-500 italic">
+                    Varies by season and length.
+                  </p>
+                </section>
               </div>
 
               <footer class="mt-8">
-                <div
-                  class="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between"
-                >
-                  <p class="text-base sm:text-lg text-neutral-900 sm:flex-1">
-                    <span class="font-semibold">Typical Retreat:</span>
-                    $600-$1,000
-                    <span class="block text-sm text-neutral-500 italic">
-                      * Varies by season &amp; length
-                    </span>
-                  </p>
-
-                  <div class="flex flex-col sm:flex-row gap-4 sm:flex-shrink-0">
-                    <div
-                      v-scope="Button({ text: 'Inquire About Dates', href: '#contact', variant: 'primary', size: 'lg', className: 'w-full sm:w-auto', iconPath: 'M8 7V3m8 4V3M4 11h16M4 7a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V7z', onClick: () => updateContactMessage('retreat') })"
-                    ></div>
-                    <!--
-                      <a
-                        href="#retreats-details"
-                        class="inline-flex w-full sm:w-auto items-center justify-center rounded-full ring-1 ring-primary/30 px-6 py-3 text-primary font-medium hover:bg-primary/5"
-                      >
-                        See What's Included
-                      </a>
-                    -->
-                  </div>
+                <div class="flex flex-col gap-3 sm:flex-shrink-0">
+                  <div
+                    v-scope="Button({ text: 'Inquire About Dates', href: '#contact', variant: 'secondary', size: 'lg', className: 'w-full sm:w-auto', iconPath: 'M8 7V3m8 4V3M4 11h16M4 7a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V7z', onClick: () => updateContactMessage('retreat') })"
+                  ></div>
+                  <div
+                    v-if="!isRetreatDetailsOpen"
+                    v-scope="InfoToggle({ isOpen: isRetreatDetailsOpen, labelOpen: 'Hide retreat details', labelClosed: 'View retreat details', className: 'w-full sm:w-auto', onToggle: () => openServiceDetails('retreat') })"
+                  ></div>
                 </div>
               </footer>
             </article>

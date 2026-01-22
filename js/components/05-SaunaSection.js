@@ -47,40 +47,24 @@ export function SaunaSection() {
               </header>
 
               <p class="mt-4 text-neutral-700">
-                A wood-fired sauna by the pond, where warmth and nature meet --
-                soothing the mind, easing tension, and renewing the body.
-              </p>
-              <p class="mt-2">
-                Enhance your experience with the Eastern European Platza (Venik)
-                massage, blending heat, aroma, and renewal.
+                A wood-fired sauna by the pond for a four-hour reset of heat, cold,
+                and calm that lingers long after.
               </p>
 
-              <div class="mt-6">
-                <h3 class="text-lg font-semibold text-tan">Standard Sauna Session</h3>
-                <p class="mt-1 text-sm text-neutral-600">
-                  Four-hour session - Minimum three people
-                </p>
-
-                <div
-                  class="mt-4 rounded-2xl border border-neutral-200/80 bg-neutral-50 p-4"
-                >
-                  <div class="flex items-center justify-between">
-                    <div class="text-sm font-medium text-neutral-900">
-                      Base Rate
-                      <span
-                        class="ml-2 rounded-full bg-neutral-900/5 px-2.5 py-0.5 text-[12px] font-normal text-neutral-700"
-                        >per person</span
-                      >
-                    </div>
-                    <div class="text-2xl font-semibold tracking-tight">$100</div>
-                  </div>
-                  <p class="mt-2 text-xs text-neutral-500">
-                    Includes sauna time, changing area access, and session
-                    guidance.
+              <div
+                id="saunaDetails"
+                class="space-y-6 overflow-hidden transition-all duration-300 ease-out"
+                :class="isSaunaDetailsOpen ? 'mt-6 max-h-[1400px] opacity-100' : 'mt-0 max-h-0 opacity-0 pointer-events-none'"
+                :aria-hidden="isSaunaDetailsOpen ? 'false' : 'true'"
+              >
+                <div>
+                  <h3 class="text-lg font-semibold text-body">Standard Sauna Session</h3>
+                  <p class="mt-2 text-sm font-medium text-neutral-700">
+                    $100 per person · 4-hour session · Minimum 3 guests
                   </p>
                 </div>
 
-                <div class="mt-5 border-t border-neutral-200/70 pt-4">
+                <div class="border-t border-neutral-200/70 pt-4">
                   <div class="text-sm font-medium text-neutral-900">Included</div>
                   <ul class="mt-2 space-y-1.5 text-sm text-neutral-700">
                     <li
@@ -95,48 +79,57 @@ export function SaunaSection() {
                     </li>
                   </ul>
                 </div>
-              </div>
 
-              <div class="mt-6">
-                <div class="text-sm font-medium text-neutral-900">
-                  Optional Add-Ons
+                <div>
+                  <div class="text-sm font-medium text-neutral-900">
+                    Optional Add-Ons
+                  </div>
+                  <ul class="mt-3 space-y-2 text-sm text-neutral-700">
+                    <li
+                      v-for="item in saunaAddOns"
+                      :key="item.label"
+                      class="flex items-start justify-between gap-3"
+                    >
+                      <span class="flex items-start gap-2">
+                        <span
+                          class="mt-2 h-1.5 w-1.5 rounded-full bg-neutral-400"
+                        ></span>
+                        <span>
+                          <span v-text="item.label"></span>
+                          <span
+                            v-if="item.note"
+                            class="text-neutral-500"
+                            v-text="' ' + item.note"
+                          ></span>
+                        </span>
+                      </span>
+                      <span class="text-neutral-900 font-medium" v-text="item.price"></span>
+                    </li>
+                  </ul>
+                  <p class="mt-2 text-xs text-neutral-500">
+                    Add-ons are optional and can be added when booking.
+                  </p>
                 </div>
-                <ul class="mt-3 divide-y divide-neutral-200 text-sm">
-                  <li
-                    v-for="item in saunaAddOns"
-                    :key="item.label"
-                    class="py-3 flex items-center justify-between"
-                  >
-                    <span>
-                      <span v-text="item.label"></span>
-                      <span
-                        v-if="item.note"
-                        class="text-neutral-500"
-                        v-text="' ' + item.note"
-                      ></span>
-                    </span>
-                    <span class="text-neutral-900 font-medium ml-1" v-text="item.price"></span>
-                  </li>
-                </ul>
-                <p class="mt-2 text-xs text-neutral-500">
-                  Add-ons are priced per person unless noted.
-                </p>
-              </div>
 
-              <div
-                class="mt-6 rounded-xl border border-primary/15 bg-primary/5 p-4"
-              >
-                <p class="text-[13px] leading-5 text-neutral-700">
-                  <span class="font-medium text-neutral-800">Booking:</span>
-                  Please request at least one week in advance. A deposit of
-                  <span class="font-medium">20%</span> of your party's total is
-                  required upon booking.
-                </p>
-              </div>
-
-              <div class="mt-6 flex flex-col sm:flex-row gap-4">
                 <div
-                  v-scope="Button({ text: 'Reserve a Session', href: '#contact', variant: 'primary', size: 'lg', className: 'w-full sm:w-auto', iconPath: 'M8 7V3m8 4V3M4 11h16M4 7a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V7z', onClick: () => updateContactMessage('sauna') })"
+                  class="rounded-xl border border-primary/15 bg-primary/5 p-4"
+                >
+                  <p class="text-[13px] leading-5 text-neutral-700">
+                    <span class="font-medium text-neutral-800">Booking:</span>
+                    Please request at least one week in advance. A deposit of
+                    <span class="font-medium">20%</span> of your party's total is
+                    required upon booking.
+                  </p>
+                </div>
+              </div>
+
+              <div class="mt-6 flex flex-col gap-4">
+                <div
+                  v-scope="Button({ text: 'Reserve a Session', href: '#contact', variant: 'secondary', size: 'lg', className: 'w-full sm:w-auto', iconPath: 'M8 7V3m8 4V3M4 11h16M4 7a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V7z', onClick: () => updateContactMessage('sauna') })"
+                ></div>
+                <div
+                  v-if="!isSaunaDetailsOpen"
+                  v-scope="InfoToggle({ isOpen: isSaunaDetailsOpen, labelOpen: &quot;Hide what's included&quot;, labelClosed: &quot;See what's included&quot;, className: 'w-full sm:w-auto', onToggle: () => openServiceDetails('sauna') })"
                 ></div>
                 <!-- <a
                   href="/sauna"

@@ -6,7 +6,7 @@ export function HighlightsSection() {
         <div id="highlights-container" class="mx-auto max-w-6xl px-6">
           <header class="text-center">
             <h2
-              class="text-4xl font-heading font-bold tracking-tight text-tan uppercase"
+              class="text-4xl font-heading font-bold tracking-tight text-charcoal uppercase"
             >
               Experience Narnia
             </h2>

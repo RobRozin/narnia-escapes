@@ -2,7 +2,7 @@ export function FooterSection() {
   return {
     /*html*/
     $template: `
-      <footer class="border-t border-white/10 bg-pine text-offwhite">
+      <footer class="border-t border-white/10 bg-background-footer text-offwhite">
         <div
           class="mx-auto max-w-7xl px-4 py-8 flex flex-col sm:flex-row justify-between items-center text-sm text-offwhite/75"
         >

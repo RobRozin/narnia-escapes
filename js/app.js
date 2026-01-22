@@ -1,21 +1,54 @@
 // app.js
-import { AboutSection } from "./components/AboutSection.js";
+import { AboutSection } from "./components/07-AboutSection.js";
 import { Button } from "./components/Button.js";
-import { ContactSection } from "./components/ContactSection.js";
-import { EventsSection } from "./components/EventsSection.js";
-import { FooterSection } from "./components/FooterSection.js";
-import { HeroSection } from "./components/HeroSection.js";
+import { ContactSection } from "./components/08-ContactSection.js";
+import { EventsSection } from "./components/06-EventsSection.js";
+import { FooterSection } from "./components/09-FooterSection.js";
+import { HeroSection } from "./components/02-HeroSection.js";
 import { HighlightCard } from "./components/HighlightCard.js";
-import { HighlightsSection } from "./components/HighlightsSection.js";
-import { Navbar } from "./components/Navbar.js";
-import { RetreatsSection } from "./components/RetreatsSection.js";
-import { SaunaSection } from "./components/SaunaSection.js";
+import { HighlightsSection } from "./components/03-HighlightsSection.js";
+import { InfoToggle } from "./components/InfoToggle.js";
+import { Navbar } from "./components/01-Navbar.js";
+import { RetreatsSection } from "./components/04-RetreatsSection.js";
+import { SaunaSection } from "./components/05-SaunaSection.js";
 
 const app = {
   // ======= State =======
   isScrolled: false,
   isMobileMenuOpen: false,
   isContactMenuOpen: false,
+  isRetreatDetailsOpen: false,
+  isSaunaDetailsOpen: false,
+  isEventsDetailsOpen: false,
+  openServiceDetails(id) {
+    const isRetreat = id === "retreat";
+    const isSauna = id === "sauna";
+    const isEvents = id === "events";
+    const isOpen =
+      (isRetreat && this.isRetreatDetailsOpen) ||
+      (isSauna && this.isSaunaDetailsOpen) ||
+      (isEvents && this.isEventsDetailsOpen);
+
+    const targetId = isRetreat ? "retreats" : isSauna ? "sauna" : "events";
+    const anchorEl = document.getElementById(targetId);
+    const anchorTopBefore = anchorEl ? anchorEl.getBoundingClientRect().top : null;
+
+    this.isRetreatDetailsOpen = isRetreat ? !isOpen : false;
+    this.isSaunaDetailsOpen = isSauna ? !isOpen : false;
+    this.isEventsDetailsOpen = isEvents ? !isOpen : false;
+
+    // Keep the target section anchored in place through layout changes.
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
+        if (!anchorEl || anchorTopBefore === null) return;
+        const anchorTopAfter = anchorEl.getBoundingClientRect().top;
+        const delta = anchorTopAfter - anchorTopBefore;
+        if (Math.abs(delta) > 1) {
+          window.scrollBy({ top: delta, behavior: "auto" });
+        }
+      });
+    });
+  },
   navItems: [
     { id: "home", label: "Home", href: "#home" },
     { id: "retreats", label: "Retreats", href: "#retreats" },
@@ -143,6 +176,7 @@ const app = {
   HeroSection,
   HighlightCard,
   HighlightsSection,
+  InfoToggle,
   Navbar,
   RetreatsSection,
   SaunaSection,

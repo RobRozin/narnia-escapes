@@ -6,7 +6,7 @@ export function AboutSection() {
         <div class="mx-auto max-w-6xl px-6">
           <div class="text-center max-w-3xl mx-auto">
             <h2
-              class="text-4xl font-heading font-bold tracking-tight text-tan uppercase"
+              class="text-4xl font-heading font-bold tracking-tight text-charcoal uppercase"
             >
               Meet Your Hosts
             </h2>
