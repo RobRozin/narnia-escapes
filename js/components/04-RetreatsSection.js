@@ -38,6 +38,7 @@ export function RetreatsSection() {
                     src="./images/retreats-hero.jpeg"
                     alt="Guided nature retreat by the lake"
                     class="w-full h-64 object-cover object-[25%_65%]"
+                    loading="lazy"
                   />
 
                   <div
@@ -70,8 +71,8 @@ export function RetreatsSection() {
               <div
                 id="retreatDetails"
                 class="grid gap-8 overflow-hidden transition-all duration-300 ease-out"
-                :class="isRetreatDetailsOpen ? 'mt-6 max-h-[1400px] opacity-100' : 'mt-0 max-h-0 opacity-0 pointer-events-none'"
-                :aria-hidden="isRetreatDetailsOpen ? 'false' : 'true'"
+                :class="isServiceDetailsVisible('retreat') ? 'mt-6 max-h-[1400px] opacity-100' : 'mt-0 max-h-0 opacity-0 pointer-events-none'"
+                :aria-hidden="isServiceDetailsVisible('retreat') ? 'false' : 'true'"
               >
                 <section>
                   <h3 class="text-lg font-semibold text-body">
@@ -174,7 +175,7 @@ export function RetreatsSection() {
                     v-scope="Button({ text: 'Inquire About Dates', href: '#contact', variant: 'secondary', size: 'lg', className: 'w-full sm:w-auto', iconPath: 'M8 7V3m8 4V3M4 11h16M4 7a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V7z', onClick: () => updateContactMessage('retreat') })"
                   ></div>
                   <div
-                    v-if="!isRetreatDetailsOpen"
+                    v-if="!isDesktopViewport"
                     v-scope="InfoToggle({ isOpen: isRetreatDetailsOpen, labelOpen: 'Hide retreat details', labelClosed: 'View retreat details', className: 'w-full sm:w-auto', onToggle: () => openServiceDetails('retreat') })"
                   ></div>
                 </div>

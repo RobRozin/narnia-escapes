@@ -24,6 +24,7 @@ export function SaunaSection() {
                     src="./images/sauna-hero.jpeg"
                     alt="Traditional wood-burning sauna beside the pond"
                     class="w-full h-64 object-cover object-[25%_55%]"
+                    loading="lazy"
                   />
 
                   <div
@@ -54,8 +55,8 @@ export function SaunaSection() {
               <div
                 id="saunaDetails"
                 class="space-y-6 overflow-hidden transition-all duration-300 ease-out"
-                :class="isSaunaDetailsOpen ? 'mt-6 max-h-[1400px] opacity-100' : 'mt-0 max-h-0 opacity-0 pointer-events-none'"
-                :aria-hidden="isSaunaDetailsOpen ? 'false' : 'true'"
+                :class="isServiceDetailsVisible('sauna') ? 'mt-6 max-h-[1400px] opacity-100' : 'mt-0 max-h-0 opacity-0 pointer-events-none'"
+                :aria-hidden="isServiceDetailsVisible('sauna') ? 'false' : 'true'"
               >
                 <div>
                   <h3 class="text-lg font-semibold text-body">Standard Sauna Session</h3>
@@ -128,7 +129,7 @@ export function SaunaSection() {
                   v-scope="Button({ text: 'Reserve a Session', href: '#contact', variant: 'secondary', size: 'lg', className: 'w-full sm:w-auto', iconPath: 'M8 7V3m8 4V3M4 11h16M4 7a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V7z', onClick: () => updateContactMessage('sauna') })"
                 ></div>
                 <div
-                  v-if="!isSaunaDetailsOpen"
+                  v-if="!isDesktopViewport"
                   v-scope="InfoToggle({ isOpen: isSaunaDetailsOpen, labelOpen: &quot;Hide what's included&quot;, labelClosed: &quot;See what's included&quot;, className: 'w-full sm:w-auto', onToggle: () => openServiceDetails('sauna') })"
                 ></div>
                 <!-- <a

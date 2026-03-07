@@ -26,6 +26,7 @@ export function AboutSection() {
                   src="./images/host-stan.jpg"
                   alt="Stan - sauna master and sound healer"
                   class="h-full w-full object-cover object-top"
+                  loading="lazy"
                 />
                 <div
                   class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/70 via-black/30 to-transparent"
@@ -49,6 +50,7 @@ export function AboutSection() {
                   src="./images/host-alex.jpg"
                   alt="Alex - certified Wim Hof instructor"
                   class="h-full w-full object-cover object-top"
+                  loading="lazy"
                 />
                 <div
                   class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/70 via-black/30 to-transparent"

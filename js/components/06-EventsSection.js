@@ -19,6 +19,7 @@ export function EventsSection() {
                   src="./images/events-hero.jpg"
                   alt="Private events with a Narnia vibe"
                   class="h-full w-full object-cover will-change-transform scale-[1.8]"
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -38,6 +39,7 @@ export function EventsSection() {
                       src="./images/events-hero.jpg"
                       alt="Private events with a Narnia vibe"
                       class="w-full h-64 object-cover object-[25%_50%] will-change-transform scale-[1.6]"
+                      loading="lazy"
                     />
 
                     <div
@@ -68,8 +70,8 @@ export function EventsSection() {
                 <div
                   id="eventsDetails"
                   class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm overflow-hidden transition-all duration-300 ease-out"
-                  :class="isEventsDetailsOpen ? 'mt-6 max-h-[900px] opacity-100' : 'mt-0 max-h-0 opacity-0 pointer-events-none'"
-                  :aria-hidden="isEventsDetailsOpen ? 'false' : 'true'"
+                  :class="isServiceDetailsVisible('events') ? 'mt-6 max-h-[900px] opacity-100' : 'mt-0 max-h-0 opacity-0 pointer-events-none'"
+                  :aria-hidden="isServiceDetailsVisible('events') ? 'false' : 'true'"
                 >
                   <ul class="space-y-2 text-neutral-700">
                     <li
@@ -100,7 +102,7 @@ export function EventsSection() {
                   v-scope="Button({ text: 'Plan Your Event', href: '#contact', variant: 'secondary', size: 'lg', className: 'mt-6 w-full sm:w-auto', iconPath: 'M8 7V3m8 4V3M4 11h16M4 7a2 2 0 012-2h12a2 2 0 01-2 2H6a2 2 0 01-2-2V7z', onClick: () => updateContactMessage('event') })"
                 ></div>
                 <div
-                  v-if="!isEventsDetailsOpen"
+                  v-if="!isDesktopViewport"
                   v-scope="InfoToggle({ isOpen: isEventsDetailsOpen, labelOpen: 'Hide the experience', labelClosed: 'Explore the experience', className: 'w-full sm:w-auto mt-3', onToggle: () => openServiceDetails('events') })"
                 ></div>
               </div>

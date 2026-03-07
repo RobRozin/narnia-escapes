@@ -7,7 +7,14 @@ export function FooterSection() {
           class="mx-auto max-w-7xl px-4 py-8 flex flex-col sm:flex-row justify-between items-center text-sm text-offwhite/75"
         >
           <p>(c) 2026 Narnia Escapes. All rights reserved.</p>
-          <div class="mt-4 sm:mt-0 flex gap-4">
+          <div class="mt-4 sm:mt-0 flex flex-wrap items-center justify-center gap-4">
+            <button
+              type="button"
+              class="hover:text-bronze transition-colors"
+              @click="showNewsletter()"
+            >
+              Newsletter
+            </button>
             <a
               v-for="link in footerLinks"
               :key="link.id"
