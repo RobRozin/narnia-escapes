@@ -2,7 +2,11 @@ export function AboutSection() {
   return {
     /*html*/
     $template: `
-      <section id="about" class="py-14 md:py-24 bg-ballet scroll-mt-20">
+      <section id="about" class="relative py-14 md:py-24 bg-[url('./images/background-off-white.png')] bg-cover bg-center bg-no-repeat scroll-mt-20">
+        <div
+          aria-hidden
+          class="pointer-events-none absolute inset-x-0 top-0 z-20 h-[46px] bg-[url('./images/background-mask.png')] bg-[length:100%_100%] bg-top bg-no-repeat"
+        ></div>
         <div class="mx-auto max-w-6xl px-6">
           <div class="text-center max-w-3xl mx-auto">
             <h2

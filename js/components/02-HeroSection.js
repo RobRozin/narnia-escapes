@@ -1,5 +1,42 @@
 export function HeroSection() {
+  const seasonalHeroImages = {
+    spring: {
+      desktop: "./images/main-hero-spring.png",
+      mobile: "./images/main-hero-spring-mobile.png",
+    },
+    summer: {
+      desktop: "./images/main-hero-summer.png",
+      mobile: "./images/main-hero-summer-mobile.png",
+    },
+    fall: {
+      desktop: "./images/main-hero-fall.png",
+      mobile: "./images/main-hero-fall-mobile.png",
+    },
+    winter: {
+      desktop: "./images/main-hero-winter.png",
+      mobile: "./images/main-hero-winter-mobile.png",
+    },
+  };
+
   return {
+    getCurrentSeason(date = new Date()) {
+      const month = date.getMonth();
+      const day = date.getDate();
+      const monthDay = (month + 1) * 100 + day;
+
+      if (monthDay >= 1221 || monthDay < 320) return "winter";
+      if (monthDay >= 922) return "fall";
+      if (monthDay >= 621) return "summer";
+      return "spring";
+    },
+
+    getHeroBackgroundImage(isMobile = false) {
+      const season = this.getCurrentSeason();
+      const variant = isMobile ? "mobile" : "desktop";
+
+      return `url('${seasonalHeroImages[season][variant]}')`;
+    },
+
     /*html*/
     $template: `
       <section
@@ -9,16 +46,18 @@ export function HeroSection() {
         <div
           v-if="_isMobile()"
           aria-hidden
-          class="absolute inset-0 -z-20 bg-cover bg-center bg-[url('./images/home-hero-mobile-winter.jpg')] blur-[1.5px] scale-105"
+          class="absolute inset-0 -z-20 bg-cover bg-center blur-[0.8px]"
+          :style="{ backgroundImage: getHeroBackgroundImage(true) }"
         ></div>
         <div
           v-else
           aria-hidden
-          class="absolute inset-0 -z-20 bg-cover bg-center bg-[url('./images/home-hero-winter.jpg')] blur-[1.5px] scale-105"
+          class="absolute inset-0 -z-20 bg-cover bg-center blur-[0.8px]"
+          :style="{ backgroundImage: getHeroBackgroundImage(false) }"
         ></div>
         <div
           aria-hidden
-          class="absolute inset-0 -z-10 bg-gradient-to-b from-black/60 via-black/35 to-black/70"
+          class="absolute inset-0 -z-10 bg-gradient-to-b from-black/10 via-black/15 to-black/40"
         ></div>
 
         <div class="w-full px-6 sm:px-8 lg:px-10">
@@ -48,9 +87,7 @@ export function HeroSection() {
               class="mt-5 text-white/90 text-base sm:text-lg leading-relaxed px-1 max-w-xl mx-auto opacity-0 animate-fade-in-up"
               style="animation-delay: 360ms"
             >
-              Revitalize your body, mind, and spirit by stepping into 40 acres of serene
-              forests and guided practices designed to reconnect you
-              with nature and yourself.
+              Beyond the trees, a quieter world awaits. Explore wood-fired sauna rituals, seasonal retreats, and private gatherings created for rest, wonder, and reconnection.
             </p>
 
             <div
@@ -58,29 +95,12 @@ export function HeroSection() {
               style="animation-delay: 470ms"
             >
               <div
-                v-scope="Button({ text: 'Book Your Escape', href: '#contact', variant: 'primary', size: 'lg', className: 'shadow w-full sm:w-auto' })"
+                v-scope="Button({ text: 'Plan Your Escape', href: '#contact', variant: 'primary', size: 'lg', className: 'shadow w-full sm:w-auto' })"
               ></div>
               <div
-                v-scope="Button({ text: 'Explore Retreats', href: '#retreats', variant: 'outline-light', size: 'lg', className: 'w-full sm:w-auto' })"
+                v-scope="Button({ text: 'Explore Experiences', href: '#retreats', variant: 'outline-light', size: 'lg', className: 'w-full sm:w-auto' })"
               ></div>
             </div>
-          </div>
-        </div>
-
-        <div
-          class="pointer-events-none absolute bottom-[calc(1.25rem+env(safe-area-inset-bottom))] left-1/2 -translate-x-1/2"
-        >
-          <div class="flex flex-col items-center text-white/80">
-            <span class="text-xs">Scroll</span>
-            <svg viewBox="0 0 24 24" class="mt-1 h-6 w-6 animate-bounce">
-              <path
-                d="M6 9l6 6 6-6"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                fill="none"
-              />
-            </svg>
           </div>
         </div>
       </section>

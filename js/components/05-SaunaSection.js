@@ -4,8 +4,12 @@ export function SaunaSection() {
     $template: `
       <section
         id="sauna"
-        class="py-12 md:py-20 bg-offwhite js-parallax-section scroll-mt-20"
+        class="relative py-12 md:py-20 bg-[url('./images/background-bronze.png')] bg-cover bg-center bg-no-repeat js-parallax-section scroll-mt-20"
       >
+        <div
+          aria-hidden
+          class="pointer-events-none absolute inset-x-0 top-0 z-20 h-[46px] bg-[url('./images/background-mask.png')] bg-[length:100%_100%] bg-top bg-no-repeat"
+        ></div>
         <div
           class="mx-auto max-w-6xl px-6 grid items-start lg:grid-cols-2 gap-10 lg:gap-12 relative"
         >
@@ -21,7 +25,7 @@ export function SaunaSection() {
                   class="md:hidden relative -mx-6 -mt-6 sm:-mx-8 sm:-mt-8 overflow-hidden rounded-t-3xl"
                 >
                   <img
-                    src="./images/sauna-hero.jpeg"
+                    src="./images/sauna-hero.png"
                     alt="Traditional wood-burning sauna beside the pond"
                     class="w-full h-64 object-cover object-[25%_55%]"
                     loading="lazy"
@@ -150,7 +154,7 @@ export function SaunaSection() {
               class="relative aspect-[4/3] md:aspect-[3/4] w-full overflow-hidden rounded-3xl lg:-mt-8"
             >
               <img
-                src="./images/sauna-hero.jpeg"
+                src="./images/sauna-hero.png"
                 alt="Traditional wood-burning sauna beside the pond"
                 class="h-full w-full object-cover"
                 loading="lazy"

@@ -4,8 +4,12 @@ export function RetreatsSection() {
     $template: `
       <section
         id="retreats"
-        class="py-12 md:py-20 bg-ballet js-parallax-section scroll-mt-20"
+        class="relative py-12 md:py-20 bg-[url('./images/background-dark-tan.png')] bg-cover bg-center bg-no-repeat js-parallax-section scroll-mt-20"
       >
+        <div
+          aria-hidden
+          class="pointer-events-none absolute inset-x-0 top-0 z-20 h-[46px] bg-[url('./images/background-mask.png')] bg-[length:100%_100%] bg-top bg-no-repeat"
+        ></div>
         <div
           class="mx-auto max-w-6xl px-6 grid items-start lg:grid-cols-2 gap-10 lg:gap-12 relative"
         >

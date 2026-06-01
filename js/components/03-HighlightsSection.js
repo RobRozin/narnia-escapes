@@ -2,7 +2,11 @@ export function HighlightsSection() {
   return {
     /*html*/
     $template: `
-      <section id="highlights" class="py-14 md:py-24 bg-offwhite">
+      <section id="highlights" class="relative py-14 md:py-24 bg-[url('./images/background-off-white.png')] bg-cover bg-center bg-no-repeat">
+        <div
+          aria-hidden
+          class="pointer-events-none absolute inset-x-0 top-0 z-20 h-[46px] bg-[url('./images/background-mask.png')] bg-[length:100%_100%] bg-top bg-no-repeat"
+        ></div>
         <div id="highlights-container" class="mx-auto max-w-6xl px-6">
           <header class="text-center">
             <h2
