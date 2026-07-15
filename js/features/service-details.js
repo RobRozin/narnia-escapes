@@ -5,11 +5,10 @@ export function createServiceDetailsFeature() {
     isSaunaDetailsOpen: false,
     isEventsDetailsOpen: false,
     openServiceDetails(id) {
-      if (this.isDesktopViewport) return;
-
       const isRetreat = id === "retreat";
       const isSauna = id === "sauna";
       const isEvents = id === "events";
+
       const isOpen =
         (isRetreat && this.isRetreatDetailsOpen) ||
         (isSauna && this.isSaunaDetailsOpen) ||
@@ -37,7 +36,6 @@ export function createServiceDetailsFeature() {
       });
     },
     isServiceDetailsVisible(id) {
-      if (this.isDesktopViewport) return true;
       if (id === "retreat") return this.isRetreatDetailsOpen;
       if (id === "sauna") return this.isSaunaDetailsOpen;
       if (id === "events") return this.isEventsDetailsOpen;
@@ -45,11 +43,6 @@ export function createServiceDetailsFeature() {
     },
     syncResponsiveState() {
       this.isDesktopViewport = !this._isMobile();
-      if (this.isDesktopViewport) {
-        this.isRetreatDetailsOpen = false;
-        this.isSaunaDetailsOpen = false;
-        this.isEventsDetailsOpen = false;
-      }
     },
   };
 }

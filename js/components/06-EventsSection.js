@@ -4,7 +4,7 @@ export function EventsSection() {
     $template: `
       <section
         id="events"
-        class="relative py-12 md:py-20 bg-[url('./images/background-ash.png')] bg-cover bg-center bg-no-repeat js-parallax-section scroll-mt-20"
+        class="relative overflow-hidden py-12 md:py-20 bg-[url('./images/background-ash.png')] bg-cover bg-center bg-no-repeat js-parallax-section scroll-mt-20"
       >
         <div
           aria-hidden
@@ -12,58 +12,25 @@ export function EventsSection() {
         ></div>
         <div class="mx-auto max-w-6xl px-6">
           <div class="grid gap-10 lg:grid-cols-2 items-start relative">
-            <div
-              class="order-1 relative z-0 lg:-mt-8 xl:-mt-12 hidden md:block"
-              data-parallax="back"
-            >
+            <div class="order-1 relative z-0 lg:-mt-8" data-parallax="back">
               <div
-                class="aspect-[4/3] md:aspect-[3/4] w-full overflow-hidden rounded-3xl shadow-lg bg-neutral-200"
-              >
-                <img
-                  src="./images/events-hero.jpg"
-                  alt="Private events with a Narnia vibe"
-                  class="h-full w-full object-cover will-change-transform scale-[1.8]"
-                  loading="lazy"
-                />
-              </div>
+                v-scope="PhotoPile({ photos: eventPhotos, label: 'Private events photo gallery' })"
+              ></div>
             </div>
 
             <div
-              class="order-2 relative z-10 lg:-ml-16 xl:-ml-20 -mt-8 lg:-mt-2"
+              class="order-2 relative z-10 lg:-ml-12 xl:-ml-16 -mt-3 lg:-mt-2"
               data-parallax="front"
             >
               <div
                 class="rounded-3xl border border-neutral-200 bg-white/90 shadow-xl backdrop-blur p-6 md:p-8"
               >
-                <header class="relative">
-                  <div
-                    class="md:hidden relative -mx-6 -mt-6 sm:-mx-8 sm:-mt-8 overflow-hidden rounded-t-3xl"
+                <header>
+                  <h2
+                    class="font-accent font-semibold text-3xl lg:text-4xl tracking-tight text-tan"
                   >
-                    <img
-                      src="./images/events-hero.jpg"
-                      alt="Private events with a Narnia vibe"
-                      class="w-full h-64 object-cover object-[25%_50%] will-change-transform scale-[1.6]"
-                      loading="lazy"
-                    />
-
-                    <div
-                      class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-transparent"
-                    ></div>
-
-                    <h2
-                      class="absolute top-4 left-6 sm:left-8 font-accent font-semibold text-3xl tracking-tight text-white drop-shadow-md"
-                    >
-                      Private Events
-                    </h2>
-                  </div>
-
-                  <div class="hidden md:block">
-                    <h2
-                      class="font-accent font-semibold text-3xl lg:text-4xl tracking-tight text-tan"
-                    >
-                      Private Events
-                    </h2>
-                  </div>
+                    Private Events
+                  </h2>
                 </header>
 
                 <p class="mt-4 text-neutral-700">
@@ -71,11 +38,24 @@ export function EventsSection() {
                   with soulful add-ons curated in the Narnia vibe.
                 </p>
 
+                <ul class="mt-5 grid grid-cols-3 gap-2" aria-label="Private event quick facts">
+                  <li class="rounded-xl bg-secondary/10 px-2 py-3 text-center text-xs font-semibold text-tan sm:text-sm">
+                    Custom format
+                  </li>
+                  <li class="rounded-xl bg-secondary/10 px-2 py-3 text-center text-xs font-semibold text-tan sm:text-sm">
+                    Lodging available
+                  </li>
+                  <li class="rounded-xl bg-secondary/10 px-2 py-3 text-center text-xs font-semibold text-tan sm:text-sm">
+                    Wellness add-ons
+                  </li>
+                </ul>
+
                 <div
                   id="eventsDetails"
                   class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm overflow-hidden transition-all duration-300 ease-out"
                   :class="isServiceDetailsVisible('events') ? 'mt-6 max-h-[900px] opacity-100' : 'mt-0 max-h-0 opacity-0 pointer-events-none'"
                   :aria-hidden="isServiceDetailsVisible('events') ? 'false' : 'true'"
+                  :inert="!isServiceDetailsVisible('events')"
                 >
                   <ul class="space-y-2 text-neutral-700">
                     <li
@@ -102,13 +82,15 @@ export function EventsSection() {
                     </li>
                   </ul>
                 </div>
-                <div
-                  v-scope="Button({ text: 'Plan Your Event', href: '#contact', variant: 'secondary', size: 'lg', className: 'mt-6 w-full sm:w-auto', iconPath: 'M8 7V3m8 4V3M4 11h16M4 7a2 2 0 012-2h12a2 2 0 01-2 2H6a2 2 0 01-2-2V7z', onClick: () => updateContactMessage('event') })"
-                ></div>
-                <div
-                  v-if="!isDesktopViewport"
-                  v-scope="InfoToggle({ isOpen: isEventsDetailsOpen, labelOpen: 'Hide the experience', labelClosed: 'Explore the experience', className: 'w-full sm:w-auto mt-3', onToggle: () => openServiceDetails('events') })"
-                ></div>
+
+                <div class="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+                  <div
+                    v-scope="InfoToggle({ isOpen: isEventsDetailsOpen, labelOpen: 'Less Info', labelClosed: 'More Info', controlsId: 'eventsDetails', className: 'w-full sm:w-auto', onToggle: () => openServiceDetails('events') })"
+                  ></div>
+                  <div
+                    v-scope="Button({ text: 'Book Private Event', href: getBookingHref('event'), target: getBookingTarget('event'), rel: getBookingRel('event'), variant: 'secondary', size: 'lg', className: 'w-full sm:w-auto', iconPath: 'M8 7V3m8 4V3M4 11h16M4 7a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V7z', onClick: () => prepareBooking('event') })"
+                  ></div>
+                </div>
               </div>
             </div>
           </div>

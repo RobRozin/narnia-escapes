@@ -3,6 +3,7 @@ export function InfoToggle(props = {}) {
     isOpen = false,
     labelOpen = "Less info",
     labelClosed = "More info",
+    controlsId = null,
     className = "",
     onToggle = null,
   } = props;
@@ -19,6 +20,7 @@ export function InfoToggle(props = {}) {
     isOpen,
     labelOpen,
     labelClosed,
+    controlsId,
     className: classes,
     onToggle,
     /*html*/
@@ -27,6 +29,7 @@ export function InfoToggle(props = {}) {
         type="button"
         :class="className"
         :aria-expanded="isOpen ? 'true' : 'false'"
+        :aria-controls="controlsId"
         @click="onToggle && onToggle()"
       >
         <svg

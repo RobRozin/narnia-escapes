@@ -4,7 +4,7 @@ export function SaunaSection() {
     $template: `
       <section
         id="sauna"
-        class="relative py-12 md:py-20 bg-[url('./images/background-bronze.png')] bg-cover bg-center bg-no-repeat js-parallax-section scroll-mt-20"
+        class="relative overflow-hidden py-12 md:py-20 bg-[url('./images/background-bronze.png')] bg-cover bg-center bg-no-repeat js-parallax-section scroll-mt-20"
       >
         <div
           aria-hidden
@@ -14,41 +14,18 @@ export function SaunaSection() {
           class="mx-auto max-w-6xl px-6 grid items-start lg:grid-cols-2 gap-10 lg:gap-12 relative"
         >
           <div
-            class="relative order-2 md:order-1 z-10 lg:col-start-1 lg:-mr-16 xl:-mr-20 -mt-8 lg:-mt-2"
+            class="relative order-2 z-10 lg:col-start-1 lg:row-start-1 lg:-mr-12 xl:-mr-16 -mt-3 lg:-mt-2"
             data-parallax="front"
           >
             <article
               class="rounded-3xl bg-white/90 backdrop-blur-md ring-1 ring-black/5 shadow-xl p-6 sm:p-8"
             >
-              <header class="relative">
-                <div
-                  class="md:hidden relative -mx-6 -mt-6 sm:-mx-8 sm:-mt-8 overflow-hidden rounded-t-3xl"
+              <header>
+                <h2
+                  class="font-accent font-semibold text-3xl lg:text-4xl tracking-tight text-tan"
                 >
-                  <img
-                    src="./images/sauna-hero.png"
-                    alt="Traditional wood-burning sauna beside the pond"
-                    class="w-full h-64 object-cover object-[25%_55%]"
-                    loading="lazy"
-                  />
-
-                  <div
-                    class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-transparent"
-                  ></div>
-
-                  <h2
-                    class="absolute top-4 left-6 sm:left-8 font-accent font-semibold text-3xl tracking-tight text-white drop-shadow-md"
-                  >
-                    Sauna Experience
-                  </h2>
-                </div>
-
-                <div class="hidden md:block">
-                  <h2
-                    class="font-accent font-semibold text-3xl lg:text-4xl tracking-tight text-tan"
-                  >
-                    Sauna Experience
-                  </h2>
-                </div>
+                  Sauna Experience
+                </h2>
               </header>
 
               <p class="mt-4 text-neutral-700">
@@ -56,20 +33,26 @@ export function SaunaSection() {
                 and calm that lingers long after.
               </p>
 
+              <ul class="mt-5 grid grid-cols-3 gap-2" aria-label="Sauna quick facts">
+                <li class="rounded-xl bg-secondary/10 px-2 py-3 text-center text-xs font-semibold text-tan sm:text-sm">
+                  $100 / person
+                </li>
+                <li class="rounded-xl bg-secondary/10 px-2 py-3 text-center text-xs font-semibold text-tan sm:text-sm">
+                  4 hours
+                </li>
+                <li class="rounded-xl bg-secondary/10 px-2 py-3 text-center text-xs font-semibold text-tan sm:text-sm">
+                  Minimum 3 guests
+                </li>
+              </ul>
+
               <div
                 id="saunaDetails"
                 class="space-y-6 overflow-hidden transition-all duration-300 ease-out"
                 :class="isServiceDetailsVisible('sauna') ? 'mt-6 max-h-[1400px] opacity-100' : 'mt-0 max-h-0 opacity-0 pointer-events-none'"
                 :aria-hidden="isServiceDetailsVisible('sauna') ? 'false' : 'true'"
+                :inert="!isServiceDetailsVisible('sauna')"
               >
                 <div>
-                  <h3 class="text-lg font-semibold text-body">Standard Sauna Session</h3>
-                  <p class="mt-2 text-sm font-medium text-neutral-700">
-                    $100 per person · 4-hour session · Minimum 3 guests
-                  </p>
-                </div>
-
-                <div class="border-t border-neutral-200/70 pt-4">
                   <div class="text-sm font-medium text-neutral-900">Included</div>
                   <ul class="mt-2 space-y-1.5 text-sm text-neutral-700">
                     <li
@@ -121,20 +104,19 @@ export function SaunaSection() {
                 >
                   <p class="text-[13px] leading-5 text-neutral-700">
                     <span class="font-medium text-neutral-800">Booking:</span>
-                    Please request at least one week in advance. A deposit of
-                    <span class="font-medium">20%</span> of your party's total is
-                    required upon booking.
+                    Book online at least one week in advance. A deposit of
+                    <span class="font-medium">20%</span> of your party's total can
+                    be collected through Square when booking.
                   </p>
                 </div>
               </div>
 
-              <div class="mt-6 flex flex-col gap-4">
+              <div class="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
                 <div
-                  v-scope="Button({ text: 'Reserve a Session', href: '#contact', variant: 'secondary', size: 'lg', className: 'w-full sm:w-auto', iconPath: 'M8 7V3m8 4V3M4 11h16M4 7a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V7z', onClick: () => updateContactMessage('sauna') })"
+                  v-scope="InfoToggle({ isOpen: isSaunaDetailsOpen, labelOpen: 'Less Info', labelClosed: 'More Info', controlsId: 'saunaDetails', className: 'w-full sm:w-auto', onToggle: () => openServiceDetails('sauna') })"
                 ></div>
                 <div
-                  v-if="!isDesktopViewport"
-                  v-scope="InfoToggle({ isOpen: isSaunaDetailsOpen, labelOpen: &quot;Hide what's included&quot;, labelClosed: &quot;See what's included&quot;, className: 'w-full sm:w-auto', onToggle: () => openServiceDetails('sauna') })"
+                  v-scope="Button({ text: 'Book Sauna Session', href: getBookingHref('sauna'), target: getBookingTarget('sauna'), rel: getBookingRel('sauna'), variant: 'secondary', size: 'lg', className: 'w-full sm:w-auto', iconPath: 'M8 7V3m8 4V3M4 11h16M4 7a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V7z', onClick: () => prepareBooking('sauna') })"
                 ></div>
                 <!-- <a
                   href="/sauna"
@@ -147,19 +129,12 @@ export function SaunaSection() {
           </div>
 
           <div
-            class="relative order-1 md:order-2 z-0 hidden md:block"
+            class="relative order-1 z-0 lg:col-start-2 lg:row-start-1 lg:-mt-8"
             data-parallax="back"
           >
             <div
-              class="relative aspect-[4/3] md:aspect-[3/4] w-full overflow-hidden rounded-3xl lg:-mt-8"
-            >
-              <img
-                src="./images/sauna-hero.png"
-                alt="Traditional wood-burning sauna beside the pond"
-                class="h-full w-full object-cover"
-                loading="lazy"
-              />
-            </div>
+              v-scope="PhotoPile({ photos: saunaPhotos, label: 'Sauna experience photo gallery' })"
+            ></div>
           </div>
         </div>
       </section>

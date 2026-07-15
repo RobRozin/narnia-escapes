@@ -33,6 +33,120 @@ export const highlights = [
   },
 ];
 
+export const retreatPhotos = [
+  {
+    src: "./images/retreats/web/retreat-01.jpg",
+    alt: "Retreat guests enjoying the snow outside the wood-fired sauna",
+    rotation: -7,
+    position: "center",
+    layout: "landscape",
+  },
+  {
+    src: "./images/retreats/web/retreat-02.jpg",
+    alt: "Snow-covered retreat cabin reflected in the pond",
+    rotation: 9,
+    position: "center",
+    layout: "landscape",
+  },
+  {
+    src: "./images/retreats/web/retreat-03.jpg",
+    alt: "Retreat guests gathering beneath a snow-covered tree",
+    rotation: -12,
+    position: "center",
+    layout: "portrait",
+  },
+  {
+    src: "./images/retreats/web/retreat-04.jpg",
+    alt: "Warm cabin interior decorated with herbs and handmade instruments",
+    rotation: 6,
+    position: "center",
+    layout: "portrait",
+  },
+  {
+    src: "./images/retreats/web/retreat-05.jpg",
+    alt: "A fresh meal being prepared outdoors during a winter retreat",
+    rotation: -9,
+    position: "center",
+    layout: "portrait",
+  },
+  {
+    src: "./images/retreats/web/retreat-06.jpg",
+    alt: "A homemade retreat meal cooking beside a wood fire",
+    rotation: 13,
+    position: "center",
+    layout: "portrait",
+  },
+  {
+    src: "./images/retreats/web/retreat-07.jpg",
+    alt: "Retreat guests sharing a homemade meal around the cabin table",
+    rotation: -5,
+    position: "center",
+    layout: "portrait",
+  },
+  {
+    src: "./images/retreats/web/retreat-08.jpg",
+    alt: "Winter mountain view from a guided retreat hike",
+    rotation: 10,
+    position: "center",
+    layout: "portrait",
+  },
+  {
+    src: "./images/retreats/web/retreat-09.jpg",
+    alt: "Retreat group celebrating together beside a waterfall",
+    rotation: -14,
+    position: "center",
+    layout: "portrait",
+  },
+  {
+    src: "./images/retreats/web/retreat-10.jpg",
+    alt: "Rustic shared sleeping loft in the retreat cabin",
+    rotation: 8,
+    position: "center",
+    layout: "landscape",
+  },
+];
+
+export const saunaPhotos = [
+  {
+    src: "./images/sauna/web/sauna-01.jpg",
+    alt: "Herbs, towels, and sauna ritual supplies arranged on a wooden bench",
+    rotation: 8,
+    position: "center",
+    layout: "portrait",
+  },
+  {
+    src: "./images/sauna/web/sauna-02.jpg",
+    alt: "Folded towels and candlelight inside the wood-fired sauna",
+    rotation: -11,
+    position: "center",
+    layout: "portrait",
+  },
+  {
+    src: "./images/sauna/web/sauna-03.jpg",
+    alt: "Traditional platza massage in the softly lit sauna",
+    rotation: 6,
+    position: "center",
+    layout: "landscape",
+  },
+  {
+    src: "./images/sauna/web/sauna-04.jpg",
+    alt: "Guest resting in the warmth of the wood-fired sauna",
+    rotation: -13,
+    position: "center",
+    layout: "landscape",
+  },
+];
+
+export const eventPhotos = [
+  {
+    src: "./images/events-hero.jpg",
+    alt: "Private event gathering in the woodland retreat space",
+    rotation: -7,
+    position: "center",
+    layout: "portrait",
+  },
+];
+
 export const retreatExperience = [
   "Wim Hof Method: breathwork, cold exposure, mindfulness",
   "Daily sauna ritual with cold plunge",
@@ -59,6 +173,24 @@ export const retreatMeals = [
   "Vegetarian on request",
 ];
 
+export const retreatDates = [
+  {
+    label: "November 19-22",
+    year: "2026",
+    href: "https://square.link/u/9zUtJLsq",
+  },
+  {
+    label: "December 10-13",
+    year: "2026",
+    href: "https://square.link/u/fGJnWbwA",
+  },
+  {
+    label: "January 15-17",
+    year: "2027",
+    href: "https://square.link/u/m0Q3Ub2I",
+  },
+];
+
 export const saunaIncluded = ["Aromatherapy", "Tea service", "Mineral water"];
 
 export const saunaAddOns = [
@@ -67,6 +199,12 @@ export const saunaAddOns = [
   { label: "Ice Bath", price: "$40", note: "(summer only)" },
   { label: "Soup + Salad", price: "$20" },
 ];
+
+export const bookingLinks = {
+  retreat: "",
+  sauna: "",
+  event: "",
+};
 
 export const eventHighlightsLeft = [
   "Add the Narnia vibe to any workshop or private event",

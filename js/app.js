@@ -9,21 +9,27 @@ import { HighlightsSection } from "./components/03-HighlightsSection.js";
 import { InfoToggle } from "./components/InfoToggle.js";
 import { Navbar } from "./components/01-Navbar.js";
 import { NewsletterModal } from "./components/10-NewsletterModal.js";
+import { PhotoPile } from "./components/PhotoPile.js";
 import { RetreatsSection } from "./components/04-RetreatsSection.js";
 import { SaunaSection } from "./components/05-SaunaSection.js";
 import {
   eventHighlightsLeft,
   eventHighlightsRight,
+  eventPhotos,
   footerLinks,
   highlights,
   navItems,
+  retreatPhotos,
+  retreatDates,
   retreatExperience,
   retreatLodging,
   retreatMeals,
   saunaAddOns,
   saunaIncluded,
+  saunaPhotos,
 } from "./data/site-content.js";
 import { createContactActionsFeature } from "./features/contact-actions.js";
+import { createBookingLinksFeature } from "./features/booking-links.js";
 import { createNewsletterFeature } from "./features/newsletter.js";
 import { createParallaxFeature } from "./features/parallax.js";
 import { createScrollEffectsFeature } from "./features/scroll-effects.js";
@@ -41,6 +47,7 @@ const components = {
   InfoToggle,
   Navbar,
   NewsletterModal,
+  PhotoPile,
   RetreatsSection,
   SaunaSection,
 };
@@ -50,12 +57,17 @@ function createApp() {
     ...components,
     ...createServiceDetailsFeature(),
     ...createContactActionsFeature(),
+    ...createBookingLinksFeature(),
     ...createNewsletterFeature(),
     ...createParallaxFeature(),
     ...createScrollEffectsFeature(),
 
     navItems,
     highlights,
+    retreatPhotos,
+    saunaPhotos,
+    eventPhotos,
+    retreatDates,
     retreatExperience,
     retreatLodging,
     retreatMeals,
