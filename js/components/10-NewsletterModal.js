@@ -20,12 +20,12 @@ export function NewsletterModal() {
           <div class="grid w-full max-w-5xl overflow-hidden rounded-[2rem] bg-offwhite shadow-2xl ring-1 ring-black/10 lg:grid-cols-[1.05fr_0.95fr]">
             <div
               class="relative min-h-[34rem] bg-cover bg-center"
-              style="background-image: url('./images/home-hero-fall.png')"
+              style="background-image: url('./images/main-hero-fall.png')"
               aria-hidden="true"
             >
-              <div class="absolute inset-0 bg-gradient-to-br from-evergreen/70 via-evergreen/25 to-primary/30"></div>
+              <div class="absolute inset-0 bg-gradient-to-br from-smoke/80 via-smoke/50 to-secondary/60"></div>
               <div class="absolute inset-x-0 bottom-0 p-8 text-offwhite">
-                <p class="font-accent text-sm tracking-[0.24em] uppercase text-offwhite/75">
+                <p class="font-accent text-sm tracking-[0.24em] uppercase text-offwhite">
                   Narnia Journal
                 </p>
                 <p class="mt-4 max-w-sm text-3xl font-heading leading-tight">
@@ -72,12 +72,12 @@ export function NewsletterModal() {
                   autocomplete="email"
                   inputmode="email"
                   placeholder="you@example.com"
-                  class="w-full rounded-2xl border border-neutral-300 bg-white px-4 py-3 text-base text-neutral-900 shadow-sm outline-none transition focus:border-secondary focus:ring-2 focus:ring-secondary/20"
+                  class="w-full rounded-2xl border border-ash bg-ballet px-4 py-3 text-base text-neutral-900 shadow-sm outline-none transition focus:border-secondary focus:ring-2 focus:ring-secondary/20"
                 />
 
                 <button
                   type="submit"
-                  class="inline-flex items-center justify-center rounded-full bg-secondary px-6 py-3 text-base font-medium text-white shadow-sm transition hover:bg-secondary-hover disabled:pointer-events-none disabled:opacity-60"
+                  class="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-base font-medium text-primary-foreground shadow-sm transition hover:bg-primary-hover disabled:pointer-events-none disabled:opacity-60"
                   :disabled="isNewsletterSubmitting()"
                 >
                   <span v-text="isNewsletterSubmitting() ? 'Saving...' : 'Subscribe'"></span>
@@ -114,7 +114,7 @@ export function NewsletterModal() {
             <div class="relative bg-evergreen px-5 py-6 text-offwhite">
               <button
                 type="button"
-                class="absolute right-3 top-3 rounded-full border border-white/20 p-2 text-offwhite/70 transition hover:text-white"
+                class="absolute right-3 top-3 rounded-full border border-offwhite/40 p-2 text-offwhite transition hover:bg-offwhite/10"
                 aria-label="Close newsletter signup"
                 @click="dismissNewsletter()"
               >
@@ -126,13 +126,13 @@ export function NewsletterModal() {
                   />
                 </svg>
               </button>
-              <p class="text-xs font-medium uppercase tracking-[0.22em] text-offwhite/70">
+              <p class="text-xs font-medium uppercase tracking-[0.22em] text-offwhite">
                 Join the list
               </p>
               <h2 id="nl-title-mobile" class="mt-2 font-heading text-3xl leading-none">
                 Be first to hear about new dates.
               </h2>
-              <p class="mt-3 text-sm leading-relaxed text-offwhite/80">
+              <p class="mt-3 text-sm leading-relaxed text-offwhite">
                 Retreat releases, sauna openings, and seasonal gatherings.
               </p>
             </div>
@@ -149,12 +149,12 @@ export function NewsletterModal() {
                 autocomplete="email"
                 inputmode="email"
                 placeholder="you@example.com"
-                class="w-full rounded-2xl border border-neutral-300 bg-white px-4 py-3 text-base text-neutral-900 shadow-sm outline-none transition focus:border-secondary focus:ring-2 focus:ring-secondary/20"
+                class="w-full rounded-2xl border border-ash bg-ballet px-4 py-3 text-base text-neutral-900 shadow-sm outline-none transition focus:border-secondary focus:ring-2 focus:ring-secondary/20"
               />
 
               <button
                 type="submit"
-                class="mt-1 inline-flex items-center justify-center rounded-full bg-secondary px-5 py-3 text-base font-medium text-white shadow-sm transition hover:bg-secondary-hover disabled:pointer-events-none disabled:opacity-60"
+                class="mt-1 inline-flex items-center justify-center rounded-full bg-primary px-5 py-3 text-base font-medium text-primary-foreground shadow-sm transition hover:bg-primary-hover disabled:pointer-events-none disabled:opacity-60"
                 :disabled="isNewsletterSubmitting()"
               >
                 <span v-text="isNewsletterSubmitting() ? 'Saving...' : 'Subscribe'"></span>

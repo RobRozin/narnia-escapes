@@ -4,12 +4,8 @@ export function SaunaSection() {
     $template: `
       <section
         id="sauna"
-        class="relative overflow-hidden py-12 md:py-20 bg-[url('./images/background-bronze.png')] bg-cover bg-center bg-no-repeat js-parallax-section scroll-mt-20"
+        class="relative overflow-hidden py-12 md:py-20 bg-transparent js-parallax-section scroll-mt-20"
       >
-        <div
-          aria-hidden
-          class="pointer-events-none absolute inset-x-0 top-0 z-20 h-[46px] bg-[url('./images/background-mask.png')] bg-[length:100%_100%] bg-top bg-no-repeat"
-        ></div>
         <div
           class="mx-auto max-w-6xl px-6 grid items-start lg:grid-cols-2 gap-10 lg:gap-12 relative"
         >
@@ -18,11 +14,11 @@ export function SaunaSection() {
             data-parallax="front"
           >
             <article
-              class="rounded-3xl bg-white/90 backdrop-blur-md ring-1 ring-black/5 shadow-xl p-6 sm:p-8"
+              class="rounded-3xl bg-offwhite ring-1 ring-smoke/10 shadow-xl p-6 sm:p-8"
             >
               <header>
                 <h2
-                  class="font-accent font-semibold text-3xl lg:text-4xl tracking-tight text-tan"
+                  class="font-accent font-semibold text-3xl lg:text-4xl tracking-tight text-secondary"
                 >
                   Sauna Experience
                 </h2>
@@ -34,13 +30,13 @@ export function SaunaSection() {
               </p>
 
               <ul class="mt-5 grid grid-cols-3 gap-2" aria-label="Sauna quick facts">
-                <li class="rounded-xl bg-secondary/10 px-2 py-3 text-center text-xs font-semibold text-tan sm:text-sm">
+                <li class="rounded-xl bg-secondary px-2 py-3 text-center text-xs font-semibold text-secondary-foreground sm:text-sm">
                   $100 / person
                 </li>
-                <li class="rounded-xl bg-secondary/10 px-2 py-3 text-center text-xs font-semibold text-tan sm:text-sm">
+                <li class="rounded-xl bg-secondary px-2 py-3 text-center text-xs font-semibold text-secondary-foreground sm:text-sm">
                   4 hours
                 </li>
-                <li class="rounded-xl bg-secondary/10 px-2 py-3 text-center text-xs font-semibold text-tan sm:text-sm">
+                <li class="rounded-xl bg-secondary px-2 py-3 text-center text-xs font-semibold text-secondary-foreground sm:text-sm">
                   Minimum 3 guests
                 </li>
               </ul>
@@ -100,7 +96,7 @@ export function SaunaSection() {
                 </div>
 
                 <div
-                  class="rounded-xl border border-primary/15 bg-primary/5 p-4"
+                  class="rounded-xl border border-ash bg-ballet p-4"
                 >
                   <p class="text-[13px] leading-5 text-neutral-700">
                     <span class="font-medium text-neutral-800">Booking:</span>
@@ -116,7 +112,7 @@ export function SaunaSection() {
                   v-scope="InfoToggle({ isOpen: isSaunaDetailsOpen, labelOpen: 'Less Info', labelClosed: 'More Info', controlsId: 'saunaDetails', className: 'w-full sm:w-auto', onToggle: () => openServiceDetails('sauna') })"
                 ></div>
                 <div
-                  v-scope="Button({ text: 'Book Sauna Session', href: getBookingHref('sauna'), target: getBookingTarget('sauna'), rel: getBookingRel('sauna'), variant: 'secondary', size: 'lg', className: 'w-full sm:w-auto', iconPath: 'M8 7V3m8 4V3M4 11h16M4 7a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V7z', onClick: () => prepareBooking('sauna') })"
+                  v-scope="Button({ text: 'Book Sauna Session', href: getBookingHref('sauna'), target: getBookingTarget('sauna'), rel: getBookingRel('sauna'), variant: 'primary', size: 'lg', className: 'w-full sm:w-auto', iconPath: 'M8 7V3m8 4V3M4 11h16M4 7a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V7z', onClick: () => prepareBooking('sauna') })"
                 ></div>
                 <!-- <a
                   href="/sauna"

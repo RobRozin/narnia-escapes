@@ -57,26 +57,26 @@ export function HeroSection() {
         ></div>
         <div
           aria-hidden
-          class="absolute inset-0 -z-10 bg-gradient-to-b from-black/10 via-black/15 to-black/40"
+          class="absolute inset-0 -z-10 bg-gradient-to-b from-smoke/30 via-smoke/25 to-smoke/70"
         ></div>
 
         <div class="w-full px-6 sm:px-8 lg:px-10">
-          <div class="mx-auto max-w-4xl">
+          <div class="mx-auto max-w-4xl -translate-y-5 md:-translate-y-10">
             <img
-              src="./images/logo.png"
+              src="./images/narnia-escapes-logo-main.png"
               alt="Narnia Escapes logo"
-              class="mx-auto mb-3 w-36 sm:w-20 md:w-24 drop-shadow opacity-0 animate-fade-in-up"
+              class="mx-auto mb-2 w-28 sm:w-24 drop-shadow opacity-0 animate-fade-in-up md:mb-3"
               style="animation-delay: 80ms"
             />
-            <h1 class="text-white drop-shadow-[0_10px_24px_rgba(0,0,0,0.45)]">
+            <h1 class="text-offwhite drop-shadow-[0_10px_24px_rgba(0,0,0,0.45)]">
               <span
-                class="block font-accent text-2xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-white/85 opacity-0 animate-fade-in-up"
+                class="block font-body text-sm sm:text-base md:text-lg font-medium uppercase tracking-[0.28em] text-offwhite opacity-0 animate-fade-in-up"
                 style="animation-delay: 170ms"
               >
                 Welcome to
               </span>
               <span
-                class="mt-3 block font-accent text-4xl sm:text-7xl md:text-7xl font-semibold tracking-tight opacity-0 animate-fade-in-up"
+                class="mt-2 block font-display text-[2rem] sm:mt-3 sm:text-6xl md:text-7xl font-medium tracking-[0.025em] opacity-0 animate-fade-in-up"
                 style="animation-delay: 260ms"
               >
                 Narnia Escapes
@@ -84,21 +84,21 @@ export function HeroSection() {
             </h1>
 
             <p
-              class="mt-5 text-white/90 text-base sm:text-lg leading-relaxed px-1 max-w-xl mx-auto opacity-0 animate-fade-in-up"
+              class="mt-4 md:mt-5 text-offwhite/90 text-base sm:text-lg leading-relaxed px-1 max-w-xl mx-auto opacity-0 animate-fade-in-up"
               style="animation-delay: 360ms"
             >
-              Beyond the trees, a quieter world awaits. Explore wood-fired sauna rituals, seasonal retreats, and private gatherings created for rest, wonder, and reconnection.
+              Beyond the trees, a quieter world awaits. Discover wood-fired sauna rituals, seasonal retreats, and private gatherings for rest, wonder, and reconnection.
             </p>
 
             <div
-              class="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 opacity-0 animate-fade-in-up"
+              class="mt-6 md:mt-8 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 opacity-0 animate-fade-in-up"
               style="animation-delay: 470ms"
             >
               <div
-                v-scope="Button({ text: 'Plan Your Escape', href: '#contact', variant: 'primary', size: 'lg', className: 'shadow w-full sm:w-auto' })"
+                v-scope="Button({ text: 'Plan a Retreat', href: '#retreats', variant: 'primary', size: 'lg', className: 'shadow w-full sm:w-auto' })"
               ></div>
               <div
-                v-scope="Button({ text: 'Explore Experiences', href: '#retreats', variant: 'outline-light', size: 'lg', className: 'w-full sm:w-auto' })"
+                v-scope="Button({ text: 'Explore Experiences', href: '#highlights', variant: 'outline-light', size: 'lg', className: 'w-full sm:w-auto' })"
               ></div>
             </div>
           </div>

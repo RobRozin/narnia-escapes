@@ -5,56 +5,57 @@ tailwind.config = {
         body: ['"Inter"', "sans-serif"],
         heading: ['"Cormorant Garamond"', "serif"],
         accent: ['"Vollkorn SC"', "serif"],
+        display: ['"Cinzel"', "serif"],
       },
       colors: {
-        // 🌿 Typography (INK IS BACK)
-        ink: "#24251F", // deep pine-charcoal (anchor color)
-        heading: "#24251F", // headings use ink
-        body: "#2E2F28", // slightly softer than headings
-        muted: "#7E6A52", // muted bronze-brown
+        // Smoke anchors typography outside the decorative 60/30/10 split.
+        ink: "#2D2D2D",
+        heading: "#2D2D2D",
+        body: "#2D2D2D",
+        muted: "#6B6052",
 
-        // 🌞 Brand / UI system (pastel, logo-led)
+        // Functional colors are darkened so Off-White text meets WCAG AA.
         primary: {
-          DEFAULT: "#C89A73", // muted ochre / badge tone
-          foreground: "#F6F1E7",
-          hover: "#B88660",
+          DEFAULT: "#AA5331",
+          foreground: "#F8F4EB",
+          hover: "#934426",
         },
         secondary: {
-          DEFAULT: "#6F7452", // muted olive
-          foreground: "#F6F1E7",
-          hover: "#5F6446",
+          DEFAULT: "#727145",
+          foreground: "#F8F4EB",
+          hover: "#62613A",
         },
 
-        // 🌲 Deep nature tones (NEW)
-        evergreen: "#3F4737", // dark moss / pine (hero overlays, nav bg)
-        charcoal: "#24251F", // alias for ink (footer, text, dividers)
+        evergreen: "#727145",
+        charcoal: "#2D2D2D",
+        smoke: "#2D2D2D",
 
         accent: {
-          DEFAULT: "#9A7A5E", // muted bronze
-          soft: "#C8BEB2", // warm stone
+          DEFAULT: "#A07F56",
+          soft: "#BCB2A6",
         },
 
-        // 🪶 Neutrals & Backgrounds
-        offwhite: "#F6F1E7", // warm paper
-        ballet: "#EEE5DA", // linen
-        ash: "#C8BEB2", // stone
-        bronze: "#9A7A5E",
-        marmalade: "#C89A73",
-        tan: "#6F7452",
+        // Exact source swatches remain available for non-text decoration.
+        offwhite: "#F8F4EB",
+        ballet: "#EDE3DA",
+        ash: "#BCB2A6",
+        bronze: "#A07F56",
+        marmalade: "#C4784B",
+        tan: "#817F56",
 
-        // 🌗 Layout aliases (THIS is where balance lives)
+        // Layout aliases implement the 60/30/10 hierarchy.
         background: {
-          DEFAULT: "#F6F1E7",
-          section: "#EEE5DA",
-          card: "#F2ECE2",
-          footer: "#24251F", // deep anchor restored
-          overlay: "#3F4737", // hero / image overlays
+          DEFAULT: "#F8F4EB",
+          section: "#EDE3DA",
+          card: "#F8F4EB",
+          footer: "#2D2D2D",
+          overlay: "#2D2D2D",
         },
         text: {
-          DEFAULT: "#2E2F28",
-          light: "#7E6A52",
-          inverse: "#F6F1E7",
-          strong: "#24251F", // emphasis text
+          DEFAULT: "#2D2D2D",
+          light: "#6B6052",
+          inverse: "#F8F4EB",
+          strong: "#2D2D2D",
         },
       },
 

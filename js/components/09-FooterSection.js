@@ -10,7 +10,7 @@ export function FooterSection() {
           <div class="mt-4 sm:mt-0 flex flex-wrap items-center justify-center gap-4">
             <button
               type="button"
-              class="hover:text-bronze transition-colors"
+              class="hover:text-primary transition-colors"
               @click="showNewsletter()"
             >
               Newsletter
@@ -20,7 +20,7 @@ export function FooterSection() {
               :key="link.id"
               :href="link.href"
               target="_blank"
-              class="hover:text-bronze transition-colors"
+              class="hover:text-primary transition-colors"
               v-text="link.label"
             ></a>
           </div>

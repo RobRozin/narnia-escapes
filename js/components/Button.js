@@ -27,11 +27,11 @@ export function Button(props = {}) {
   };
   const variants = {
     primary:
-      "bg-primary text-white shadow-sm hover:opacity-95 active:opacity-90",
+      "bg-primary text-primary-foreground shadow-sm hover:bg-primary-hover active:opacity-90",
     secondary:
       "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary-hover active:opacity-90",
     "outline-light":
-      "border border-white/40 bg-white/10 text-white backdrop-blur hover:bg-white/20",
+      "border border-offwhite/70 bg-smoke/15 text-offwhite backdrop-blur hover:bg-smoke/25",
     "outline-primary": "ring-1 ring-primary/30 text-primary hover:bg-primary/5",
   };
   const classes = [

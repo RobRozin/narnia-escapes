@@ -21,7 +21,7 @@ Measured from the repo:
 - `images/home-hero-mobile-winter.jpg`: 2.4 MB
 - `images/home-hero-winter.jpg`: 2.3 MB
 - `images/host-alex.jpg`: 1.4 MB
-- `images/logo.png`: 974 KB
+- `images/narnia-escapes-logo-main.png`: 117 KB
 - `images/home-hero-fall.png`: 725 KB
 - `images/host-stan.jpg`: 717 KB
 - `images/home-hero-fall-mobile.png`: 634 KB
@@ -45,8 +45,8 @@ JavaScript is not the current bottleneck:
 3. Resize assets to actual render dimensions before export.
    Several section images are displayed around card width but are stored at multi-megabyte source sizes.
 
-4. Replace the large PNG logo with an SVG or a much smaller transparent WebP.
-   `images/logo.png` is nearly 1 MB and appears multiple times on the page.
+4. Consider converting the replacement logo to SVG or transparent WebP if further optimization is needed.
+   `images/narnia-escapes-logo-main.png` is currently 117 KB and appears multiple times on the page.
 
 5. Move away from the Tailwind CDN runtime script to a generated static CSS file.
    This reduces runtime work in the browser and gives tighter control over shipped CSS.

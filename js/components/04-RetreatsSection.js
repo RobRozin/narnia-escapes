@@ -4,8 +4,7 @@ export function RetreatsSection() {
     $template: `
       <section
         id="retreats"
-        class="relative overflow-hidden py-12 md:py-20 bg-[url('./images/background-dark-tan.png')] bg-center bg-repeat-y js-parallax-section scroll-mt-20"
-        style="background-size: max(100vw, 1672px) auto"
+        class="relative overflow-hidden py-12 md:py-20 bg-transparent js-parallax-section scroll-mt-20"
       >
         <div
           aria-hidden
@@ -25,11 +24,11 @@ export function RetreatsSection() {
             data-parallax="front"
           >
             <article
-              class="rounded-3xl bg-white/90 backdrop-blur-md ring-1 ring-black/5 shadow-xl p-6 sm:p-8 will-change-transform"
+              class="rounded-3xl bg-offwhite ring-1 ring-smoke/10 shadow-xl p-6 sm:p-8 will-change-transform"
             >
               <header>
                 <h2
-                  class="font-accent font-semibold text-3xl lg:text-4xl tracking-tight text-tan"
+                  class="font-accent font-semibold text-3xl lg:text-4xl tracking-tight text-secondary"
                 >
                   Guided Retreats
                 </h2>
@@ -43,13 +42,13 @@ export function RetreatsSection() {
               </div>
 
               <ul class="mt-5 grid grid-cols-3 gap-2" aria-label="Retreat quick facts">
-                <li class="rounded-xl bg-secondary/10 px-2 py-3 text-center text-xs font-semibold text-tan sm:text-sm">
+                <li class="rounded-xl bg-secondary px-2 py-3 text-center text-xs font-semibold text-secondary-foreground sm:text-sm">
                   3–4 days
                 </li>
-                <li class="rounded-xl bg-secondary/10 px-2 py-3 text-center text-xs font-semibold text-tan sm:text-sm">
+                <li class="rounded-xl bg-secondary px-2 py-3 text-center text-xs font-semibold text-secondary-foreground sm:text-sm">
                   Up to 8 guests
                 </li>
-                <li class="rounded-xl bg-secondary/10 px-2 py-3 text-center text-xs font-semibold text-tan sm:text-sm">
+                <li class="rounded-xl bg-secondary px-2 py-3 text-center text-xs font-semibold text-secondary-foreground sm:text-sm">
                   Meals included
                 </li>
               </ul>
@@ -90,7 +89,7 @@ export function RetreatsSection() {
                   <div class="mt-4 flex flex-wrap gap-4 text-sm font-medium">
                     <a
                       href="#about"
-                      class="inline-flex items-center gap-2 text-bronze hover:text-tan transition-colors"
+                      class="inline-flex items-center gap-2 text-primary hover:text-primary-hover transition-colors"
                     >
                       Meet Your Hosts
                       <svg class="h-4 w-4" viewBox="0 0 24 24" aria-hidden="true">
@@ -164,7 +163,7 @@ export function RetreatsSection() {
               </div>
 
               <section
-                class="mt-6 rounded-2xl border border-secondary/15 bg-offwhite/70 p-4 text-center"
+                class="mt-6 rounded-2xl border border-ash bg-ballet p-4 text-center"
                 aria-labelledby="retreat-dates-heading"
               >
                 <h3
@@ -182,14 +181,14 @@ export function RetreatsSection() {
                     target="_blank"
                     rel="noopener noreferrer"
                     :aria-label="'Reserve spot for the ' + retreatDate.label + ', ' + retreatDate.year + ' guided retreat'"
-                    class="group inline-flex min-h-[68px] flex-col items-center justify-center rounded-full bg-secondary px-4 py-3 text-center text-secondary-foreground shadow-sm transition hover:bg-secondary-hover focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2"
+                    class="group inline-flex min-h-[68px] flex-col items-center justify-center rounded-full bg-primary px-4 py-3 text-center text-primary-foreground shadow-sm transition hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
                   >
                     <span
                       class="text-sm font-semibold leading-tight"
                       v-text="retreatDate.label"
                     ></span>
                     <span
-                      class="mt-1 text-[11px] font-semibold uppercase text-secondary-foreground/75 transition group-hover:text-secondary-foreground"
+                      class="mt-1 text-[11px] font-semibold uppercase text-primary-foreground transition"
                     >
                       Reserve Spot
                     </span>

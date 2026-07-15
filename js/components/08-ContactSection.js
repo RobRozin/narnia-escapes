@@ -2,7 +2,7 @@ export function ContactSection() {
   return {
     /*html*/
     $template: `
-      <section id="contact" class="relative py-14 md:py-24 bg-[url('./images/background-smoke.png')] bg-cover bg-center bg-no-repeat text-offwhite scroll-mt-20">
+      <section id="contact" class="relative py-14 md:py-24 bg-secondary text-offwhite scroll-mt-20">
         <div
           aria-hidden
           class="pointer-events-none absolute inset-x-0 top-0 z-20 h-[46px] bg-[url('./images/background-mask.png')] bg-[length:100%_100%] bg-top bg-no-repeat"
@@ -15,7 +15,7 @@ export function ContactSection() {
               >
                 Get in Touch
               </h2>
-              <p class="mt-4 text-lg text-offwhite/80 leading-relaxed px-10 md:px-0">
+              <p class="mt-4 text-lg text-offwhite leading-relaxed px-10 md:px-0">
                 Questions, availability, or private bookings —
 reach out when you're ready.
               </p>
@@ -28,7 +28,7 @@ reach out when you're ready.
                 ></div>
                 <button
                   type="button"
-                  class="inline-flex w-full items-center justify-center gap-3 rounded-full bg-primary px-7 py-3 text-white font-medium shadow hover:opacity-95 active:opacity-90 transition sm:w-auto"
+                  class="inline-flex w-full items-center justify-center gap-3 rounded-full bg-primary px-7 py-3 text-primary-foreground font-medium shadow hover:bg-primary-hover active:opacity-90 transition sm:w-auto"
                   :aria-expanded="isContactMenuOpen ? 'true' : 'false'"
                   aria-controls="contactMethods"
                   @click="toggleContactMenu"

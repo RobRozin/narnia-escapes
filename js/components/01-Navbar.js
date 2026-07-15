@@ -4,8 +4,8 @@ export function Navbar() {
     $template: `
       <header
         :class="{
-          'backdrop-blur-md bg-white/70 text-body shadow-sm': isScrolled || isMobileMenuOpen,
-          'bg-transparent text-white': !isScrolled && !isMobileMenuOpen
+          'backdrop-blur-md bg-offwhite/85 text-body shadow-sm': isScrolled || isMobileMenuOpen,
+          'bg-transparent text-offwhite': !isScrolled && !isMobileMenuOpen
         }"
         class="fixed inset-x-0 top-0 z-50 transition-colors duration-300 pt-[env(safe-area-inset-top)]"
       >
@@ -25,7 +25,7 @@ export function Navbar() {
             ]"
           >
             <img
-              src="./images/logo.png"
+              src="./images/narnia-escapes-logo-main.png"
               alt="Narnia Escapes logo"
               class="transition-all duration-300 ease-out"
               :class="[isScrolled ? 'w-12' : 'w-16']"
@@ -46,17 +46,17 @@ export function Navbar() {
               v-for="item in navItems"
               :key="item.id"
               :href="item.href"
-              class="hover:text-tan transition-colors"
+              class="hover:text-primary transition-colors"
               :class="[isScrolled ? 'text-xs font-medium' : 'text-sm font-medium']"
               v-text="item.label"
             ></a>
 
             <a
               href="#contact"
-              class="ml-2 inline-flex items-center rounded-full bg-primary text-white shadow hover:opacity-90 transition-all duration-300 ease-out"
+              class="ml-2 inline-flex items-center rounded-full bg-primary text-primary-foreground shadow hover:bg-primary-hover transition-all duration-300 ease-out"
               :class="[isScrolled ? 'px-3 py-1.5 text-xs' : 'px-4 py-2 text-sm']"
             >
-              Book Your Escape
+              Plan Your Escape
             </a>
           </div>
 
@@ -106,7 +106,7 @@ export function Navbar() {
             <div class="flex items-center justify-between py-4">
               <a href="#home" class="flex items-center gap-2">
                 <img
-                  src="./images/logo.png"
+                  src="./images/narnia-escapes-logo-main.png"
                   alt="Narnia Escapes logo"
                   class="w-12"
                 />
@@ -141,7 +141,7 @@ export function Navbar() {
                 :key="item.id"
                 :href="item.href"
                 @click="isMobileMenuOpen=false"
-                class="text-lg font-medium text-neutral-900 hover:text-tan"
+                  class="text-lg font-medium text-neutral-900 hover:text-primary"
                 v-text="item.label"
               ></a>
             </nav>
@@ -150,9 +150,9 @@ export function Navbar() {
               <a
                 href="#contact"
                 @click="isMobileMenuOpen=false"
-                class="block w-full rounded-full bg-primary text-white text-center font-semibold py-3 shadow hover:opacity-95"
+                class="block w-full rounded-full bg-primary text-primary-foreground text-center font-semibold py-3 shadow hover:bg-primary-hover"
               >
-                Book Your Escape
+                Plan Your Escape
               </a>
             </div>
           </div>

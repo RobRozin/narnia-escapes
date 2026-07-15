@@ -10,7 +10,7 @@ export const highlights = [
   {
     id: "retreats",
     href: "#retreats",
-    imgSrc: "./images/highlights-retreats.jpeg",
+    imgSrc: "./images/highlights-retreats.jpg",
     imgAlt: "Guided retreats at the cabin",
     title: "Guided Retreats",
     text: "Breathwork - Sound bath - Sauna & cold plunge - Hikes - Homemade meals",
@@ -18,7 +18,7 @@ export const highlights = [
   {
     id: "sauna",
     href: "#sauna",
-    imgSrc: "./images/highlights-sauna.jpeg",
+    imgSrc: "./images/highlights-sauna.png",
     imgAlt: "Sauna experience with cold plunge",
     title: "Sauna Experience",
     text: "Wood-fired sauna - Cold plunge - Chill room - Herbal tea - Pondside relaxation",

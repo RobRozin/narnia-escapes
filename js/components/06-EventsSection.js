@@ -4,12 +4,8 @@ export function EventsSection() {
     $template: `
       <section
         id="events"
-        class="relative overflow-hidden py-12 md:py-20 bg-[url('./images/background-ash.png')] bg-cover bg-center bg-no-repeat js-parallax-section scroll-mt-20"
+        class="relative overflow-hidden py-12 md:py-20 bg-transparent js-parallax-section scroll-mt-20"
       >
-        <div
-          aria-hidden
-          class="pointer-events-none absolute inset-x-0 top-0 z-20 h-[46px] bg-[url('./images/background-mask.png')] bg-[length:100%_100%] bg-top bg-no-repeat"
-        ></div>
         <div class="mx-auto max-w-6xl px-6">
           <div class="grid gap-10 lg:grid-cols-2 items-start relative">
             <div class="order-1 relative z-0 lg:-mt-8" data-parallax="back">
@@ -23,11 +19,11 @@ export function EventsSection() {
               data-parallax="front"
             >
               <div
-                class="rounded-3xl border border-neutral-200 bg-white/90 shadow-xl backdrop-blur p-6 md:p-8"
+                class="rounded-3xl border border-ash bg-offwhite shadow-xl p-6 md:p-8"
               >
                 <header>
                   <h2
-                    class="font-accent font-semibold text-3xl lg:text-4xl tracking-tight text-tan"
+                    class="font-accent font-semibold text-3xl lg:text-4xl tracking-tight text-secondary"
                   >
                     Private Events
                   </h2>
@@ -39,13 +35,13 @@ export function EventsSection() {
                 </p>
 
                 <ul class="mt-5 grid grid-cols-3 gap-2" aria-label="Private event quick facts">
-                  <li class="rounded-xl bg-secondary/10 px-2 py-3 text-center text-xs font-semibold text-tan sm:text-sm">
+                  <li class="rounded-xl bg-secondary px-2 py-3 text-center text-xs font-semibold text-secondary-foreground sm:text-sm">
                     Custom format
                   </li>
-                  <li class="rounded-xl bg-secondary/10 px-2 py-3 text-center text-xs font-semibold text-tan sm:text-sm">
+                  <li class="rounded-xl bg-secondary px-2 py-3 text-center text-xs font-semibold text-secondary-foreground sm:text-sm">
                     Lodging available
                   </li>
-                  <li class="rounded-xl bg-secondary/10 px-2 py-3 text-center text-xs font-semibold text-tan sm:text-sm">
+                  <li class="rounded-xl bg-secondary px-2 py-3 text-center text-xs font-semibold text-secondary-foreground sm:text-sm">
                     Wellness add-ons
                   </li>
                 </ul>
@@ -88,7 +84,7 @@ export function EventsSection() {
                     v-scope="InfoToggle({ isOpen: isEventsDetailsOpen, labelOpen: 'Less Info', labelClosed: 'More Info', controlsId: 'eventsDetails', className: 'w-full sm:w-auto', onToggle: () => openServiceDetails('events') })"
                   ></div>
                   <div
-                    v-scope="Button({ text: 'Book Private Event', href: getBookingHref('event'), target: getBookingTarget('event'), rel: getBookingRel('event'), variant: 'secondary', size: 'lg', className: 'w-full sm:w-auto', iconPath: 'M8 7V3m8 4V3M4 11h16M4 7a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V7z', onClick: () => prepareBooking('event') })"
+                    v-scope="Button({ text: 'Book Private Event', href: getBookingHref('event'), target: getBookingTarget('event'), rel: getBookingRel('event'), variant: 'primary', size: 'lg', className: 'w-full sm:w-auto', iconPath: 'M8 7V3m8 4V3M4 11h16M4 7a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V7z', onClick: () => prepareBooking('event') })"
                   ></div>
                 </div>
               </div>

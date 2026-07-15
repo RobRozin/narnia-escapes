@@ -11,12 +11,26 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Vollkorn+SC:wght@400;600;700;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Vollkorn+SC:wght@400;600;700;900&display=swap"
       rel="stylesheet"
     />
     <style>
       [v-cloak] {
         display: none;
+      }
+
+      .services-wash {
+        background-color: #727145;
+        background-image: url("./images/background-olive-mobile.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      @media (min-width: 768px) {
+        .services-wash {
+          background-image: url("./images/background-olive-desktop.png");
+        }
       }
     </style>
     <!--  Petite Vue -->
@@ -29,7 +43,7 @@
   </head>
   <body
     id="app"
-    class="bg-paper text-body font-body overscroll-y-none"
+    class="bg-offwhite text-body font-body overscroll-y-none"
     v-cloak
     v-scope
     @vue:mounted="mounted"
@@ -39,9 +53,11 @@
     <div v-scope="HeroSection()"></div>
     <div v-scope="HighlightsSection()"></div>
 
-    <div v-scope="RetreatsSection()"></div>
-    <div v-scope="SaunaSection()"></div>
-    <div v-scope="EventsSection()"></div>
+    <div class="services-wash">
+      <div v-scope="RetreatsSection()"></div>
+      <div v-scope="SaunaSection()"></div>
+      <div v-scope="EventsSection()"></div>
+    </div>
     <div v-scope="AboutSection()"></div>
     <div v-scope="ContactSection()"></div>
     <div v-scope="FooterSection()"></div>

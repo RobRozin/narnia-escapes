@@ -9,7 +9,7 @@ export function InfoToggle(props = {}) {
   } = props;
 
   const classes = [
-    "inline-flex items-center justify-center gap-2 rounded-full border border-secondary px-4 py-2 text-sm font-medium text-secondary hover:bg-secondary/10 transition-colors",
+    "inline-flex items-center justify-center gap-2 rounded-full border border-secondary px-6 py-3 text-base font-medium text-secondary hover:bg-secondary/10 transition-colors",
     className,
   ]
     .filter(Boolean)
