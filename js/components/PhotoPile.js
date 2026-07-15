@@ -52,9 +52,9 @@ export function PhotoPile(props = {}) {
       const base =
         "absolute left-1/2 top-1/2 block rounded-sm bg-[#fffdf8] shadow-[0_18px_45px_rgba(36,37,31,0.28)] ring-1 ring-black/10 will-change-transform";
       const landscape =
-        "h-[190px] w-[260px] p-2.5 pb-8 sm:h-[230px] sm:w-[320px] sm:p-3 sm:pb-10 lg:h-[290px] lg:w-[390px] lg:p-3.5 lg:pb-12";
+        "h-[228px] w-[312px] p-3 pb-10 sm:h-[276px] sm:w-[384px] sm:p-3.5 sm:pb-12 lg:h-[348px] lg:w-[468px] lg:p-4 lg:pb-14";
       const portrait =
-        "h-[250px] w-[200px] p-2.5 pb-8 sm:h-[310px] sm:w-[248px] sm:p-3 sm:pb-10 lg:h-[390px] lg:w-[312px] lg:p-3.5 lg:pb-12";
+        "h-[300px] w-[240px] p-3 pb-10 sm:h-[372px] sm:w-[298px] sm:p-3.5 sm:pb-12 lg:h-[468px] lg:w-[374px] lg:p-4 lg:pb-14";
       return `${base} ${photo.layout === "landscape" ? landscape : portrait}`;
     },
 
@@ -240,7 +240,7 @@ export function PhotoPile(props = {}) {
     /*html*/
     $template: `
       <div
-        class="relative mx-auto h-[300px] w-full max-w-[330px] sm:h-[360px] sm:max-w-[390px] lg:h-[470px] lg:max-w-[470px]"
+        class="relative mx-auto h-[360px] w-full max-w-[396px] sm:h-[432px] sm:max-w-[468px] lg:h-[564px] lg:max-w-[564px]"
         role="region"
         aria-roledescription="carousel"
         :aria-label="label"

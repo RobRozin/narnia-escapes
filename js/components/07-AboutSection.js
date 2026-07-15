@@ -3,10 +3,10 @@ export function AboutSection() {
     /*html*/
     $template: `
       <section id="about" class="relative py-14 md:py-24 bg-offwhite scroll-mt-20">
-        <div
+        <!-- <div
           aria-hidden
           class="pointer-events-none absolute inset-x-0 top-0 z-20 h-[46px] bg-[url('./images/background-mask.png')] bg-[length:100%_100%] bg-top bg-no-repeat"
-        ></div>
+        ></div> -->
         <div class="mx-auto max-w-6xl px-6">
           <div class="text-center max-w-3xl mx-auto">
             <h2
