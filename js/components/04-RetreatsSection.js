@@ -194,9 +194,21 @@ export function RetreatsSection() {
                       target="_blank"
                       rel="noopener noreferrer"
                       :aria-label="'Reserve spot for the ' + retreatDate.label + ', ' + retreatDate.year + ' guided retreat'"
-                      class="mt-auto inline-flex w-full items-center justify-center rounded-full bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm transition hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                      class="mt-auto inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm transition hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
                     >
-                      Reserve
+                      <svg
+                        class="h-4 w-4 shrink-0"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                      >
+                        <path d="M8 7V3m8 4V3M4 11h16M4 7a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V7z" />
+                      </svg>
+                      <span>Reserve</span>
                     </a>
                   </div>
                 </div>

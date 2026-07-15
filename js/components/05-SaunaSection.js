@@ -110,10 +110,11 @@ export function SaunaSection() {
                   class="rounded-xl border border-ash bg-ballet p-4"
                 >
                   <p class="text-[13px] leading-5 text-neutral-700">
-                    <span class="font-medium text-neutral-800">Booking:</span>
-                    Book online at least one week in advance. A deposit of
-                    <span class="font-medium">20%</span> of your party's total can
-                    be collected through Square when booking.
+                    <span class="font-medium text-neutral-800">Availability:</span>
+                    Message us at least one week in advance to confirm availability.
+                    Once your session is confirmed, a
+                    <span class="font-medium">20%</span> deposit may be collected
+                    through Square.
                   </p>
                 </div>
               </div>
@@ -123,7 +124,7 @@ export function SaunaSection() {
                   v-scope="InfoToggle({ isOpen: () => isSaunaDetailsOpen, labelOpen: 'Less Info', labelClosed: 'More Info', controlsId: 'saunaDetails', className: 'w-full sm:w-auto', onToggle: () => openServiceDetails('sauna') })"
                 ></div>
                 <div
-                  v-scope="Button({ text: 'Book Sauna Session', href: getBookingHref('sauna'), target: getBookingTarget('sauna'), rel: getBookingRel('sauna'), variant: 'primary', size: 'lg', className: 'w-full sm:w-auto', iconPath: 'M8 7V3m8 4V3M4 11h16M4 7a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V7z', onClick: () => prepareBooking('sauna') })"
+                  v-scope="ContactMenu({ menuId: 'sauna-availability', contextId: 'sauna', text: 'Message Us for Availability', placement: 'above', surface: 'light', className: 'w-full sm:w-auto' })"
                 ></div>
                 <!-- <a
                   href="/sauna"

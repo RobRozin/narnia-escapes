@@ -6,7 +6,7 @@ import {
 
 export function createContactActionsFeature() {
   return {
-    isContactMenuOpen: false,
+    activeContactMenuId: null,
     contactMethods,
     contactMessage: defaultContactMessage,
     contactTemplates,
@@ -19,6 +19,27 @@ export function createContactActionsFeature() {
         this.contactMessage = message;
       } else {
         console.warn(`[updateContactMessage] Unknown id: ${id}`);
+      }
+    },
+    resetContactMessage() {
+      this.contactMessage = defaultContactMessage;
+    },
+    isContactMenuOpen(menuId) {
+      return this.activeContactMenuId === menuId;
+    },
+    toggleContactMenu(menuId, contextId = null) {
+      if (this.activeContactMenuId === menuId) {
+        this.activeContactMenuId = null;
+        return;
+      }
+
+      if (contextId) this.updateContactMessage(contextId);
+      else this.resetContactMessage();
+      this.activeContactMenuId = menuId;
+    },
+    closeContactMenu(menuId = null) {
+      if (!menuId || this.activeContactMenuId === menuId) {
+        this.activeContactMenuId = null;
       }
     },
     openInstagram() {
@@ -63,10 +84,7 @@ export function createContactActionsFeature() {
         default:
           console.warn(`[handleContact] Unknown method: ${methodId}`);
       }
-      this.isContactMenuOpen = false;
-    },
-    toggleContactMenu() {
-      this.isContactMenuOpen = !this.isContactMenuOpen;
+      this.activeContactMenuId = null;
     },
   };
 }

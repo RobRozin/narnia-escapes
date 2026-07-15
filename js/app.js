@@ -1,6 +1,7 @@
 import { AboutSection } from "./components/07-AboutSection.js";
 import { Button } from "./components/Button.js";
 import { ContactSection } from "./components/08-ContactSection.js";
+import { ContactMenu } from "./components/ContactMenu.js";
 import { EventsSection } from "./components/06-EventsSection.js";
 import { FooterSection } from "./components/09-FooterSection.js";
 import { HeroSection } from "./components/02-HeroSection.js";
@@ -39,6 +40,7 @@ const components = {
   AboutSection,
   Button,
   ContactSection,
+  ContactMenu,
   EventsSection,
   FooterSection,
   HeroSection,
@@ -127,7 +129,12 @@ function createApp() {
         history.pushState({ page: pageId }, "", "#" + pageId);
       }
       this.isMobileMenuOpen = false;
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      window.requestAnimationFrame(() => {
+        document.getElementById(pageId)?.scrollIntoView({
+          behavior: pushState ? "smooth" : "auto",
+          block: "start",
+        });
+      });
     },
   };
 }

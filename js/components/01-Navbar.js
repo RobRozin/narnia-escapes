@@ -52,11 +52,11 @@ export function Navbar() {
             ></a>
 
             <a
-              href="#contact"
+              href="#retreats"
               class="ml-2 inline-flex items-center rounded-full bg-primary text-primary-foreground shadow hover:bg-primary-hover transition-all duration-300 ease-out"
               :class="[isScrolled ? 'px-3 py-1.5 text-xs' : 'px-4 py-2 text-sm']"
             >
-              Plan Your Escape
+              Upcoming Retreats
             </a>
           </div>
 
@@ -148,11 +148,11 @@ export function Navbar() {
 
             <div class="pb-6">
               <a
-                href="#contact"
+                href="#retreats"
                 @click="isMobileMenuOpen=false"
                 class="block w-full rounded-full bg-primary text-primary-foreground text-center font-semibold py-3 shadow hover:bg-primary-hover"
               >
-                Plan Your Escape
+                Upcoming Retreats
               </a>
             </div>
           </div>

@@ -87,7 +87,9 @@ export function HeroSection() {
               class="mt-4 md:mt-5 text-offwhite/90 text-base sm:text-lg leading-relaxed px-1 max-w-xl mx-auto opacity-0 animate-fade-in-up"
               style="animation-delay: 360ms"
             >
-              Beyond the trees, a quieter world awaits. Discover wood-fired sauna rituals, seasonal retreats, and private gatherings for rest, wonder, and reconnection.
+              Reconnect through seasonal guided retreats shaped by breathwork,
+              sauna rituals, nourishing meals, and deep time in nature. Private
+              sauna sessions and woodland gatherings are also available.
             </p>
 
             <div
@@ -95,7 +97,7 @@ export function HeroSection() {
               style="animation-delay: 470ms"
             >
               <div
-                v-scope="Button({ text: 'Plan a Retreat', href: '#retreats', variant: 'primary', size: 'lg', className: 'shadow w-full sm:w-auto' })"
+                v-scope="Button({ text: 'Upcoming Retreats', href: '#retreats', variant: 'primary', size: 'lg', className: 'shadow w-full sm:w-auto' })"
               ></div>
               <div
                 v-scope="Button({ text: 'Explore Experiences', href: '#highlights', variant: 'outline-light', size: 'lg', className: 'w-full sm:w-auto' })"

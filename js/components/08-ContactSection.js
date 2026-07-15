@@ -20,63 +20,9 @@ export function ContactSection() {
 reach out when you're ready.
               </p>
 
-              <div class="relative mt-8 flex flex-col items-stretch md:items-start">
-                <div
-                  v-show="isContactMenuOpen"
-                  class="fixed inset-0 z-10"
-                  @click="isContactMenuOpen = false"
-                ></div>
-                <button
-                  type="button"
-                  class="inline-flex w-full items-center justify-center gap-3 rounded-full bg-primary px-7 py-3 text-primary-foreground font-medium shadow hover:bg-primary-hover active:opacity-90 transition sm:w-auto"
-                  :aria-expanded="isContactMenuOpen ? 'true' : 'false'"
-                  aria-controls="contactMethods"
-                  @click="toggleContactMenu"
-                >
-                  Send a Message
-                  <svg
-                    class="h-4 w-4"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path d="M12 16l-6-6h12l-6 6z" />
-                  </svg>
-                </button>
-
               <div
-                id="contactMethods"
-                class="absolute left-1/2 top-full z-20 mt-4 w-full -translate-x-1/2 rounded-2xl border border-white/25 bg-white/20 p-4 shadow-xl backdrop-blur-xl transition md:left-0 md:translate-x-0"
-                v-show="isContactMenuOpen"
-              >
-                  <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
-                    <button
-                      v-for="(method, index) in contactMethods"
-                      :key="method.id"
-                      type="button"
-                      class="flex items-center gap-3 rounded-xl border bg-offwhite/80 px-4 py-3 text-left text-neutral-900 shadow-sm transition hover:-translate-y-0.5 hover:bg-offwhite/95 hover:shadow-md"
-                      :class="isContactMenuOpen ? 'animate-contact-pop' : 'opacity-0'"
-                      :style="{ borderColor: method.brandColor, animationDelay: (index * 90) + 'ms' }"
-                      @click="handleContact(method.id)"
-                    >
-                      <span
-                        class="inline-flex h-10 w-10 items-center justify-center rounded-full text-white"
-                        :style="{ backgroundColor: method.brandColor, color: method.brandText || '#FFFFFF' }"
-                      >
-                        <svg
-                          class="h-5 w-5"
-                          viewBox="0 0 24 24"
-                          fill="currentColor"
-                          aria-hidden="true"
-                        >
-                          <path :d="method.iconPath" />
-                        </svg>
-                      </span>
-                      <span class="text-base font-medium" v-text="method.label"></span>
-                    </button>
-                  </div>
-                </div>
-              </div>
+                v-scope="ContactMenu({ menuId: 'contact', text: 'Send a Message', placement: 'below', surface: 'glass', align: 'start', className: 'mt-8 flex flex-col items-stretch md:items-start' })"
+              ></div>
             </div>
 
             <div>
