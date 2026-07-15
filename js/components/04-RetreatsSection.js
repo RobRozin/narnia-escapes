@@ -28,7 +28,7 @@ export function RetreatsSection() {
             >
               <header>
                 <h2
-                  class="font-accent font-semibold text-3xl lg:text-4xl tracking-tight text-secondary"
+                  class="font-accent font-semibold text-3xl lg:text-4xl tracking-tight text-smoke"
                 >
                   Guided Retreats
                 </h2>
@@ -36,20 +36,21 @@ export function RetreatsSection() {
 
               <div class="mt-4">
                 <p class="text-neutral-700 leading-relaxed">
-                  A 3-4 day immersion for up to 8 guests, blending breathwork,
-                  sound baths, sauna rituals, meals, and deep nature connection.
+                  Step away from routine and reconnect through a guided small-group
+                  immersion shaped by restorative practices, nourishing food, and
+                  deep time in nature.
                 </p>
               </div>
 
-              <ul class="mt-5 grid grid-cols-3 gap-2" aria-label="Retreat quick facts">
+              <ul class="mt-5 grid grid-cols-3 gap-2" aria-label="Retreat experience highlights">
                 <li class="rounded-xl bg-secondary px-2 py-3 text-center text-xs font-semibold text-secondary-foreground sm:text-sm">
-                  3–4 days
+                  Breath + Cold
                 </li>
                 <li class="rounded-xl bg-secondary px-2 py-3 text-center text-xs font-semibold text-secondary-foreground sm:text-sm">
-                  Up to 8 guests
+                  Sauna + Sound
                 </li>
                 <li class="rounded-xl bg-secondary px-2 py-3 text-center text-xs font-semibold text-secondary-foreground sm:text-sm">
-                  Meals included
+                  Meals + Lodging
                 </li>
               </ul>
 
@@ -152,9 +153,10 @@ export function RetreatsSection() {
                   </div>
                 </section>
                 <section>
-                  <h3 class="text-lg font-semibold text-body">Pricing</h3>
+                  <h3 class="text-lg font-semibold text-body">Format &amp; Pricing</h3>
                   <p class="mt-2 text-sm text-neutral-700">
-                    Typical retreat range: $600-$1,000.
+                    Retreats run 3–4 days for up to 8 guests. Typical retreat
+                    range: $600-$1,000.
                   </p>
                   <p class="mt-1 text-xs text-neutral-500 italic">
                     Varies by season and length.

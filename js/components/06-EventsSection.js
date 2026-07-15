@@ -23,26 +23,26 @@ export function EventsSection() {
               >
                 <header>
                   <h2
-                    class="font-accent font-semibold text-3xl lg:text-4xl tracking-tight text-secondary"
+                    class="font-accent font-semibold text-3xl lg:text-4xl tracking-tight text-smoke"
                   >
                     Private Events
                   </h2>
                 </header>
 
                 <p class="mt-4 text-neutral-700">
-                  Host workshops, celebrations, or team resets in a woodland space
-                  with soulful add-ons curated in the Narnia vibe.
+                  Create a gathering that feels intimate, grounded, and entirely
+                  your own in a secluded woodland setting.
                 </p>
 
-                <ul class="mt-5 grid grid-cols-3 gap-2" aria-label="Private event quick facts">
+                <ul class="mt-5 grid grid-cols-3 gap-2" aria-label="Private event experience highlights">
                   <li class="rounded-xl bg-secondary px-2 py-3 text-center text-xs font-semibold text-secondary-foreground sm:text-sm">
-                    Custom format
+                    Nature-First Setting
                   </li>
                   <li class="rounded-xl bg-secondary px-2 py-3 text-center text-xs font-semibold text-secondary-foreground sm:text-sm">
-                    Lodging available
+                    Tailored Hosting
                   </li>
                   <li class="rounded-xl bg-secondary px-2 py-3 text-center text-xs font-semibold text-secondary-foreground sm:text-sm">
-                    Wellness add-ons
+                    Wellness Rituals
                   </li>
                 </ul>
 

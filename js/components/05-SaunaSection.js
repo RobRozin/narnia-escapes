@@ -18,26 +18,26 @@ export function SaunaSection() {
             >
               <header>
                 <h2
-                  class="font-accent font-semibold text-3xl lg:text-4xl tracking-tight text-secondary"
+                  class="font-accent font-semibold text-3xl lg:text-4xl tracking-tight text-smoke"
                 >
                   Sauna Experience
                 </h2>
               </header>
 
               <p class="mt-4 text-neutral-700">
-                A wood-fired sauna by the pond for a four-hour reset of heat, cold,
-                and calm that lingers long after.
+                Settle into a wood-fired ritual beside the pond, moving at an
+                unhurried pace through warmth, nature, and rest.
               </p>
 
-              <ul class="mt-5 grid grid-cols-3 gap-2" aria-label="Sauna quick facts">
+              <ul class="mt-5 grid grid-cols-3 gap-2" aria-label="Sauna experience highlights">
                 <li class="rounded-xl bg-secondary px-2 py-3 text-center text-xs font-semibold text-secondary-foreground sm:text-sm">
-                  $100 / person
+                  Wood-Fired Heat
                 </li>
                 <li class="rounded-xl bg-secondary px-2 py-3 text-center text-xs font-semibold text-secondary-foreground sm:text-sm">
-                  4 hours
+                  Pondside Calm
                 </li>
                 <li class="rounded-xl bg-secondary px-2 py-3 text-center text-xs font-semibold text-secondary-foreground sm:text-sm">
-                  Minimum 3 guests
+                  Herbal Tea
                 </li>
               </ul>
 
@@ -48,6 +48,17 @@ export function SaunaSection() {
                 :aria-hidden="isServiceDetailsVisible('sauna') ? 'false' : 'true'"
                 :inert="!isServiceDetailsVisible('sauna')"
               >
+                <div>
+                  <div class="text-sm font-medium text-neutral-900">
+                    Session Details
+                  </div>
+                  <ul class="mt-2 space-y-1.5 text-sm text-neutral-700">
+                    <li>$100 per person</li>
+                    <li>4-hour session</li>
+                    <li>Minimum 3 guests</li>
+                  </ul>
+                </div>
+
                 <div>
                   <div class="text-sm font-medium text-neutral-900">Included</div>
                   <ul class="mt-2 space-y-1.5 text-sm text-neutral-700">
