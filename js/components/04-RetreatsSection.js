@@ -43,13 +43,13 @@ export function RetreatsSection() {
               </div>
 
               <ul class="mt-5 grid grid-cols-3 gap-2" aria-label="Retreat experience highlights">
-                <li class="rounded-xl bg-secondary px-2 py-3 text-center text-xs font-semibold text-secondary-foreground sm:text-sm">
+                <li class="rounded-xl bg-secondary/10 px-2 py-3 text-center text-xs font-semibold text-secondary-hover sm:text-sm">
                   Breath + Cold
                 </li>
-                <li class="rounded-xl bg-secondary px-2 py-3 text-center text-xs font-semibold text-secondary-foreground sm:text-sm">
+                <li class="rounded-xl bg-secondary/10 px-2 py-3 text-center text-xs font-semibold text-secondary-hover sm:text-sm">
                   Sauna + Sound
                 </li>
-                <li class="rounded-xl bg-secondary px-2 py-3 text-center text-xs font-semibold text-secondary-foreground sm:text-sm">
+                <li class="rounded-xl bg-secondary/10 px-2 py-3 text-center text-xs font-semibold text-secondary-hover sm:text-sm">
                   Meals + Lodging
                 </li>
               </ul>
@@ -57,7 +57,7 @@ export function RetreatsSection() {
               <footer class="mt-5 flex justify-center">
                 <div
                   class="w-full sm:w-auto"
-                  v-scope="InfoToggle({ isOpen: isRetreatDetailsOpen, labelOpen: 'Less Info', labelClosed: 'More Info', controlsId: 'retreatDetails', className: 'w-full sm:w-auto', onToggle: () => openServiceDetails('retreat') })"
+                  v-scope="InfoToggle({ isOpen: () => isRetreatDetailsOpen, labelOpen: 'Less Info', labelClosed: 'More Info', controlsId: 'retreatDetails', className: 'w-full sm:w-auto', onToggle: () => openServiceDetails('retreat') })"
                 ></div>
               </footer>
 
@@ -165,7 +165,7 @@ export function RetreatsSection() {
               </div>
 
               <section
-                class="mt-6 rounded-2xl border border-ash bg-ballet p-4 text-center"
+                class="mt-6 text-center"
                 aria-labelledby="retreat-dates-heading"
               >
                 <h3
@@ -176,25 +176,29 @@ export function RetreatsSection() {
                 </h3>
 
                 <div class="mt-4 grid gap-3 sm:grid-cols-3">
-                  <a
+                  <div
                     v-for="retreatDate in retreatDates"
                     :key="retreatDate.href"
-                    :href="retreatDate.href"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    :aria-label="'Reserve spot for the ' + retreatDate.label + ', ' + retreatDate.year + ' guided retreat'"
-                    class="group inline-flex min-h-[68px] flex-col items-center justify-center rounded-full bg-primary px-4 py-3 text-center text-primary-foreground shadow-sm transition hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                    class="flex flex-col rounded-2xl border border-ash bg-ballet p-4"
                   >
                     <span
-                      class="text-sm font-semibold leading-tight"
+                      class="text-sm font-semibold leading-tight text-smoke"
                       v-text="retreatDate.label"
                     ></span>
                     <span
-                      class="mt-1 text-[11px] font-semibold uppercase text-primary-foreground transition"
+                      class="mt-1 mb-4 text-xs font-medium text-muted"
+                      v-text="retreatDate.year"
+                    ></span>
+                    <a
+                      :href="retreatDate.href"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      :aria-label="'Reserve spot for the ' + retreatDate.label + ', ' + retreatDate.year + ' guided retreat'"
+                      class="mt-auto inline-flex w-full items-center justify-center rounded-full bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm transition hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
                     >
-                      Reserve Spot
-                    </span>
-                  </a>
+                      Reserve
+                    </a>
+                  </div>
                 </div>
               </section>
             </article>

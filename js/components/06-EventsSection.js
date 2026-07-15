@@ -35,13 +35,13 @@ export function EventsSection() {
                 </p>
 
                 <ul class="mt-5 grid grid-cols-3 gap-2" aria-label="Private event experience highlights">
-                  <li class="rounded-xl bg-secondary px-2 py-3 text-center text-xs font-semibold text-secondary-foreground sm:text-sm">
+                  <li class="rounded-xl bg-secondary/10 px-2 py-3 text-center text-xs font-semibold text-secondary-hover sm:text-sm">
                     Nature-First Setting
                   </li>
-                  <li class="rounded-xl bg-secondary px-2 py-3 text-center text-xs font-semibold text-secondary-foreground sm:text-sm">
+                  <li class="rounded-xl bg-secondary/10 px-2 py-3 text-center text-xs font-semibold text-secondary-hover sm:text-sm">
                     Tailored Hosting
                   </li>
-                  <li class="rounded-xl bg-secondary px-2 py-3 text-center text-xs font-semibold text-secondary-foreground sm:text-sm">
+                  <li class="rounded-xl bg-secondary/10 px-2 py-3 text-center text-xs font-semibold text-secondary-hover sm:text-sm">
                     Wellness Rituals
                   </li>
                 </ul>
@@ -81,7 +81,7 @@ export function EventsSection() {
 
                 <div class="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
                   <div
-                    v-scope="InfoToggle({ isOpen: isEventsDetailsOpen, labelOpen: 'Less Info', labelClosed: 'More Info', controlsId: 'eventsDetails', className: 'w-full sm:w-auto', onToggle: () => openServiceDetails('events') })"
+                    v-scope="InfoToggle({ isOpen: () => isEventsDetailsOpen, labelOpen: 'Less Info', labelClosed: 'More Info', controlsId: 'eventsDetails', className: 'w-full sm:w-auto', onToggle: () => openServiceDetails('events') })"
                   ></div>
                   <div
                     v-scope="Button({ text: 'Book Private Event', href: getBookingHref('event'), target: getBookingTarget('event'), rel: getBookingRel('event'), variant: 'primary', size: 'lg', className: 'w-full sm:w-auto', iconPath: 'M8 7V3m8 4V3M4 11h16M4 7a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V7z', onClick: () => prepareBooking('event') })"

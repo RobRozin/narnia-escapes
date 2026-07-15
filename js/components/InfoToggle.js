@@ -14,10 +14,12 @@ export function InfoToggle(props = {}) {
   ]
     .filter(Boolean)
     .join(" ");
+  const getIsOpen =
+    typeof isOpen === "function" ? isOpen : () => Boolean(isOpen);
 
   return {
     ...props,
-    isOpen,
+    getIsOpen,
     labelOpen,
     labelClosed,
     controlsId,
@@ -28,7 +30,7 @@ export function InfoToggle(props = {}) {
       <button
         type="button"
         :class="className"
-        :aria-expanded="isOpen ? 'true' : 'false'"
+        :aria-expanded="getIsOpen() ? 'true' : 'false'"
         :aria-controls="controlsId"
         @click="onToggle && onToggle()"
       >
@@ -46,7 +48,7 @@ export function InfoToggle(props = {}) {
           <path d="M12 16v-4" />
           <path d="M12 8h.01" />
         </svg>
-        <span v-text="isOpen ? labelOpen : labelClosed"></span>
+        <span v-text="getIsOpen() ? labelOpen : labelClosed"></span>
       </button>
     `,
   };
