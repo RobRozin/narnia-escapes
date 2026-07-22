@@ -162,29 +162,28 @@ export const eventPhotos = [
 ];
 
 export const retreatExperience = [
-  "Wim Hof Method: breathwork, cold exposure, mindfulness",
-  "Daily sauna ritual with cold plunge",
-  "Guided sound baths & vibration therapy",
-  "Qi Gong, hikes, stretching & interoceptive practices",
-  "Community connection & evening wind-down",
-  "Select dates: guest instructors (ecstatic dance, yoga, Thai massage)",
+  "Wim Hof Method: breathing, cold plunges & mindset",
+  "Daily wood-fired sauna with venik massage and cold plunge",
+  "Guided sound healing & relaxation",
+  "Qi Gong, forest hikes & gentle stretching",
+  "Time to connect, unwind & enjoy the moment",
+  "On select retreats: guest instructors (yoga, ecstatic dance, Thai massage & more)",
 ];
 
 export const retreatLodging = [
-  "Shared loft with 8 single beds",
+  "Shared loft with 8 comfortable single beds",
   "3 full bathrooms with showers",
-  "Full kitchen & Wi-Fi",
-  "Wood stove heating",
+  "Fully equipped kitchen & Wi-Fi",
+  "Wood stove for cozy evenings",
 ];
 
 export const retreatMeals = [
-  "Grain/avocado bowls",
-  "Hearty soups",
-  "Pilaf (lamb/beef/chicken)",
+  "Fresh grain & avocado bowls",
+  "Hearty homemade soups",
+  "Pilaf (lamb, beef, or chicken)",
   "Vegetable stew",
-  '"Secret" fish dish',
-  "Fire-cooked meals in a kazan (select nights)",
-  "Vegetarian on request",
+  "Traditional fire-cooked meals in a kazan (on select evenings)",
+  "Vegetarian options available",
 ];
 
 export const retreatDates = [
@@ -221,13 +220,14 @@ export const bookingLinks = {
 };
 
 export const eventHighlightsLeft = [
-  "Add the Narnia vibe to any workshop or private event",
-  "Accommodations available with homemade meals",
+  "Beautiful forest setting",
+  "Relax—we'll take care of the rest",
+  "Customize your event with breathing sessions, cold plunges & wood-fired sauna",
 ];
 
 export const eventHighlightsRight = [
-  "Optional experiences: breathwork, cold exposure & sauna",
-  "Need more room or private suites? Local Airbnb partners available",
+  "Overnight accommodations with homemade meals available",
+  "Need more space or private rooms? We partner with nearby Airbnbs",
 ];
 
 export const contactMethods = [

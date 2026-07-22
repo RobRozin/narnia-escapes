@@ -36,13 +36,15 @@ export function RetreatsSection() {
 
               <div class="mt-4">
                 <p class="text-neutral-700 leading-relaxed">
-                  Step away from routine and reconnect through a guided small-group
-                  immersion shaped by restorative practices, nourishing food, and
-                  deep time in nature.
+                  Our retreats are small, relaxed, and personal. Think of it as a
+                  weekend getaway with a purpose. We'll breathe together, hike
+                  through the woods, sweat in the wood-fired sauna, jump into cold
+                  water, share home-cooked meals, relax by the fire, and simply
+                  enjoy a few days away from the noise.
                 </p>
               </div>
 
-              <ul class="mt-5 grid grid-cols-3 gap-2" aria-label="Retreat experience highlights">
+              <!-- <ul class="mt-5 grid grid-cols-3 gap-2" aria-label="Retreat experience highlights">
                 <li class="rounded-xl bg-secondary/10 px-2 py-3 text-center text-xs font-semibold text-secondary-hover sm:text-sm">
                   Breath + Cold
                 </li>
@@ -52,7 +54,7 @@ export function RetreatsSection() {
                 <li class="rounded-xl bg-secondary/10 px-2 py-3 text-center text-xs font-semibold text-secondary-hover sm:text-sm">
                   Meals + Lodging
                 </li>
-              </ul>
+              </ul> -->
 
               <footer class="mt-5 flex justify-center">
                 <div
@@ -111,7 +113,8 @@ export function RetreatsSection() {
                       Lodging
                     </h3>
                     <p class="mt-1 text-sm text-neutral-600">
-                      Rustic cabin designed for comfort and connection.
+                      Cozy cabin in the woods, designed for comfort, relaxation,
+                      and good company.
                     </p>
 
                     <ul
@@ -132,8 +135,8 @@ export function RetreatsSection() {
                   <div>
                     <h3 class="text-lg font-semibold text-body">Meals</h3>
                     <p class="mt-1 text-sm text-neutral-600">
-                      Wholesome, homemade Eastern European food prepared daily.
-                      Breakfast, lunch, dinner + snacks
+                      Homemade Eastern European meals, cooked fresh every day.
+                      Breakfast, lunch, dinner &amp; snacks.
                     </p>
 
                     <ul
@@ -155,11 +158,14 @@ export function RetreatsSection() {
                 <section>
                   <h3 class="text-lg font-semibold text-body">Format &amp; Pricing</h3>
                   <p class="mt-2 text-sm text-neutral-700">
-                    Retreats run 3–4 days for up to 8 guests. Typical retreat
-                    range: $600-$1,000.
+                    Join us Thursday evening and head home Sunday at noon, feeling
+                    refreshed (and probably a little braver around cold water).
                   </p>
-                  <p class="mt-1 text-xs text-neutral-500 italic">
-                    Varies by season and length.
+                  <p class="mt-1 text-sm text-neutral-700">
+                    Limited to 8 guests.
+                  </p>
+                  <p class="mt-1 text-sm font-medium text-neutral-900">
+                    $800 per person.
                   </p>
                 </section>
               </div>

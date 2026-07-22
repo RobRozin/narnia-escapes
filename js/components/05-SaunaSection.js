@@ -25,11 +25,14 @@ export function SaunaSection() {
               </header>
 
               <p class="mt-4 text-neutral-700">
-                Settle into a wood-fired ritual beside the pond, moving at an
-                unhurried pace through warmth, nature, and rest.
+                Our wood-fired sauna is the heart of every retreat. Take a cold
+                plunge, relax by the pond, or experience a traditional
+                <em>venik</em> massage, where warm oak or birch branches are used
+                to gently tap the body, improve circulation, and leave you feeling
+                surprisingly refreshed.
               </p>
 
-              <ul class="mt-5 grid grid-cols-3 gap-2" aria-label="Sauna experience highlights">
+              <!-- <ul class="mt-5 grid grid-cols-3 gap-2" aria-label="Sauna experience highlights">
                 <li class="rounded-xl bg-secondary/10 px-2 py-3 text-center text-xs font-semibold text-secondary-hover sm:text-sm">
                   Wood-Fired Heat
                 </li>
@@ -39,7 +42,7 @@ export function SaunaSection() {
                 <li class="rounded-xl bg-secondary/10 px-2 py-3 text-center text-xs font-semibold text-secondary-hover sm:text-sm">
                   Herbal Tea
                 </li>
-              </ul>
+              </ul> -->
 
               <div
                 id="saunaDetails"

@@ -30,11 +30,12 @@ export function EventsSection() {
                 </header>
 
                 <p class="mt-4 text-neutral-700">
-                  Create a gathering that feels intimate, grounded, and entirely
-                  your own in a secluded woodland setting.
+                  Bring your friends, family, or team, and let us create a memorable
+                  experience in the heart of nature. We'll take care of the
+                  details—you just show up and enjoy the day.
                 </p>
 
-                <ul class="mt-5 grid grid-cols-3 gap-2" aria-label="Private event experience highlights">
+                <!-- <ul class="mt-5 grid grid-cols-3 gap-2" aria-label="Private event experience highlights">
                   <li class="rounded-xl bg-secondary/10 px-2 py-3 text-center text-xs font-semibold text-secondary-hover sm:text-sm">
                     Nature-First Setting
                   </li>
@@ -44,7 +45,7 @@ export function EventsSection() {
                   <li class="rounded-xl bg-secondary/10 px-2 py-3 text-center text-xs font-semibold text-secondary-hover sm:text-sm">
                     Wellness Rituals
                   </li>
-                </ul>
+                </ul> -->
 
                 <div
                   id="eventsDetails"

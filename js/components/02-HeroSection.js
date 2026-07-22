@@ -87,9 +87,8 @@ export function HeroSection() {
               class="mt-4 md:mt-5 text-offwhite/90 text-base sm:text-lg leading-relaxed px-1 max-w-xl mx-auto opacity-0 animate-fade-in-up"
               style="animation-delay: 360ms"
             >
-              Reconnect through seasonal guided retreats shaped by breathwork,
-              sauna rituals, nourishing meals, and deep time in nature. Private
-              sauna sessions and woodland gatherings are also available.
+              No talking lions (so far)... just breathing, cold plunges,
+              wood-fired sauna, good food, and a peaceful forest.
             </p>
 
             <div

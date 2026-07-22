@@ -17,58 +17,48 @@ export function AboutSection() {
             <p
               class="mt-4 text-lg text-neutral-700 leading-relaxed text-left md:text-center px-4"
             >
-              Together, Alex and Stan create a space of transformation -- weaving
-              breath, sauna, sound, and food into a communal retreat experience
-              rooted in nature and tradition.
+              We created Narnia Escapes to share the things that make us feel alive:
+              breathing, cold plunges, wood-fired sauna, sound healing, good food,
+              and great company.
             </p>
           </div>
 
-          <div class="mt-14 grid gap-8 sm:grid-cols-2">
-            <div class="relative rounded-3xl overflow-hidden shadow-lg">
-              <div class="aspect-[3/4] w-full">
-                <img
-                  src="./images/host-stan.jpg"
-                  alt="Stan - sauna master and sound healer"
-                  class="h-full w-full object-cover object-top"
-                  loading="lazy"
-                />
-                <div
-                  class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/70 via-black/30 to-transparent"
-                ></div>
-                <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
-                  <h3 class="text-2xl font-semibold font-accent">Stan</h3>
-                  <p class="mt-2 text-sm leading-relaxed text-white/90">
-                    Sauna practitioner and sound healer who brings traditional
-                    Eastern European sauna rituals, vibration therapy, and hape
-                    &amp; medicine ceremonies to the retreat. As a chef, he
-                    prepares nourishing homemade meals, and as a musician, he
-                    leads drum circles that bring people together in rhythm.
-                  </p>
-                </div>
-              </div>
+          <div class="mt-14 grid items-start gap-8 lg:grid-cols-2 lg:gap-12">
+            <div class="order-2 grid gap-6 lg:order-1 lg:py-6">
+              <article class="rounded-3xl border border-ash bg-ballet p-6 shadow-sm sm:p-8">
+                <h3 class="text-2xl font-semibold font-accent text-smoke">
+                  Stan <span class="text-base font-medium text-muted">(left)</span>
+                </h3>
+                <p class="mt-3 text-sm leading-relaxed text-neutral-700">
+                  Certified Sound Healer, sauna enthusiast, and the guy you'll
+                  usually find cooking in the kitchen. Stan loves sharing
+                  traditional Eastern European sauna rituals, sound healing,
+                  homemade meals, drum circles, and, for those who are interested,
+                  traditional hape ceremonies.
+                </p>
+              </article>
+
+              <article class="rounded-3xl border border-ash bg-ballet p-6 shadow-sm sm:p-8">
+                <h3 class="text-2xl font-semibold font-accent text-smoke">
+                  Alex <span class="text-base font-medium text-muted">(right)</span>
+                </h3>
+                <p class="mt-3 text-sm leading-relaxed text-neutral-700">
+                  Certified Wim Hof Method Instructor who brings humor to every
+                  breathing session. Between the jokes and laughter, he'll guide
+                  you through breathing exercises and cold plunges in a way that
+                  feels fun, supportive, and surprisingly approachable.
+                </p>
+              </article>
             </div>
 
-            <div class="relative rounded-3xl overflow-hidden shadow-lg">
+            <div class="order-1 overflow-hidden rounded-3xl shadow-lg lg:order-2">
               <div class="aspect-[3/4] w-full">
                 <img
-                  src="./images/host-alex.jpg"
-                  alt="Alex - certified Wim Hof instructor"
-                  class="h-full w-full object-cover object-top"
+                  src="./images/meet-your-hosts.jpg"
+                  alt="Stan on the left and Alex on the right, hosts of Narnia Escapes"
+                  class="h-full w-full object-cover object-center"
                   loading="lazy"
                 />
-                <div
-                  class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/70 via-black/30 to-transparent"
-                ></div>
-                <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
-                  <h3 class="text-2xl font-semibold font-accent">Alex</h3>
-                  <p class="mt-2 text-sm leading-relaxed text-white/90">
-                    Certified Wim Hof Method instructor guiding breathwork, cold
-                    exposure, and meditation. Known by many as a "witch doctor"
-                    for his grounding energy and care, Alex helps participants
-                    build resilience, clarity, and deep presence while tending to
-                    the retreat grounds and leading practices.
-                  </p>
-                </div>
               </div>
             </div>
           </div>
