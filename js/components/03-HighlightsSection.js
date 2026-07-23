@@ -3,10 +3,6 @@ export function HighlightsSection() {
     /*html*/
     $template: `
       <section id="highlights" class="relative py-14 md:py-24 bg-offwhite">
-        <!-- <div
-          aria-hidden
-          class="pointer-events-none absolute inset-x-0 top-0 z-20 h-[46px] bg-[url('./images/background-mask.png')] bg-[length:100%_100%] bg-top bg-no-repeat"
-        ></div> -->
         <div id="highlights-container" class="mx-auto max-w-6xl px-6">
           <header class="text-center">
             <h2
@@ -14,6 +10,11 @@ export function HighlightsSection() {
             >
               Experience Narnia
             </h2>
+            <p
+              class="mx-auto mt-5 max-w-3xl text-base leading-relaxed text-charcoal/80 md:text-lg"
+            >
+              Come spend a few days with us. We'll breathe, sweat in the sauna, jump into cold water, share good food, and enjoy the quiet of the forest. If you're not ready for a full retreat, join us for a private sauna session or gather your friends and let us host your own private event.
+            </p>
           </header>
 
           <div

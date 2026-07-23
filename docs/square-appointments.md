@@ -1,6 +1,6 @@
 # Square Appointments setup
 
-This site is wired for Square Appointments service links. It does not store Square API keys or process cards in frontend code.
+The generic Square Appointments integration is retained as dormant source and is not registered in the active application bundle. Current retreat-date reservation links are rendered directly from `retreatDates`. The dormant integration does not store Square API keys or process cards in frontend code.
 
 ## Dashboard setup
 
@@ -22,6 +22,8 @@ export const bookingLinks = {
 ```
 
 ## Runtime behavior
+
+After restoring `createBookingLinksFeature()` in `js/app.js` and wiring service CTAs to its helpers:
 
 - If a Square link is configured, the service CTA opens it in a new tab.
 - If a Square link is missing, the CTA falls back to the contact section with the matching inquiry message.

@@ -1,20 +1,20 @@
 export function HeroSection() {
   const seasonalHeroImages = {
     spring: {
-      desktop: "./images/main-hero-spring.png",
-      mobile: "./images/main-hero-spring-mobile.png",
+      desktop: "./images/main-hero-spring.webp",
+      mobile: "./images/main-hero-spring-mobile.webp",
     },
     summer: {
-      desktop: "./images/main-hero-summer.png",
-      mobile: "./images/main-hero-summer-mobile.png",
+      desktop: "./images/main-hero-summer.webp",
+      mobile: "./images/main-hero-summer-mobile.webp",
     },
     fall: {
-      desktop: "./images/main-hero-fall.png",
-      mobile: "./images/main-hero-fall-mobile.png",
+      desktop: "./images/main-hero-fall.webp",
+      mobile: "./images/main-hero-fall-mobile.webp",
     },
     winter: {
-      desktop: "./images/main-hero-winter.png",
-      mobile: "./images/main-hero-winter-mobile.png",
+      desktop: "./images/main-hero-winter.webp",
+      mobile: "./images/main-hero-winter-mobile.webp",
     },
   };
 
@@ -63,7 +63,7 @@ export function HeroSection() {
         <div class="w-full px-6 sm:px-8 lg:px-10">
           <div class="mx-auto max-w-4xl -translate-y-5 md:-translate-y-10">
             <img
-              src="./images/narnia-escapes-logo-main.png"
+              src="./images/narnia-escapes-logo-main.webp"
               alt="Narnia Escapes logo"
               class="mx-auto mb-2 w-28 sm:w-24 drop-shadow opacity-0 animate-fade-in-up md:mb-3"
               style="animation-delay: 80ms"

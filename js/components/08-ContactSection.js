@@ -3,10 +3,6 @@ export function ContactSection() {
     /*html*/
     $template: `
       <section id="contact" class="relative py-14 md:py-24 bg-secondary text-offwhite scroll-mt-20">
-        <!-- <div
-          aria-hidden
-          class="pointer-events-none absolute inset-x-0 top-0 z-20 h-[46px] bg-[url('./images/background-mask.png')] bg-[length:100%_100%] bg-top bg-no-repeat"
-        ></div> -->
         <div class="mx-auto max-w-5xl px-6">
           <div class="grid items-start gap-12 md:grid-cols-2">
             <div class="text-center md:text-left">

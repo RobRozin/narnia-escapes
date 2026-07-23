@@ -20,7 +20,7 @@ export function NewsletterModal() {
           <div class="grid w-full max-w-5xl overflow-hidden rounded-[2rem] bg-offwhite shadow-2xl ring-1 ring-black/10 lg:grid-cols-[1.05fr_0.95fr]">
             <div
               class="relative min-h-[34rem] bg-cover bg-center"
-              style="background-image: url('./images/main-hero-fall.png')"
+              style="background-image: url('./images/main-hero-fall.webp')"
               aria-hidden="true"
             >
               <div class="absolute inset-0 bg-gradient-to-br from-smoke/80 via-smoke/50 to-secondary/60"></div>

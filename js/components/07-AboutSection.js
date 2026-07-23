@@ -3,10 +3,6 @@ export function AboutSection() {
     /*html*/
     $template: `
       <section id="about" class="relative py-14 md:py-24 bg-offwhite scroll-mt-20">
-        <!-- <div
-          aria-hidden
-          class="pointer-events-none absolute inset-x-0 top-0 z-20 h-[46px] bg-[url('./images/background-mask.png')] bg-[length:100%_100%] bg-top bg-no-repeat"
-        ></div> -->
         <div class="mx-auto max-w-6xl px-6">
           <div class="text-center max-w-3xl mx-auto">
             <h2
@@ -54,7 +50,7 @@ export function AboutSection() {
             <div class="order-1 overflow-hidden rounded-3xl shadow-lg lg:order-2">
               <div class="aspect-[3/4] w-full">
                 <img
-                  src="./images/meet-your-hosts.jpg"
+                  src="./images/meet-your-hosts.webp"
                   alt="Stan on the left and Alex on the right, hosts of Narnia Escapes"
                   class="h-full w-full object-cover object-center"
                   loading="lazy"

@@ -129,12 +129,6 @@ export function SaunaSection() {
                 <div
                   v-scope="ContactMenu({ menuId: 'sauna-availability', contextId: 'sauna', text: 'Message Us for Availability', placement: 'above', surface: 'light', className: 'w-full sm:w-auto' })"
                 ></div>
-                <!-- <a
-                  href="/sauna"
-                  class="inline-flex items-center justify-center rounded-full ring-1 ring-primary/30 px-6 py-3 text-primary font-medium hover:bg-primary/5"
-                >
-                  More Info
-                </a> -->
               </div>
             </article>
           </div>

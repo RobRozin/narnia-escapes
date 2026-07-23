@@ -9,7 +9,6 @@ import { HighlightCard } from "./components/HighlightCard.js";
 import { HighlightsSection } from "./components/03-HighlightsSection.js";
 import { InfoToggle } from "./components/InfoToggle.js";
 import { Navbar } from "./components/01-Navbar.js";
-import { NewsletterModal } from "./components/10-NewsletterModal.js";
 import { PhotoPile } from "./components/PhotoPile.js";
 import { RetreatsSection } from "./components/04-RetreatsSection.js";
 import { SaunaSection } from "./components/05-SaunaSection.js";
@@ -30,8 +29,6 @@ import {
   saunaPhotos,
 } from "./data/site-content.js";
 import { createContactActionsFeature } from "./features/contact-actions.js";
-import { createBookingLinksFeature } from "./features/booking-links.js";
-import { createNewsletterFeature } from "./features/newsletter.js";
 import { createParallaxFeature } from "./features/parallax.js";
 import { createScrollEffectsFeature } from "./features/scroll-effects.js";
 import { createServiceDetailsFeature } from "./features/service-details.js";
@@ -48,7 +45,6 @@ const components = {
   HighlightsSection,
   InfoToggle,
   Navbar,
-  NewsletterModal,
   PhotoPile,
   RetreatsSection,
   SaunaSection,
@@ -59,8 +55,6 @@ function createApp() {
     ...components,
     ...createServiceDetailsFeature(),
     ...createContactActionsFeature(),
-    ...createBookingLinksFeature(),
-    ...createNewsletterFeature(),
     ...createParallaxFeature(),
     ...createScrollEffectsFeature(),
 
@@ -109,8 +103,6 @@ function createApp() {
       };
 
       this.initParallax();
-      this.initNewsletter();
-
       const initialPage = window.location.hash.replace("#", "");
       if (initialPage) this.navigateTo(initialPage, false);
     },
@@ -120,7 +112,6 @@ function createApp() {
       if (this._handleResize) {
         window.removeEventListener("resize", this._handleResize);
       }
-      this.destroyNewsletter();
       this.destroyParallax();
     },
 

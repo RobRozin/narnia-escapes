@@ -46,6 +46,8 @@ build/Release
 
 # Dependency directories
 node_modules/
+dist/
+.image-source/
 
 # Optional npm cache directory
 .npm

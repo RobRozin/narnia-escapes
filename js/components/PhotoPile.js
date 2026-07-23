@@ -1,4 +1,4 @@
-const CYCLE_MS = 3000;
+const CYCLE_MS = 2000;
 const MAX_VISIBLE_PHOTOS = 5;
 
 export function PhotoPile(props = {}) {

@@ -1,0 +1,21 @@
+{
+  "name": "narnia-escapes",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20.10.0"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "preview": "node scripts/preview.mjs",
+    "optimize:image": "node scripts/optimize-image.mjs"
+  },
+  "devDependencies": {
+    "browserslist": "4.28.7",
+    "caniuse-lite": "1.0.30001806",
+    "esbuild": "0.28.1",
+    "sharp": "0.35.3",
+    "tailwindcss": "3.4.19"
+  }
+}

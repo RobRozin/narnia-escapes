@@ -7,36 +7,16 @@
       content="width=device-width, initial-scale=1, viewport-fit=cover"
     />
     <title>Narnia Escapes</title>
+    <link rel="icon" href="data:," />
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Vollkorn+SC:wght@400;600;700;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=Cormorant+Garamond:wght@400;700&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Vollkorn+SC:wght@400;600&display=swap"
       rel="stylesheet"
     />
-    <style>
-      [v-cloak] {
-        display: none;
-      }
-
-      .services-wash {
-        background-color: #727145;
-        background-image: url("./images/background-olive-mobile.png");
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-      }
-
-      @media (min-width: 768px) {
-        .services-wash {
-          background-image: url("./images/background-olive-desktop.png");
-        }
-      }
-    </style>
-    <!--  Petite Vue -->
-    <script type="text/javascript" src="./js/petite-vue.iife.js" defer></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="./js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="./assets/site.css" />
+    <script type="text/javascript" src="./assets/petite-vue.iife.js" defer></script>
     <script>
       window.NARNIA_CONFIG = window.NARNIA_CONFIG || {};
     </script>
@@ -61,8 +41,9 @@
     <div v-scope="AboutSection()"></div>
     <div v-scope="ContactSection()"></div>
     <div v-scope="FooterSection()"></div>
-    <div v-scope="NewsletterModal()"></div>
+    <!-- Newsletter modal intentionally disabled until a future implementation. -->
+    <!-- <div v-scope="NewsletterModal()"></div> -->
 
-    <script type="module" src="./js/app.js"></script>
+    <script type="module" src="./assets/app.js"></script>
   </body>
 </html>

@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+[v-cloak] {
+  display: none;
+}
+
+.services-wash {
+  background-color: #727145;
+  background-image: url("../images/background-olive-mobile.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media (min-width: 768px) {
+  .services-wash {
+    background-image: url("../images/background-olive-desktop.webp");
+  }
+}

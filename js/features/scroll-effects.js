@@ -31,7 +31,7 @@ export function createScrollEffectsFeature() {
       window.requestAnimationFrame(() => {
         this.checkScroll();
         this.triggerHighlights();
-        this.triggerNewsletter();
+        // Newsletter trigger intentionally disabled until a future implementation.
       });
     },
   };

@@ -25,7 +25,7 @@ export function Navbar() {
             ]"
           >
             <img
-              src="./images/narnia-escapes-logo-main.png"
+              src="./images/narnia-escapes-logo-main.webp"
               alt="Narnia Escapes logo"
               class="transition-all duration-300 ease-out"
               :class="[isScrolled ? 'w-12' : 'w-16']"
@@ -106,7 +106,7 @@ export function Navbar() {
             <div class="flex items-center justify-between py-4">
               <a href="#home" class="flex items-center gap-2">
                 <img
-                  src="./images/narnia-escapes-logo-main.png"
+                  src="./images/narnia-escapes-logo-main.webp"
                   alt="Narnia Escapes logo"
                   class="w-12"
                 />
