@@ -188,9 +188,9 @@ export const retreatMeals = [
 
 export const retreatDates = [
   {
-    label: "November 19-22",
+    label: "November 28-31",
     year: "2026",
-    href: "https://square.link/u/9zUtJLsq",
+    href: "https://square.link/u/zrEt3Xay",
   },
   {
     label: "December 10-13",
